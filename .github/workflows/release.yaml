@@ -1,0 +1,23 @@
+name: Release
+on:
+  push:
+    branches:
+      - main
+      - next
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Semantic Release
+        id: release
+        uses: cycjimmy/semantic-release-action@v2
+        with:
+          extra_plugins: |
+            semantic-release-github-pullrequest
+        env:
+          GITHUB_TOKEN: ${{ secrets.OPEN_TURO_GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
