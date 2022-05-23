@@ -1,5 +1,29 @@
-# `open-turo/eslint-config-typescript`
-Turo's ESLint config for Typescript
+# `@open-turo/eslint-config-typescript`
+
+Turo eslint configuration for typescript
+
+## Usage
+
+Install the package and all of its peer dependencies:
+
+```shell
+npx install-peerdeps --dev @open-turo/eslint-config-typescript
+```
+
+Then in your `.eslintrc` file add:
+
+```
+"extends": "@open-turo/eslint-config-typescript"
+```
+
+## Development
+
+Install [pre-commit](https://pre-commit.com/) and the commit hooks:
+
+```shell
+pre-commit install
+pre-commit install --hook-type commit-msg
+```
 
 ## Get Help
 
