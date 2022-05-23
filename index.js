@@ -46,6 +46,8 @@ module.exports = {
     ],
     "import/prefer-default-export": "off",
     "jest/no-jest-import": "off",
+    "node/no-unsupported-features/es-syntax": "off",
+    "node/no-missing-import": "off",
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "sort-destructure-keys/sort-destructure-keys": "error",
