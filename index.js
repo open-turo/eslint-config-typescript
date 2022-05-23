@@ -2,6 +2,7 @@ module.exports = {
   root: true,
   env: {
     node: true,
+    es2022: true,
   },
   parser: "@typescript-eslint/parser",
   plugins: [
@@ -30,7 +31,7 @@ module.exports = {
     "plugin:unicorn/recommended",
   ],
   parserOptions: {
-    ecmaVersion: 2022,
+    ecmaVersion: "latest",
     project: "./tsconfig.json",
     sourceType: "module",
   },
