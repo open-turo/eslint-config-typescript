@@ -29,7 +29,7 @@
   "main": "index.js",
   "name": "@open-turo/eslint-config-typescript",
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "5.20.0",
+    "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
     "eslint": ">=8.16.0",
     "eslint-plugin-import": "^2.25.4",
