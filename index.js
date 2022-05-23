@@ -38,6 +38,10 @@ module.exports = {
     "import/named": "off",
     "import/namespace": "off",
     "import/no-default-export": "error",
+    "import/no-extraneous-dependencies": [
+      "error",
+      { devDependencies: ["src/**/__tests__/**"] },
+    ],
     "import/prefer-default-export": "off",
     "jest/no-jest-import": "off",
     "simple-import-sort/imports": "error",
