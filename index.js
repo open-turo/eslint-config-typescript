@@ -46,6 +46,12 @@ module.exports = {
     ],
     "import/prefer-default-export": "off",
     "jest/no-jest-import": "off",
+    "node/no-unpublished-import": [
+      "error",
+      {
+        allowModules: ["@jest/globals"],
+      },
+    ],
     "node/no-unsupported-features/es-syntax": "off",
     "node/no-missing-import": "off",
     "simple-import-sort/imports": "error",
