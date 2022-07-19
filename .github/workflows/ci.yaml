@@ -16,4 +16,4 @@ jobs:
           mkdir -p "$HOME/bin"
           bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) latest "$HOME/bin"
           echo "${HOME}/bin" >> "$GITHUB_PATH"
-      - uses: open-turo/action-pre-commit@4381ac50680f39c0a05ef41acea437eed0056cd2
+      - uses: open-turo/action-pre-commit@v1
