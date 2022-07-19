@@ -3,7 +3,7 @@ updates:
   - package-ecosystem: npm
     directory: /
     reviewers:
-      - "@open-turo/node"
+      - "open-turo/node"
     schedule:
       interval: weekly
     commit-message:
