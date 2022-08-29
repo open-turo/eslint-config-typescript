@@ -1,6 +1,6 @@
 # `@open-turo/eslint-config-typescript`
 
-Turo eslint configuration for typescript
+Turo eslint configuration for typescript.
 
 ## Usage
 
