@@ -93,7 +93,7 @@ module.exports = {
     ],
     "@typescript-eslint/unbound-method": "error",
     "@typescript-eslint/no-unnecessary-type-assertion": "error",
-    // All the following TS-related rules turned to warnings are caused by the module not being "TS native"
+    // Any-related TS rules are turned to warn to allow building "non-TS-native" packages w/ many occurrences of them
     "@typescript-eslint/no-unsafe-argument": ["warn"],
     "@typescript-eslint/no-unsafe-return": ["warn"],
     "@typescript-eslint/no-unsafe-call": ["warn"],
