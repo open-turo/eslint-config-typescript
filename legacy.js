@@ -1,13 +1,12 @@
 module.exports = {
   root: true,
   env: {
-    browser: true,
     es6: true,
     jest: true,
     node: true,
   },
   parser: "@typescript-eslint/parser",
-  ignorePatterns: ["babel.config.js", "jest.config.js"],
+  ignorePatterns: ["jest.config.js"],
   plugins: [
     "@typescript-eslint",
     "import",
@@ -64,13 +63,7 @@ module.exports = {
     "node/no-unpublished-import": [
       "error",
       {
-        allowModules: [
-          "@jest/globals",
-          "@testing-library/dom",
-          "@testing-library/react",
-          "@testing-library/user-event",
-          "nock",
-        ],
+        allowModules: ["@jest/globals"],
       },
     ],
     "node/no-unsupported-features/es-syntax": "off",
