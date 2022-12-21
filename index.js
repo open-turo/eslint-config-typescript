@@ -8,6 +8,7 @@ module.exports = {
     "@typescript-eslint",
     "import",
     "jest",
+    "json",
     "node",
     "prettier",
     "simple-import-sort",
@@ -23,6 +24,7 @@ module.exports = {
     "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:jest/recommended",
+    "plugin:json/recommended",
     "plugin:node/recommended",
     "plugin:prettier/recommended",
     "plugin:sonarjs/recommended",
@@ -45,6 +47,7 @@ module.exports = {
     ],
     "import/prefer-default-export": "off",
     "jest/no-jest-import": "off",
+    "json/*": "error",
     "node/no-unpublished-import": [
       "error",
       {
