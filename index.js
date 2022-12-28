@@ -2,10 +2,12 @@ module.exports = {
   root: true,
   env: {
     es2022: true,
+    jest: true,
   },
   parser: "@typescript-eslint/parser",
   plugins: [
     "@typescript-eslint",
+    "eslint-plugin-jest",
     "import",
     "jest",
     "json",
@@ -36,6 +38,17 @@ module.exports = {
     project: "./tsconfig.json",
     sourceType: "module",
   },
+  overrides: [
+    {
+      files: ["test/**"],
+      plugins: ["jest"],
+      rules: {
+        // this turns the original rule off *only* for test files, for jest compatibility
+        "@typescript-eslint/unbound-method": "off",
+        "jest/unbound-method": "error",
+      },
+    },
+  ],
   rules: {
     "import/default": "off",
     "import/named": "off",
@@ -66,6 +79,7 @@ module.exports = {
         argsIgnorePattern: "^_",
       },
     ],
+    "@typescript-eslint/unbound-method": "error",
   },
   settings: {
     "import/parsers": {
