@@ -1,13 +1,14 @@
 module.exports = {
   root: true,
   env: {
-    es6: true,
+    es2022: true,
     jest: true,
   },
   parser: "@typescript-eslint/parser",
   ignorePatterns: ["jest.config.js"],
   plugins: [
     "@typescript-eslint",
+    "eslint-plugin-jest",
     "import",
     "jest",
     "json",
@@ -17,7 +18,6 @@ module.exports = {
     "sonarjs",
     "sort-destructure-keys",
     "typescript-sort-keys",
-    "eslint-plugin-jest",
   ],
   extends: [
     "eslint:recommended",
