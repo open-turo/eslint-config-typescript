@@ -3,7 +3,7 @@
 Turo eslint configuration for typescript.
 
 [![Release](https://img.shields.io/github/v/release/open-turo/eslint-config-typescript)](https://github.com/open-turo/eslint-config-typescript/releases/)
-[![Tests pass/fail](https://img.shields.io/github/workflow/status/open-turo/eslint-config-typescript/CI)](https://github.com/open-turo/eslint-config-typescript/actions/)
+[![Tests pass/fail](https://img.shields.io/github/actions/workflow/status/open-turo/eslint-config-typescript/ci.yaml)](https://github.com/open-turo/eslint-config-typescript/actions/)
 [![License](https://img.shields.io/github/license/open-turo/eslint-config-typescript)](./LICENSE)
 [![Contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://github.com/dwyl/esta/issues)
 ![CI](https://github.com/open-turo/eslint-config-typescript/actions/workflows/release.yaml/badge.svg)
