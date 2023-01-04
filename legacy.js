@@ -88,6 +88,7 @@ module.exports = {
     ],
     "@typescript-eslint/unbound-method": "error",
     "@typescript-eslint/no-unnecessary-type-assertion": "error",
+    "@typescript-eslint/prefer-ts-expect-error": "error",
     // Any-related TS rules are turned to warn to allow building "non-TS-native" packages w/ many occurrences of them
     "@typescript-eslint/no-unsafe-argument": ["warn"],
     "@typescript-eslint/no-unsafe-return": ["warn"],
