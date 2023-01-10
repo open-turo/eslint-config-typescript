@@ -65,7 +65,7 @@ module.exports = {
     "node/no-unpublished-import": [
       "error",
       {
-        allowModules: ["@jest/globals"],
+        allowModules: ["@jest/globals", "nock"],
       },
     ],
     "node/no-unsupported-features/es-syntax": "off",
