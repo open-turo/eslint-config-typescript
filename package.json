@@ -29,6 +29,9 @@
   "license": "MIT",
   "main": "index.js",
   "name": "@open-turo/eslint-config-typescript",
+  "scripts": {
+    "release": "semantic-release"
+  },
   "peerDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
