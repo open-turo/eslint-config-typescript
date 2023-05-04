@@ -56,7 +56,7 @@ module.exports = {
     "import/no-default-export": "error",
     "import/no-extraneous-dependencies": [
       "error",
-      { devDependencies: ["test/**/"] },
+      { devDependencies: ["test/**/", "**/*.test.*"] },
     ],
     "import/prefer-default-export": "off",
     "jest/no-jest-import": "off",
