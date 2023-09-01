@@ -5,8 +5,8 @@
     "@commitlint/cli": "17.7.1",
     "@open-turo/commitlint-config-conventional": "1.1.0",
     "@open-turo/semantic-release-config": "3.0.0",
-    "@typescript-eslint/eslint-plugin": "5.62.0",
-    "@typescript-eslint/parser": "5.62.0",
+    "@typescript-eslint/eslint-plugin": "6.5.0",
+    "@typescript-eslint/parser": "6.5.0",
     "eslint": "8.48.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-import-resolver-typescript": "3.6.0",
@@ -33,8 +33,8 @@
     "release": "semantic-release"
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.20.0",
-    "@typescript-eslint/parser": "^5.20.0",
+    "@typescript-eslint/eslint-plugin": "^5.20.0 || ^6.0.0",
+    "@typescript-eslint/parser": "^5.20.0 || ^6.0.0",
     "eslint": "^8.18.0",
     "eslint-config-prettier": "^8.8.0 || ^9.0.0",
     "eslint-import-resolver-typescript": "^3.3.0",
