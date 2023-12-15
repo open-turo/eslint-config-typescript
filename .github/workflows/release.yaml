@@ -1,26 +1,16 @@
 name: Release
+
 on:
   push:
-    branches:
-      - main
-      - next
+    branches: [main, "[0-9]+.x"]
+  workflow_dispatch:
 
 jobs:
   release:
+    name: Release
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: open-turo/actions-node/release@v5
         with:
-          fetch-depth: 0
-          persist-credentials: false
-      - name: Setup tools
-        uses: open-turo/action-setup-tools@v1
-      - name: Install dependencies
-        run: npm ci
-      - name: Semantic release
-        id: release
-        run: npm run release
-        env:
-          GITHUB_TOKEN: ${{ secrets.OPEN_TURO_GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          github-token: ${{ secrets.OPEN_TURO_GITHUB_TOKEN }}
+          npm-auth-token: ${{ secrets.NPM_TOKEN }}
