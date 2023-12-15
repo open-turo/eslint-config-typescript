@@ -17,7 +17,7 @@ jobs:
       - uses: open-turo/actions-node/lint@v5
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          npm-auth-token: ${{ secrets.NPM_TOKEN }}
+          npm-token: ${{ secrets.OPEN_TURO_NPM_TOKEN }}
   test:
     name: Test
     runs-on: ubuntu-latest
@@ -26,8 +26,3 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           test-flags: --coverage
-      - name: Upload coverage
-        if: ${{ env.COVERALLS_REPO_TOKEN != '' }}
-        uses: coverallsapp/github-action@v2
-        env:
-          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
