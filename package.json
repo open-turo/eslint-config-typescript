@@ -2,7 +2,7 @@
   "author": "Turo engineering",
   "description": "Turo eslint configuration for typescript",
   "devDependencies": {
-    "@commitlint/cli": "18.5.0",
+    "@commitlint/cli": "18.6.0",
     "@open-turo/commitlint-config-conventional": "1.1.0",
     "@typescript-eslint/eslint-plugin": "6.19.1",
     "@typescript-eslint/parser": "6.19.1",
