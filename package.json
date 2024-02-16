@@ -1,23 +1,26 @@
 {
   "author": "Turo engineering",
   "description": "Turo eslint configuration for typescript",
-  "devDependencies": {
-    "@commitlint/cli": "18.6.0",
-    "@open-turo/commitlint-config-conventional": "1.1.0",
+  "dependencies": {
     "@typescript-eslint/eslint-plugin": "6.21.0",
     "@typescript-eslint/parser": "6.21.0",
-    "eslint": "8.56.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-import-resolver-typescript": "3.6.1",
     "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-jest": "27.6.3",
+    "eslint-plugin-jest": "27.9.0",
+    "eslint-plugin-json": "3.1.0",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "5.1.3",
-    "eslint-plugin-simple-import-sort": "10.0.0",
-    "eslint-plugin-sonarjs": "0.23.0",
+    "eslint-plugin-simple-import-sort": "12.0.0",
+    "eslint-plugin-sonarjs": "0.24.0",
     "eslint-plugin-sort-destructure-keys": "1.5.0",
     "eslint-plugin-typescript-sort-keys": "3.1.0",
-    "eslint-plugin-unicorn": "49.0.0",
+    "eslint-plugin-unicorn": "51.0.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "18.6.0",
+    "@open-turo/commitlint-config-conventional": "1.1.0",
+    "eslint": "8.56.0",
     "prettier": "3.2.5"
   },
   "engines": {
@@ -33,24 +36,8 @@
     "test": "echo noop"
   },
   "peerDependencies": {
-    "@typescript-eslint/eslint-plugin": "^6.0.0",
-    "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.18.0",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-import-resolver-typescript": "^3.3.0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-jest": "^27.0.1",
-    "eslint-plugin-json": "^3.1.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
-    "eslint-plugin-sonarjs": "^0.23.0",
-    "eslint-plugin-sort-destructure-keys": "^1.4.0",
-    "eslint-plugin-typescript-sort-keys": "^3.0.0",
     "prettier": "^3.0.0"
-  },
-  "optionalDependencies": {
-    "eslint-plugin-unicorn": "^49.0.0"
   },
   "publishConfig": {
     "access": "public"
