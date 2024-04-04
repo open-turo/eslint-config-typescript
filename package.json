@@ -2,8 +2,8 @@
   "author": "Turo engineering",
   "description": "Turo eslint configuration for typescript",
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "7.4.0",
-    "@typescript-eslint/parser": "7.4.0",
+    "@typescript-eslint/eslint-plugin": "7.5.0",
+    "@typescript-eslint/parser": "7.5.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-import-resolver-typescript": "3.6.1",
     "eslint-plugin-import": "2.29.1",
@@ -12,7 +12,7 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "5.1.3",
     "eslint-plugin-simple-import-sort": "12.0.0",
-    "eslint-plugin-sonarjs": "0.24.0",
+    "eslint-plugin-sonarjs": "0.25.1",
     "eslint-plugin-sort-destructure-keys": "1.5.0",
     "eslint-plugin-typescript-sort-keys": "3.2.0",
     "eslint-plugin-unicorn": "52.0.0"
