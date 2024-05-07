@@ -72,6 +72,19 @@ module.exports = {
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "sort-destructure-keys/sort-destructure-keys": "error",
+    /**
+     * {@link https://typescript-eslint.io/rules/consistent-type-imports | TypeScript ESLint: consistent-type-imports docs}
+     */
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        disallowTypeAnnotations: true,
+        fixStyle: "inline-type-imports",
+        prefer: "type-imports",
+      },
+    ],
+    /** Prefers `import type {}` syntax over `import { type }` if all imports are type-only */
+    "@typescript-eslint/no-import-type-side-effects": "error",
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
