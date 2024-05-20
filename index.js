@@ -29,7 +29,7 @@ module.exports = {
     "plugin:json/recommended",
     "plugin:node/recommended",
     "plugin:prettier/recommended",
-    "plugin:sonarjs/recommended",
+    "plugin:sonarjs/recommended-legacy",
     "plugin:typescript-sort-keys/recommended",
     "plugin:unicorn/recommended",
   ],
