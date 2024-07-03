@@ -26,7 +26,7 @@ module.exports = {
     "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:jest/recommended",
-    "plugin:json/recommended",
+    "plugin:json/recommended-legacy",
     "plugin:node/recommended",
     "plugin:prettier/recommended",
     "plugin:sonarjs/recommended-legacy",
