@@ -15,7 +15,7 @@
     "eslint-plugin-sonarjs": "1.0.4",
     "eslint-plugin-sort-destructure-keys": "2.0.0",
     "eslint-plugin-typescript-sort-keys": "3.2.0",
-    "eslint-plugin-unicorn": "54.0.0"
+    "eslint-plugin-unicorn": "55.0.0"
   },
   "devDependencies": {
     "eslint": "8.57.0",
