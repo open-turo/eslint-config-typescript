@@ -73,6 +73,23 @@ module.exports = {
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "sort-destructure-keys/sort-destructure-keys": "error",
+    /**
+     * List of sonarjs rules we turned off after release of eslint-plugin-sonarjs v2
+     * Some rules are too restrictive for common use cases,
+     * and others are already covered by other plugins used here.
+     */
+    "sonarjs/different-types-comparison": "off",
+    "sonarjs/function-return-type": "off",
+    "sonarjs/no-clear-text-protocols": "warn",
+    "sonarjs/no-ignored-exceptions": "off",
+    "sonarjs/no-misused-promises": "off",
+    "sonarjs/no-nested-functions": "off",
+    "sonarjs/prefer-nullish-coalescing": "off",
+    "sonarjs/sonar-no-unused-vars": "off",
+    "sonarjs/sonar-prefer-optional-chain": "off",
+    "sonarjs/sonar-prefer-read-only-props": "off",
+    "sonarjs/todo-tag": "off",
+    "sonarjs/use-type-alias": "off",
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
