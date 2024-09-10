@@ -72,6 +72,12 @@ module.exports = {
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "sort-destructure-keys/sort-destructure-keys": "error",
+    "sonarjs/different-types-comparison": "warn",
+    "sonarjs/no-clear-text-protocol": "warn",
+    "sonarjs/no-misused-promises": "off",
+    "sonarjs/no-nested-functions": "off",
+    "sonarjs/sonar-no-unused-vars": "off",
+    "sonarjs/todo-tag": "off",
     /**
      * {@link https://typescript-eslint.io/rules/consistent-type-imports | TypeScript ESLint: consistent-type-imports docs}
      */
