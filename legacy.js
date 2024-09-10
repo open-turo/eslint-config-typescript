@@ -73,6 +73,15 @@ module.exports = {
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "sort-destructure-keys/sort-destructure-keys": "error",
+    "sonarjs/different-types-comparison": "warn",
+    "sonarjs/function-return-type": "off",
+    "sonarjs/no-clear-text-protocols": "warn",
+    "sonarjs/no-ignored-exceptions": "off",
+    "sonarjs/no-misused-promises": "off",
+    "sonarjs/no-nested-functions": "off",
+    "sonarjs/sonar-no-unused-vars": "off",
+    "sonarjs/sonar-prefer-read-only-props": "off",
+    "sonarjs/todo-tag": "off",
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
