@@ -72,22 +72,22 @@ module.exports = {
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "sort-destructure-keys/sort-destructure-keys": "error",
-    /**
-     * List of sonarjs rules we turned off after release of eslint-plugin-sonarjs v2
-     * Some rules are too restrictive for common use cases,
-     * and others are already covered by other plugins used here.
-     */
-    "sonarjs/different-types-comparison": "off",
+    // This rule is not helpful in TypeScript files, and in JavaScript we often return different types from functions, so this is not a strictness level we want to enforce.
     "sonarjs/function-return-type": "off",
-    "sonarjs/no-clear-text-protocols": "warn",
+    // We may want to catch errors but not use the error object directly, just trigger error handling fallbacks within the catch block.
     "sonarjs/no-ignored-exceptions": "off",
-    "sonarjs/no-misused-promises": "off",
-    "sonarjs/no-nested-functions": "off",
+    "sonarjs/no-nested-functions": ["warn", { threshold: 5 }],
+    // Overlaps with @typescript-eslint/prefer-nullish-coalescing
     "sonarjs/prefer-nullish-coalescing": "off",
+    // Overlaps with @typescript-eslint/no-unused-vars
     "sonarjs/sonar-no-unused-vars": "off",
+    // Overlaps with @typescript-eslint/prefer-optional-chain
     "sonarjs/sonar-prefer-optional-chain": "off",
+    // Useful for guarding against prop mutation in React, but too much of a lift as very rarely do we apply readonly/ReadonlyArray<T> to type definitions
     "sonarjs/sonar-prefer-read-only-props": "off",
+    // Noisy rule: if we wanted stricter linting of TODOs, we could use unicorn/expiring-todo-comments
     "sonarjs/todo-tag": "off",
+    // A useful rule to consider for libraries to better document (and export) type definitions, but noisy in app usages (especially around redux type definitions)
     "sonarjs/use-type-alias": "off",
     /**
      * {@link https://typescript-eslint.io/rules/consistent-type-imports | TypeScript ESLint: consistent-type-imports docs}
