@@ -77,6 +77,7 @@ module.exports = {
     // We may want to catch errors but not use the error object directly, just trigger error handling fallbacks within the catch block.
     "sonarjs/no-ignored-exceptions": "off",
     "sonarjs/no-nested-functions": ["warn", { threshold: 5 }],
+    "sonarjs/no-small-switch": "off",
     // Overlaps with @typescript-eslint/prefer-nullish-coalescing
     "sonarjs/prefer-nullish-coalescing": "off",
     // Overlaps with @typescript-eslint/no-unused-vars
