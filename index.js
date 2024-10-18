@@ -72,6 +72,8 @@ module.exports = {
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
     "sort-destructure-keys/sort-destructure-keys": "error",
+    // Noisy rule - we may have helpers/methods that we mark as @deprecated but aren't planning to remove in the near future. This rule also significantly adds to eslint running time, which slows down both local development and CI.
+    "sonarjs/deprecation": "off",
     // This rule is not helpful in TypeScript files, and in JavaScript we often return different types from functions, so this is not a strictness level we want to enforce.
     "sonarjs/function-return-type": "off",
     // We may want to catch errors but not use the error object directly, just trigger error handling fallbacks within the catch block.
