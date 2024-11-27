@@ -3,11 +3,20 @@ const { ESLint } = require("eslint");
 
 describe("validate config", () => {
   it(`load config file in ESLint to validate all rules are correct`, async () => {
-    const stringConfig = fs.readFileSync("./test.js", "utf8");
+    const stringConfig = fs.readFileSync("./test/sample.ts", "utf8");
 
     const cli = new ESLint({
       overrideConfigFile: "./index.js",
     });
+
+    const calculatedConfig =
+      await cli.calculateConfigForFile("./test/sample.ts");
+
+    // remove parser property from calculated config because it is env specific (fails in CI)
+    const { parser, ...calculatedConfigWithoutParserProperty } =
+      calculatedConfig;
+    // print all the rules
+    expect(calculatedConfigWithoutParserProperty).toMatchSnapshot();
 
     const lintResult = await cli.lintText(stringConfig);
 
