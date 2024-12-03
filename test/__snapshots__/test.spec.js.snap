@@ -952,18 +952,6 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "simple-import-sort/imports": [
       "error",
     ],
-    "sonarjs/accessor-pairs": [
-      "off",
-    ],
-    "sonarjs/alt-text": [
-      "error",
-    ],
-    "sonarjs/anchor-has-content": [
-      "error",
-    ],
-    "sonarjs/anchor-is-valid": [
-      "error",
-    ],
     "sonarjs/anchor-precedence": [
       "error",
     ],
@@ -1048,10 +1036,10 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/bitwise-operators": [
       "error",
     ],
-    "sonarjs/bool-param-default": [
-      "off",
+    "sonarjs/block-scoped-var": [
+      "error",
     ],
-    "sonarjs/brace-style": [
+    "sonarjs/bool-param-default": [
       "off",
     ],
     "sonarjs/call-argument-line": [
@@ -1116,9 +1104,6 @@ exports[`validate config load config file in ESLint to validate all rules are co
     ],
     "sonarjs/declarations-in-global-scope": [
       "off",
-    ],
-    "sonarjs/default-param-last": [
-      "error",
     ],
     "sonarjs/deprecation": [
       "off",
@@ -1210,12 +1195,6 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/hidden-files": [
       "error",
     ],
-    "sonarjs/hook-use-state": [
-      "error",
-    ],
-    "sonarjs/html-has-lang": [
-      "error",
-    ],
     "sonarjs/in-operator-type-error": [
       "error",
     ],
@@ -1234,16 +1213,7 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/inverted-assertion-arguments": [
       "error",
     ],
-    "sonarjs/jsx-key": [
-      "error",
-    ],
-    "sonarjs/jsx-no-constructed-context-values": [
-      "error",
-    ],
-    "sonarjs/jsx-no-useless-fragment": [
-      "error",
-    ],
-    "sonarjs/label-has-associated-control": [
+    "sonarjs/jsx-no-leaked-render": [
       "error",
     ],
     "sonarjs/label-position": [
@@ -1252,31 +1222,25 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/link-with-target-blank": [
       "error",
     ],
+    "sonarjs/max-lines": [
+      "off",
+    ],
+    "sonarjs/max-lines-per-function": [
+      "off",
+    ],
     "sonarjs/max-switch-cases": [
       "error",
     ],
     "sonarjs/max-union-size": [
       "off",
     ],
-    "sonarjs/media-has-caption": [
-      "error",
-    ],
     "sonarjs/misplaced-loop-counter": [
-      "error",
-    ],
-    "sonarjs/mouse-events-a11y": [
       "error",
     ],
     "sonarjs/nested-control-flow": [
       "off",
     ],
-    "sonarjs/new-cap": [
-      "error",
-    ],
     "sonarjs/new-operator-misuse": [
-      "error",
-    ],
-    "sonarjs/no-accessor-field-mismatch": [
       "error",
     ],
     "sonarjs/no-all-duplicated-branches": [
@@ -1291,16 +1255,10 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/no-array-delete": [
       "error",
     ],
-    "sonarjs/no-array-index-key": [
-      "error",
-    ],
     "sonarjs/no-associative-arrays": [
       "error",
     ],
     "sonarjs/no-async-constructor": [
-      "error",
-    ],
-    "sonarjs/no-base-to-string": [
       "error",
     ],
     "sonarjs/no-built-in-override": [
@@ -1324,13 +1282,13 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/no-commented-code": [
       "error",
     ],
+    "sonarjs/no-control-regex": [
+      "error",
+    ],
     "sonarjs/no-dead-store": [
       "error",
     ],
     "sonarjs/no-delete-var": [
-      "error",
-    ],
-    "sonarjs/no-deprecated-react": [
       "error",
     ],
     "sonarjs/no-duplicate-in-composite": [
@@ -1351,17 +1309,14 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/no-empty-alternatives": [
       "error",
     ],
-    "sonarjs/no-empty-collection": [
+    "sonarjs/no-empty-character-class": [
       "error",
     ],
-    "sonarjs/no-empty-function": [
+    "sonarjs/no-empty-collection": [
       "error",
     ],
     "sonarjs/no-empty-group": [
       "error",
-    ],
-    "sonarjs/no-empty-interface": [
-      "off",
     ],
     "sonarjs/no-empty-test-file": [
       "error",
@@ -1372,16 +1327,10 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/no-exclusive-tests": [
       "error",
     ],
-    "sonarjs/no-extend-native": [
-      "error",
-    ],
     "sonarjs/no-extra-arguments": [
       "error",
     ],
-    "sonarjs/no-extra-semi": [
-      "off",
-    ],
-    "sonarjs/no-find-dom-node": [
+    "sonarjs/no-fallthrough": [
       "error",
     ],
     "sonarjs/no-for-in-iterable": [
@@ -1399,10 +1348,13 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/no-gratuitous-expressions": [
       "error",
     ],
-    "sonarjs/no-hardcoded-credentials": [
+    "sonarjs/no-hardcoded-ip": [
       "error",
     ],
-    "sonarjs/no-hardcoded-ip": [
+    "sonarjs/no-hardcoded-passwords": [
+      "error",
+    ],
+    "sonarjs/no-hardcoded-secrets": [
       "error",
     ],
     "sonarjs/no-hook-setter-in-body": [
@@ -1441,9 +1393,6 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/no-incorrect-string-concat": [
       "off",
     ],
-    "sonarjs/no-infinite-loop": [
-      "error",
-    ],
     "sonarjs/no-internal-api-use": [
       "error",
     ],
@@ -1451,6 +1400,9 @@ exports[`validate config load config file in ESLint to validate all rules are co
       "error",
     ],
     "sonarjs/no-invalid-await": [
+      "error",
+    ],
+    "sonarjs/no-invalid-regexp": [
       "error",
     ],
     "sonarjs/no-invariant-returns": [
@@ -1468,16 +1420,13 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/no-literal-call": [
       "error",
     ],
-    "sonarjs/no-lonely-if": [
-      "error",
-    ],
     "sonarjs/no-mime-sniff": [
       "error",
     ],
     "sonarjs/no-misleading-array-reverse": [
       "error",
     ],
-    "sonarjs/no-misused-promises": [
+    "sonarjs/no-misleading-character-class": [
       "error",
     ],
     "sonarjs/no-mixed-content": [
@@ -1516,9 +1465,6 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/no-primitive-wrappers": [
       "error",
     ],
-    "sonarjs/no-redeclare": [
-      "error",
-    ],
     "sonarjs/no-redundant-assignments": [
       "error",
     ],
@@ -1534,13 +1480,13 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/no-redundant-parentheses": [
       "off",
     ],
-    "sonarjs/no-redundant-type-constituents": [
-      "error",
-    ],
     "sonarjs/no-reference-error": [
       "off",
     ],
     "sonarjs/no-referrer-policy": [
+      "error",
+    ],
+    "sonarjs/no-regex-spaces": [
       "error",
     ],
     "sonarjs/no-require-or-define": [
@@ -1558,28 +1504,19 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/no-selector-parameter": [
       "error",
     ],
-    "sonarjs/no-self-compare": [
-      "error",
-    ],
-    "sonarjs/no-self-import": [
-      "error",
-    ],
-    "sonarjs/no-skipped-test": [
+    "sonarjs/no-skipped-tests": [
       "error",
     ],
     "sonarjs/no-small-switch": [
+      "off",
+    ],
+    "sonarjs/no-sonar-comments": [
       "off",
     ],
     "sonarjs/no-tab": [
       "off",
     ],
     "sonarjs/no-table-as-layout": [
-      "error",
-    ],
-    "sonarjs/no-this-alias": [
-      "off",
-    ],
-    "sonarjs/no-throw-literal": [
       "error",
     ],
     "sonarjs/no-try-promise": [
@@ -1597,19 +1534,7 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/no-uniq-key": [
       "error",
     ],
-    "sonarjs/no-unknown-property": [
-      "error",
-    ],
-    "sonarjs/no-unreachable": [
-      "error",
-    ],
-    "sonarjs/no-unsafe": [
-      "error",
-    ],
     "sonarjs/no-unsafe-unzip": [
-      "error",
-    ],
-    "sonarjs/no-unstable-nested-components": [
       "error",
     ],
     "sonarjs/no-unthrown-error": [
@@ -1618,25 +1543,16 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/no-unused-collection": [
       "error",
     ],
-    "sonarjs/no-unused-expressions": [
-      "error",
-    ],
     "sonarjs/no-unused-function-argument": [
       "off",
     ],
-    "sonarjs/no-unused-private-class-members": [
-      "error",
+    "sonarjs/no-unused-vars": [
+      "off",
     ],
     "sonarjs/no-use-of-empty-return-value": [
       "error",
     ],
-    "sonarjs/no-useless-call": [
-      "error",
-    ],
     "sonarjs/no-useless-catch": [
-      "error",
-    ],
-    "sonarjs/no-useless-constructor": [
       "error",
     ],
     "sonarjs/no-useless-increment": [
@@ -1648,14 +1564,11 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/no-useless-react-setstate": [
       "error",
     ],
-    "sonarjs/no-var": [
-      "error",
-    ],
     "sonarjs/no-variable-usage-before-declaration": [
       "off",
     ],
     "sonarjs/no-vue-bypass-sanitization": [
-      "error",
+      "off",
     ],
     "sonarjs/no-weak-cipher": [
       "error",
@@ -1678,9 +1591,6 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/object-alt-content": [
       "error",
     ],
-    "sonarjs/object-shorthand": [
-      "off",
-    ],
     "sonarjs/operation-returning-nan": [
       "off",
     ],
@@ -1693,20 +1603,8 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/prefer-default-last": [
       "error",
     ],
-    "sonarjs/prefer-enum-initializers": [
-      "error",
-    ],
-    "sonarjs/prefer-for-of": [
-      "error",
-    ],
-    "sonarjs/prefer-function-type": [
-      "error",
-    ],
     "sonarjs/prefer-immediate-return": [
       "off",
-    ],
-    "sonarjs/prefer-namespace-keyword": [
-      "error",
     ],
     "sonarjs/prefer-nullish-coalescing": [
       "off",
@@ -1714,23 +1612,20 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/prefer-object-literal": [
       "off",
     ],
-    "sonarjs/prefer-object-spread": [
-      "error",
+    "sonarjs/prefer-optional-chain": [
+      "off",
     ],
     "sonarjs/prefer-promise-shorthand": [
       "error",
     ],
+    "sonarjs/prefer-read-only-props": [
+      "off",
+    ],
+    "sonarjs/prefer-regexp-exec": [
+      "error",
+    ],
     "sonarjs/prefer-single-boolean-return": [
       "error",
-    ],
-    "sonarjs/prefer-spread": [
-      "error",
-    ],
-    "sonarjs/prefer-string-starts-ends-with": [
-      "error",
-    ],
-    "sonarjs/prefer-template": [
-      "off",
     ],
     "sonarjs/prefer-type-guard": [
       "error",
@@ -1765,12 +1660,6 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/regular-expr": [
       "off",
     ],
-    "sonarjs/rules-of-hooks": [
-      "error",
-    ],
-    "sonarjs/semi": [
-      "off",
-    ],
     "sonarjs/session-regeneration": [
       "error",
     ],
@@ -1788,60 +1677,6 @@ exports[`validate config load config file in ESLint to validate all rules are co
     ],
     "sonarjs/sockets": [
       "off",
-    ],
-    "sonarjs/sonar-block-scoped-var": [
-      "error",
-    ],
-    "sonarjs/sonar-jsx-no-leaked-render": [
-      "error",
-    ],
-    "sonarjs/sonar-max-lines": [
-      "off",
-    ],
-    "sonarjs/sonar-max-lines-per-function": [
-      "off",
-    ],
-    "sonarjs/sonar-max-params": [
-      "error",
-    ],
-    "sonarjs/sonar-no-control-regex": [
-      "error",
-    ],
-    "sonarjs/sonar-no-dupe-keys": [
-      "error",
-    ],
-    "sonarjs/sonar-no-empty-character-class": [
-      "error",
-    ],
-    "sonarjs/sonar-no-fallthrough": [
-      "error",
-    ],
-    "sonarjs/sonar-no-invalid-regexp": [
-      "error",
-    ],
-    "sonarjs/sonar-no-magic-numbers": [
-      "off",
-    ],
-    "sonarjs/sonar-no-misleading-character-class": [
-      "error",
-    ],
-    "sonarjs/sonar-no-regex-spaces": [
-      "error",
-    ],
-    "sonarjs/sonar-no-unused-class-component-methods": [
-      "error",
-    ],
-    "sonarjs/sonar-no-unused-vars": [
-      "off",
-    ],
-    "sonarjs/sonar-prefer-optional-chain": [
-      "off",
-    ],
-    "sonarjs/sonar-prefer-read-only-props": [
-      "off",
-    ],
-    "sonarjs/sonar-prefer-regexp-exec": [
-      "error",
     ],
     "sonarjs/sql-queries": [
       "error",
@@ -1864,9 +1699,6 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/super-invocation": [
       "error",
     ],
-    "sonarjs/switch-without-default": [
-      "off",
-    ],
     "sonarjs/table-header": [
       "error",
     ],
@@ -1885,9 +1717,6 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs/unicode-aware-regex": [
       "off",
     ],
-    "sonarjs/unnecessary-character-escapes": [
-      "error",
-    ],
     "sonarjs/unused-import": [
       "error",
     ],
@@ -1904,9 +1733,6 @@ exports[`validate config load config file in ESLint to validate all rules are co
       "error",
     ],
     "sonarjs/updated-loop-counter": [
-      "error",
-    ],
-    "sonarjs/use-isnan": [
       "error",
     ],
     "sonarjs/use-type-alias": [
