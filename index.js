@@ -83,11 +83,11 @@ module.exports = {
     // Overlaps with @typescript-eslint/prefer-nullish-coalescing
     "sonarjs/prefer-nullish-coalescing": "off",
     // Overlaps with @typescript-eslint/no-unused-vars
-    "sonarjs/sonar-no-unused-vars": "off",
+    "sonarjs/no-unused-vars": "off",
     // Overlaps with @typescript-eslint/prefer-optional-chain
-    "sonarjs/sonar-prefer-optional-chain": "off",
+    "sonarjs/prefer-optional-chain": "off",
     // Useful for guarding against prop mutation in React, but too much of a lift as very rarely do we apply readonly/ReadonlyArray<T> to type definitions
-    "sonarjs/sonar-prefer-read-only-props": "off",
+    "sonarjs/prefer-read-only-props": "off",
     // Noisy rule: if we wanted stricter linting of TODOs, we could use unicorn/expiring-todo-comments
     "sonarjs/todo-tag": "off",
     // A useful rule to consider for libraries to better document (and export) type definitions, but noisy in app usages (especially around redux type definitions)
