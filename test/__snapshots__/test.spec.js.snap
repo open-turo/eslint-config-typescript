@@ -76,7 +76,7 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "sonarjs",
     "simple-import-sort",
     "prettier",
-    "node",
+    "n",
     "json",
     "import",
     "@typescript-eslint",
@@ -541,6 +541,60 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "multiline-ternary": [
       "off",
     ],
+    "n/no-deprecated-api": [
+      "error",
+    ],
+    "n/no-exports-assign": [
+      "error",
+    ],
+    "n/no-extraneous-import": [
+      "error",
+    ],
+    "n/no-extraneous-require": [
+      "error",
+    ],
+    "n/no-missing-import": [
+      "off",
+    ],
+    "n/no-missing-require": [
+      "error",
+    ],
+    "n/no-process-exit": [
+      "error",
+    ],
+    "n/no-unpublished-bin": [
+      "error",
+    ],
+    "n/no-unpublished-import": [
+      "error",
+      {
+        "allowModules": [
+          "@jest/globals",
+          "nock",
+        ],
+      },
+    ],
+    "n/no-unpublished-require": [
+      "error",
+    ],
+    "n/no-unsupported-features/es-builtins": [
+      "error",
+    ],
+    "n/no-unsupported-features/es-syntax": [
+      "off",
+      {
+        "ignores": [],
+      },
+    ],
+    "n/no-unsupported-features/node-builtins": [
+      "error",
+    ],
+    "n/process-exit-as-throw": [
+      "error",
+    ],
+    "n/shebang": [
+      "error",
+    ],
     "new-parens": [
       "off",
     ],
@@ -691,9 +745,6 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "no-octal": [
       "error",
     ],
-    "no-process-exit": [
-      "error",
-    ],
     "no-prototype-builtins": [
       "error",
     ],
@@ -783,57 +834,6 @@ exports[`validate config load config file in ESLint to validate all rules are co
     ],
     "no-wrap-func": [
       "off",
-    ],
-    "node/no-deprecated-api": [
-      "error",
-    ],
-    "node/no-exports-assign": [
-      "error",
-    ],
-    "node/no-extraneous-import": [
-      "error",
-    ],
-    "node/no-extraneous-require": [
-      "error",
-    ],
-    "node/no-missing-import": [
-      "off",
-    ],
-    "node/no-missing-require": [
-      "error",
-    ],
-    "node/no-unpublished-bin": [
-      "error",
-    ],
-    "node/no-unpublished-import": [
-      "error",
-      {
-        "allowModules": [
-          "@jest/globals",
-          "nock",
-        ],
-      },
-    ],
-    "node/no-unpublished-require": [
-      "error",
-    ],
-    "node/no-unsupported-features/es-builtins": [
-      "error",
-    ],
-    "node/no-unsupported-features/es-syntax": [
-      "off",
-      {
-        "ignores": [],
-      },
-    ],
-    "node/no-unsupported-features/node-builtins": [
-      "error",
-    ],
-    "node/process-exit-as-throw": [
-      "error",
-    ],
-    "node/shebang": [
-      "error",
     ],
     "nonblock-statement-body-position": [
       "off",
