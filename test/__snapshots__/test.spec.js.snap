@@ -568,7 +568,7 @@ exports[`validate config load config file in ESLint to validate all rules are co
       "error",
     ],
     "n/no-extraneous-import": [
-      "error",
+      "off",
     ],
     "n/no-extraneous-require": [
       "error",
