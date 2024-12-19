@@ -62,6 +62,7 @@ module.exports = {
     "import/prefer-default-export": "off",
     "jest/no-jest-import": "off",
     "json/*": "error",
+    "n/no-extraneous-import": "off",
     "n/no-unpublished-import": [
       "error",
       {
