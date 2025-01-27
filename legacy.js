@@ -13,11 +13,9 @@ module.exports = {
     "jest",
     "json",
     "n",
+    "perfectionist",
     "prettier",
-    "simple-import-sort",
     "sonarjs",
-    "sort-destructure-keys",
-    "typescript-sort-keys",
   ],
   extends: [
     "eslint:recommended",
@@ -28,9 +26,9 @@ module.exports = {
     "plugin:jest/recommended",
     "plugin:json/recommended-legacy",
     "plugin:n/recommended",
+    "plugin:perfectionist/recommended-alphabetical-legacy",
     "plugin:prettier/recommended",
     "plugin:sonarjs/recommended-legacy",
-    "plugin:typescript-sort-keys/recommended",
   ],
   parserOptions: {
     ecmaVersion: 2022,
@@ -70,9 +68,6 @@ module.exports = {
     ],
     "n/no-unsupported-features/es-syntax": "off",
     "n/no-missing-import": "off",
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error",
-    "sort-destructure-keys/sort-destructure-keys": "error",
     // Noisy rule - we may have helpers/methods that we mark as @deprecated but aren't planning to remove in the near future. This rule also significantly adds to eslint running time, which slows down both local development and CI.
     "sonarjs/deprecation": "off",
     // This rule is not helpful in TypeScript files, and in JavaScript we often return different types from functions, so this is not a strictness level we want to enforce.
