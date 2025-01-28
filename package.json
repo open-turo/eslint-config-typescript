@@ -21,7 +21,7 @@
     "prettier": "3.5.3"
   },
   "engines": {
-    "node": ">= 14"
+    "node": ">= 20"
   },
   "homepage": "https://github.com/open-turo/eslint-config-typescript#readme",
   "license": "MIT",
