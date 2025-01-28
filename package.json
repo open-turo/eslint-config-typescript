@@ -43,8 +43,8 @@
   "name": "@open-turo/eslint-config-typescript",
   "scripts": {
     "build": "echo noop",
-    "lint": "echo noop",
-    "test": "jest ./test/test.spec.js"
+    "lint": "eslint './*.{cjs,mjs}' test/test.spec.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "peerDependencies": {
     "eslint": "^8.18.0 || ^9.0.0",
