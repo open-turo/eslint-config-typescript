@@ -707,7 +707,7 @@ exports[`validate config load config file in ESLint to validate all rules are co
       "error",
     ],
     "@typescript-eslint/no-deprecated": [
-      "error",
+      "off",
     ],
     "@typescript-eslint/no-duplicate-enum-values": [
       "error",
