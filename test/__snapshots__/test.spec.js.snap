@@ -704,7 +704,7 @@ exports[`validate config load config file in ESLint to validate all rules are co
       "error",
     ],
     "@typescript-eslint/no-confusing-void-expression": [
-      "error",
+      "off",
     ],
     "@typescript-eslint/no-deprecated": [
       "off",
