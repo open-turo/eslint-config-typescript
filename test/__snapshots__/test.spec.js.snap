@@ -791,7 +791,7 @@ exports[`validate config load config file in ESLint to validate all rules are co
       "error",
     ],
     "@typescript-eslint/no-unnecessary-condition": [
-      "error",
+      "warn",
     ],
     "@typescript-eslint/no-unnecessary-template-expression": [
       "error",
