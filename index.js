@@ -109,6 +109,8 @@ module.exports = {
     "@typescript-eslint/no-deprecated": "off",
     /** Prefers `import type {}` syntax over `import { type }` if all imports are type-only */
     "@typescript-eslint/no-import-type-side-effects": "error",
+    /** A relatively stylistic rule, downgraded to "off" to limit breaking changes in the update that includes `strict-type-checked`. */
+    "@typescript-eslint/no-unnecessary-boolean-literal-compare": "off",
     /** This rule can help us identify syntax that is more defensive than the types suggest. Unfortunately, it may be protecting us from runtime errors where the type definitions are incorrect. As such, it is kept at a "warn" to be non-blocking. */
     "@typescript-eslint/no-unnecessary-condition": "warn",
     "@typescript-eslint/no-unused-vars": [
