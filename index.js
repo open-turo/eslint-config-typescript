@@ -103,6 +103,8 @@ module.exports = {
         prefer: "type-imports",
       },
     ],
+    /** We do not need to force people to wrap `void`-return implicit arrow returns with braces just for a lint rule. TypeScript alone covers functionality, by the return type being `void`. */
+    "@typescript-eslint/no-confusing-void-expression": "off",
     /** Included as part of `strict-type-checked`, but nothing we want to enforce. */
     "@typescript-eslint/no-deprecated": "off",
     /** Prefers `import type {}` syntax over `import { type }` if all imports are type-only */
