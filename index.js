@@ -22,6 +22,7 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:@typescript-eslint/strict-type-checked",
     "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:jest/recommended",
