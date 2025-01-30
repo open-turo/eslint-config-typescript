@@ -111,8 +111,8 @@ module.exports = {
     "@typescript-eslint/no-import-type-side-effects": "error",
     /** A relatively stylistic rule, downgraded to "off" to limit breaking changes in the update that includes `strict-type-checked`. */
     "@typescript-eslint/no-unnecessary-boolean-literal-compare": "off",
-    /** This rule can help us identify syntax that is more defensive than the types suggest. Unfortunately, it may be protecting us from runtime errors where the type definitions are incorrect. As such, it is kept at a "warn" to be non-blocking. */
-    "@typescript-eslint/no-unnecessary-condition": "warn",
+    /** This rule can help us identify syntax that is more defensive than the types suggest. Unfortunately, it may be protecting us from runtime errors where the type definitions are incorrect. As such, it is turned "off", as even "warn" auto-fixes source code. */
+    "@typescript-eslint/no-unnecessary-condition": "off",
     /** There is readability benefit to passing in type arguments that match defaults. If defaults change, we may prefer the manual inspection of all the types changed, too. */
     "@typescript-eslint/no-unnecessary-type-arguments": "off",
     /** Errors on generic type parameters that are only used once, even though that helps with return type inference. */
