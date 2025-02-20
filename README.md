@@ -24,7 +24,7 @@ npx install-peerdeps --dev @open-turo/eslint-config-typescript
 ```js
 const turoConfig = require("@open-turo/eslint-config-typescript");
 
-module.exports = turoConfig;
+module.exports = turoConfig();
 ```
 
 ### **[.eslintrc](https://eslint.org/docs/latest/use/configure/configuration-files)** (legacy example)

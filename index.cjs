@@ -10,23 +10,31 @@ const sonarjsPlugin = require("eslint-plugin-sonarjs");
 const unicornPlugin = require("eslint-plugin-unicorn");
 const tsParser = require("@typescript-eslint/parser");
 
-module.exports = tseslint.config(
-  {
-    files: ["**/*.ts", "**/*.tsx"],
-    extends: [
-      eslint.configs.recommended,
-      tseslint.configs.recommendedTypeChecked,
-      importPlugin.flatConfigs.recommended,
-      importPlugin.flatConfigs.typescript,
-      nPlugin.configs["flat/recommended-script"],
-      perfectionistPlugin.configs["recommended-alphabetical"],
-      sonarjsPlugin.configs.recommended,
-      unicornPlugin.configs["flat/recommended"],
-    ],
-    languageOptions: {
-      parser: tsParser,
-      parserOptions: {
-        projectService: true,
+const FILES_SRC_EXTENSION = "?([cm])[jt]s?(x)";
+const FILES_TS = "**/*.?([cm])ts";
+const FILES_TSX = "**/*.?([cm])tsx";
+const FILES_TEST = [
+  `**/__tests__/**/*.${FILES_SRC_EXTENSION}`,
+  `**/*.spec.${FILES_SRC_EXTENSION}`,
+  `**/*.test.${FILES_SRC_EXTENSION}`,
+];
+
+const typescriptLanguageOptions = () => ({
+  parser: tsParser,
+  parserOptions: {
+    projectService: true,
+    tsconfigRootDir: process.cwd(),
+  },
+});
+
+const importConfig = () =>
+  tseslint.config({
+    extends: [importPlugin.flatConfigs.recommended],
+    settings: {
+      "import/resolver": {
+        typescript: {
+          alwaysTryTypes: true,
+        },
       },
     },
     rules: {
@@ -36,17 +44,31 @@ module.exports = tseslint.config(
       "import/no-default-export": "error",
       "import/no-extraneous-dependencies": [
         "error",
-        { devDependencies: ["test/**"] },
+        { devDependencies: [`eslint.config.${FILES_SRC_EXTENSION}`] },
       ],
       "import/prefer-default-export": "off",
+    },
+  });
+
+const nPluginConfig = (allowModules = ["@jest/globals", "nock"]) =>
+  tseslint.config({
+    extends: [nPlugin.configs["flat/recommended"]],
+    rules: {
       "n/no-unpublished-import": [
         "error",
         {
-          allowModules: ["@jest/globals", "nock"],
+          allowModules,
         },
       ],
       "n/no-unsupported-features/es-syntax": "off",
       "n/no-missing-import": "off",
+    },
+  });
+
+const sonarJsConfig = () =>
+  tseslint.config({
+    extends: [sonarjsPlugin.configs.recommended],
+    rules: {
       // Noisy rule - we may have helpers/methods that we mark as @deprecated but aren't planning to remove in the near future. This rule also significantly adds to eslint running time, which slows down both local development and CI.
       "sonarjs/deprecation": "off",
       // This rule is not helpful in TypeScript files, and in JavaScript we often return different types from functions, so this is not a strictness level we want to enforce.
@@ -67,6 +89,18 @@ module.exports = tseslint.config(
       "sonarjs/todo-tag": "off",
       // A useful rule to consider for libraries to better document (and export) type definitions, but noisy in app usages (especially around redux type definitions)
       "sonarjs/use-type-alias": "off",
+    },
+  });
+
+const typescriptConfig = () =>
+  tseslint.config({
+    files: [FILES_TS, FILES_TSX],
+    extends: [
+      tseslint.configs.recommendedTypeChecked,
+      importPlugin.flatConfigs.typescript,
+    ],
+    languageOptions: typescriptLanguageOptions(),
+    rules: {
       /**
        * {@link https://typescript-eslint.io/rules/consistent-type-imports | TypeScript ESLint: consistent-type-imports docs}
        */
@@ -102,18 +136,15 @@ module.exports = tseslint.config(
       "@typescript-eslint/prefer-ts-expect-error": "error",
       "@typescript-eslint/unbound-method": "error",
     },
-  },
-  prettierPluginRecommended,
-  jsonPlugin.configs["recommended"],
-  {
-    files: ["test/**"],
+  });
+
+const testConfig = () =>
+  tseslint.config({
+    files: FILES_TEST,
     plugins: { jest: jestPlugin },
     languageOptions: {
       globals: jestPlugin.environments.globals.globals,
-      parser: tsParser,
-      parserOptions: {
-        projectService: true,
-      },
+      ...typescriptLanguageOptions(),
     },
     extends: [jestPlugin.configs["flat/recommended"]],
     rules: {
@@ -122,15 +153,36 @@ module.exports = tseslint.config(
       "@typescript-eslint/unbound-method": "off",
       "jest/no-jest-import": "off",
       "jest/unbound-method": "error",
+      "import/no-extraneous-dependencies": [
+        "error",
+        { devDependencies: FILES_TEST },
+      ],
     },
-  },
-  {
-    settings: {
-      "import/resolver": {
-        typescript: {
-          alwaysTryTypes: true,
-        },
-      },
-    },
-  },
-);
+  });
+
+const ignoresConfig = (ignores = []) =>
+  tseslint.config({
+    ignores: ["**/.yalc", "**/dist"].concat(ignores),
+  });
+
+/**
+ * Turo eslint configuration for typescript
+ * @param [options] - Eslint config options
+ * @param [options.allowModules] - List of modules to allow in the n/no-unpublished-import rule
+ * @param [options.ignores] - List of patterns to ignore
+ * @returns {ConfigArray}
+ */
+module.exports = (options = {}) =>
+  tseslint.config(
+    eslint.configs.recommended,
+    importConfig(),
+    nPluginConfig(options.allowModules),
+    perfectionistPlugin.configs["recommended-alphabetical"],
+    sonarJsConfig(),
+    unicornPlugin.configs["flat/recommended"],
+    prettierPluginRecommended,
+    jsonPlugin.configs["recommended"],
+    typescriptConfig(),
+    testConfig(),
+    ignoresConfig(options.ignores),
+  );
