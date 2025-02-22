@@ -1,6 +1,4 @@
 import { loadESLint } from "eslint";
-import { fileURLToPath } from "node:url";
-import path from "node:path";
 
 describe("validate config", () => {
   test.each(["./index.mjs", "./index.cjs", "./recommended.cjs"])(
@@ -12,8 +10,6 @@ describe("validate config", () => {
         useFlatConfig,
       });
       const linter = new ESLint({
-        // cwd: cwd,
-        overrideConfigFile: config,
         overrideConfig: useFlatConfig
           ? [
               {
@@ -34,6 +30,8 @@ describe("validate config", () => {
                 },
               },
             },
+        // cwd: cwd,
+        overrideConfigFile: config,
       });
       const messages = await linter.lintText(
         `const foo = 1;\nconsole.log(foo);\n`,
