@@ -1,3 +1,4 @@
 import openTuroTypescriptConfig from "./index.mjs";
 
-export default openTuroTypescriptConfig;
+// eslint-disable-next-line import/no-default-export
+export default openTuroTypescriptConfig({ typescript: false });
