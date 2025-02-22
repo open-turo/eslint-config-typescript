@@ -1,3 +1,2 @@
-import config from "./index.cjs";
-
-export default config;
+// eslint-disable-next-line import/no-default-export
+export { default } from "./index.cjs";

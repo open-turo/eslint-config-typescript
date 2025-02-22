@@ -1,46 +1,52 @@
 import { loadESLint } from "eslint";
-import { fileURLToPath } from "node:url";
-import path from "node:path";
 
 describe("validate config", () => {
-  test.each(["./index.mjs", "./index.cjs", "./recommended.cjs"])(
-    `load config file in ESLint to validate all rules are correct for %s`,
-    async (config) => {
-      const testFileName = "test.js";
-      const useFlatConfig = !config.includes("recommended");
+  const testFileName = "test.js";
+  const code = `const foo = 1;\nconsole.log(foo);\n`;
+  const parserOptions = {
+    projectService: {
+      allowDefaultProject: [testFileName],
+    },
+  };
+
+  test("the legacy recommended config is correct", async () => {
+    const ESLint = await loadESLint({
+      useFlatConfig: false,
+    });
+    const linter = new ESLint({
+      overrideConfig: {
+        parserOptions,
+      },
+      overrideConfigFile: "./recommended.cjs",
+    });
+    const messages = await linter.lintText(code, {
+      filePath: testFileName,
+    });
+    expect(messages[0].messages).toEqual([]);
+    expect(messages[0].errorCount).toEqual(0);
+  });
+
+  test.each(["index.mjs", "index.cjs"])(
+    `the flat config is correct for %s`,
+    async (configFile) => {
       const ESLint = await loadESLint({
-        useFlatConfig,
+        useFlatConfig: true,
       });
+      const { default: config } = await import(`../${configFile}`);
       const linter = new ESLint({
-        // cwd: cwd,
-        overrideConfigFile: config,
-        overrideConfig: useFlatConfig
-          ? [
-              {
-                files: [testFileName],
-                languageOptions: {
-                  parserOptions: {
-                    projectService: {
-                      allowDefaultProject: [testFileName],
-                    },
-                  },
-                },
-              },
-            ]
-          : {
-              parserOptions: {
-                projectService: {
-                  allowDefaultProject: [testFileName],
-                },
-              },
+        baseConfig: config(),
+        overrideConfig: [
+          {
+            files: [testFileName],
+            languageOptions: {
+              parserOptions,
             },
+          },
+        ],
       });
-      const messages = await linter.lintText(
-        `const foo = 1;\nconsole.log(foo);\n`,
-        {
-          filePath: testFileName,
-        },
-      );
+      const messages = await linter.lintText(code, {
+        filePath: testFileName,
+      });
       expect(messages[0].messages).toEqual([]);
       expect(messages[0].errorCount).toEqual(0);
     },
