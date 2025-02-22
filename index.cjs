@@ -1,15 +1,16 @@
-const jestPlugin = require("eslint-plugin-jest");
-const nPlugin = require("eslint-plugin-n");
-const importPlugin = require("eslint-plugin-import");
-const jsonPlugin = require("eslint-plugin-json");
 const eslint = require("@eslint/js");
+const tsParser = require("@typescript-eslint/parser");
+const importPlugin = require("eslint-plugin-import");
+const jestPlugin = require("eslint-plugin-jest");
+const jsonPlugin = require("eslint-plugin-json");
+const nPlugin = require("eslint-plugin-n");
 const perfectionistPlugin = require("eslint-plugin-perfectionist");
 const prettierPluginRecommended = require("eslint-plugin-prettier/recommended");
-const tseslint = require("typescript-eslint");
 const sonarjsPlugin = require("eslint-plugin-sonarjs");
 const unicornPlugin = require("eslint-plugin-unicorn");
-const tsParser = require("@typescript-eslint/parser");
+const tseslint = require("typescript-eslint");
 
+const FILES_JS = "**/*.?([cm])js";
 const FILES_SRC_EXTENSION = "?([cm])[jt]s?(x)";
 const FILES_TS = "**/*.?([cm])ts";
 const FILES_TSX = "**/*.?([cm])tsx";
@@ -27,16 +28,19 @@ const typescriptLanguageOptions = () => ({
   },
 });
 
+const javascriptConfig = (ecmaVersion = "latest") =>
+  tseslint.config(eslint.configs.recommended, {
+    files: [FILES_JS],
+    languageOptions: {
+      parserOptions: {
+        ecmaVersion,
+      },
+    },
+  });
+
 const importConfig = () =>
   tseslint.config({
     extends: [importPlugin.flatConfigs.recommended],
-    settings: {
-      "import/resolver": {
-        typescript: {
-          alwaysTryTypes: true,
-        },
-      },
-    },
     rules: {
       "import/default": "off",
       "import/named": "off",
@@ -48,12 +52,23 @@ const importConfig = () =>
       ],
       "import/prefer-default-export": "off",
     },
+    settings: {
+      "import/resolver": {
+        typescript: {
+          alwaysTryTypes: true,
+        },
+      },
+    },
   });
 
 const nPluginConfig = (allowModules = ["@jest/globals", "nock"]) =>
   tseslint.config({
-    extends: [nPlugin.configs["flat/recommended"]],
+    extends: [
+      nPlugin.configs["flat/recommended"],
+      nPlugin.configs["flat/mixed-esm-and-cjs"],
+    ],
     rules: {
+      "n/no-missing-import": "off",
       "n/no-unpublished-import": [
         "error",
         {
@@ -61,7 +76,6 @@ const nPluginConfig = (allowModules = ["@jest/globals", "nock"]) =>
         },
       ],
       "n/no-unsupported-features/es-syntax": "off",
-      "n/no-missing-import": "off",
     },
   });
 
@@ -77,10 +91,10 @@ const sonarJsConfig = () =>
       "sonarjs/no-ignored-exceptions": "off",
       "sonarjs/no-nested-functions": ["warn", { threshold: 5 }],
       "sonarjs/no-small-switch": "off",
-      // Overlaps with @typescript-eslint/prefer-nullish-coalescing
-      "sonarjs/prefer-nullish-coalescing": "off",
       // Overlaps with @typescript-eslint/no-unused-vars
       "sonarjs/no-unused-vars": "off",
+      // Overlaps with @typescript-eslint/prefer-nullish-coalescing
+      "sonarjs/prefer-nullish-coalescing": "off",
       // Overlaps with @typescript-eslint/prefer-optional-chain
       "sonarjs/prefer-optional-chain": "off",
       // Useful for guarding against prop mutation in React, but too much of a lift as very rarely do we apply readonly/ReadonlyArray<T> to type definitions
@@ -94,11 +108,11 @@ const sonarJsConfig = () =>
 
 const typescriptConfig = () =>
   tseslint.config({
-    files: [FILES_TS, FILES_TSX],
     extends: [
       tseslint.configs.recommendedTypeChecked,
       importPlugin.flatConfigs.typescript,
     ],
+    files: [FILES_TS, FILES_TSX],
     languageOptions: typescriptLanguageOptions(),
     rules: {
       /**
@@ -138,31 +152,43 @@ const typescriptConfig = () =>
     },
   });
 
-const testConfig = () =>
-  tseslint.config({
+/**
+ *
+ * @param options Configuration options
+ * @param options.typescript Whether to include typescript rules
+ * @returns {ConfigArray}
+ */
+const testConfig = (options) => {
+  const typescriptRules = options.typescript
+    ? {
+        // this turns the original rule off *only* for test files, for jestPlugin compatibility
+        "@typescript-eslint/unbound-method": "off",
+        "jest/unbound-method": "error",
+      }
+    : {};
+  return tseslint.config({
+    extends: [jestPlugin.configs["flat/recommended"]],
     files: FILES_TEST,
-    plugins: { jest: jestPlugin },
     languageOptions: {
       globals: jestPlugin.environments.globals.globals,
-      ...typescriptLanguageOptions(),
+      ...(options.typescript ? typescriptLanguageOptions() : {}),
     },
-    extends: [jestPlugin.configs["flat/recommended"]],
+    plugins: { jest: jestPlugin },
     rules: {
       ...jestPlugin.configs["flat/recommended"].rules,
-      // this turns the original rule off *only* for test files, for jestPlugin compatibility
-      "@typescript-eslint/unbound-method": "off",
-      "jest/no-jest-import": "off",
-      "jest/unbound-method": "error",
+      ...typescriptRules,
       "import/no-extraneous-dependencies": [
         "error",
         { devDependencies: FILES_TEST },
       ],
+      "jest/no-jest-import": "off",
     },
   });
+};
 
 const ignoresConfig = (ignores = []) =>
   tseslint.config({
-    ignores: ["**/.yalc", "**/dist"].concat(ignores),
+    ignores: ["**/.yalc", "**/dist", ...ignores],
   });
 
 /**
@@ -170,11 +196,15 @@ const ignoresConfig = (ignores = []) =>
  * @param [options] - Eslint config options
  * @param [options.allowModules] - List of modules to allow in the n/no-unpublished-import rule
  * @param [options.ignores] - List of patterns to ignore
+ * @param [options.typescript] - Whether to include typescript rules
+ * @param [options.ecmaVersion] - The ECMAScript version to use
  * @returns {ConfigArray}
  */
-module.exports = (options = {}) =>
-  tseslint.config(
-    eslint.configs.recommended,
+module.exports = function config(options = {}) {
+  const useTypescript =
+    options.typescript === undefined ? true : options.typescript;
+  return tseslint.config(
+    javascriptConfig(options.ecmaVersion),
     importConfig(),
     nPluginConfig(options.allowModules),
     perfectionistPlugin.configs["recommended-alphabetical"],
@@ -182,7 +212,8 @@ module.exports = (options = {}) =>
     unicornPlugin.configs["flat/recommended"],
     prettierPluginRecommended,
     jsonPlugin.configs["recommended"],
-    typescriptConfig(),
-    testConfig(),
+    useTypescript ? typescriptConfig() : {},
+    testConfig({ typescript: useTypescript }),
     ignoresConfig(options.ignores),
   );
+};
