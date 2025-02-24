@@ -1,30 +1,54 @@
-const fs = require("fs");
-const { ESLint } = require("eslint");
+import { loadESLint } from "eslint";
 
 describe("validate config", () => {
-  it(`load config file in ESLint to validate all rules are correct`, async () => {
-    const stringConfig = fs.readFileSync("./test/sample.ts", "utf8");
+  const testFileName = "test.js";
+  const code = `const foo = 1;\nconsole.log(foo);\n`;
+  const parserOptions = {
+    projectService: {
+      allowDefaultProject: [testFileName],
+    },
+  };
 
-    const cli = new ESLint({
-      overrideConfigFile: "./index.js",
+  test("the legacy recommended config is correct", async () => {
+    const ESLint = await loadESLint({
+      useFlatConfig: false,
     });
-
-    const calculatedConfig =
-      await cli.calculateConfigForFile("./test/sample.ts");
-
-    // remove parser property from calculated config because it is env specific (fails in CI)
-    const { parser, ...calculatedConfigWithoutParserProperty } =
-      calculatedConfig;
-    // print all the rules
-    expect(calculatedConfigWithoutParserProperty).toMatchSnapshot();
-
-    const lintResult = await cli.lintText(stringConfig);
-
-    /**
-     * We just need to validate a value is returned.
-     * If there is an issue with the config, `cli.lintText` will error,
-     * and we will never hit this line so the test will fail.
-     */
-    expect(lintResult).toBeTruthy();
+    const linter = new ESLint({
+      overrideConfig: {
+        parserOptions,
+      },
+      overrideConfigFile: "./recommended.cjs",
+    });
+    const messages = await linter.lintText(code, {
+      filePath: testFileName,
+    });
+    expect(messages[0].messages).toEqual([]);
+    expect(messages[0].errorCount).toEqual(0);
   });
+
+  test.each(["index.mjs", "index.cjs"])(
+    `the flat config is correct for %s`,
+    async (configFile) => {
+      const ESLint = await loadESLint({
+        useFlatConfig: true,
+      });
+      const { default: config } = await import(`../${configFile}`);
+      const linter = new ESLint({
+        baseConfig: config(),
+        overrideConfig: [
+          {
+            files: [testFileName],
+            languageOptions: {
+              parserOptions,
+            },
+          },
+        ],
+      });
+      const messages = await linter.lintText(code, {
+        filePath: testFileName,
+      });
+      expect(messages[0].messages).toEqual([]);
+      expect(messages[0].errorCount).toEqual(0);
+    },
+  );
 });
