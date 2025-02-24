@@ -35,6 +35,8 @@ module.exports = turoConfig();
 }
 ```
 
+You will have to set the `ESLINT_USE_FLAT_CONFIG` env var to true.
+
 ## Development
 
 Install [pre-commit](https://pre-commit.com/) and the commit hooks:
