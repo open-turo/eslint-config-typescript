@@ -1699,7 +1699,7 @@ exports[`validate config load config file in ESLint to validate all rules are co
       "error",
     ],
     "sonarjs/certificate-transparency": [
-      "error",
+      "off",
     ],
     "sonarjs/chai-determinate-assertion": [
       "error",
