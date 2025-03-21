@@ -92,6 +92,11 @@ module.exports = {
     "sonarjs/todo-tag": "off",
     // A useful rule to consider for libraries to better document (and export) type definitions, but noisy in app usages (especially around redux type definitions)
     "sonarjs/use-type-alias": "off",
+    /** Forbids `as` casting (that excludes `as const`) to prevent unsafe type casts */
+    "@typescript-eslint/consistent-type-assertions": [
+      "error",
+      { assertionStyle: "never" },
+    ],
     /**
      * {@link https://typescript-eslint.io/rules/consistent-type-imports | TypeScript ESLint: consistent-type-imports docs}
      */
