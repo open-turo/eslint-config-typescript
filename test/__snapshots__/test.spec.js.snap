@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`validate config the flat config is correct for index.cjs 1`] = `
 {
@@ -565,6 +565,12 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "@typescript-eslint/comma-spacing": [
     0,
+  ],
+  "@typescript-eslint/consistent-type-assertions": [
+    2,
+    {
+      "assertionStyle": "never",
+    },
   ],
   "@typescript-eslint/consistent-type-imports": [
     2,
@@ -3534,6 +3540,12 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "@typescript-eslint/comma-spacing": [
     0,
+  ],
+  "@typescript-eslint/consistent-type-assertions": [
+    2,
+    {
+      "assertionStyle": "never",
+    },
   ],
   "@typescript-eslint/consistent-type-imports": [
     2,
@@ -6506,6 +6518,12 @@ exports[`validate config the legacy recommended config is correct 1`] = `
   ],
   "@typescript-eslint/comma-spacing": [
     "off",
+  ],
+  "@typescript-eslint/consistent-type-assertions": [
+    "error",
+    {
+      "assertionStyle": "never",
+    },
   ],
   "@typescript-eslint/consistent-type-imports": [
     "error",
