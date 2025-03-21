@@ -668,6 +668,12 @@ exports[`validate config load config file in ESLint to validate all rules are co
     "@typescript-eslint/comma-spacing": [
       "off",
     ],
+    "@typescript-eslint/consistent-type-assertions": [
+      "error",
+      {
+        "assertionStyle": "never",
+      },
+    ],
     "@typescript-eslint/consistent-type-imports": [
       "error",
       {
