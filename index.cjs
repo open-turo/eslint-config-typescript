@@ -136,6 +136,11 @@ const typescriptConfig = () =>
     files: [FILES_TS, FILES_TSX],
     languageOptions: typescriptLanguageOptions(),
     rules: {
+      /** Forbids `as` casting (that excludes `as const`) to prevent unsafe type casts */
+      "@typescript-eslint/consistent-type-assertions": [
+        "error",
+        { assertionStyle: "never" },
+      ],
       /**
        * {@link https://typescript-eslint.io/rules/consistent-type-imports | TypeScript ESLint: consistent-type-imports docs}
        */
