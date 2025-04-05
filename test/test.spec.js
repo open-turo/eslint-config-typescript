@@ -24,6 +24,9 @@ describe("validate config", () => {
     });
     expect(messages[0].messages).toEqual([]);
     expect(messages[0].errorCount).toEqual(0);
+    const calculatedConfig =
+      await linter.calculateConfigForFile("./test/sample.ts");
+    expect(calculatedConfig.rules).toMatchSnapshot();
   });
 
   test.each(["index.mjs", "index.cjs"])(
@@ -49,6 +52,9 @@ describe("validate config", () => {
       });
       expect(messages[0].messages).toEqual([]);
       expect(messages[0].errorCount).toEqual(0);
+      const calculatedConfig =
+        await linter.calculateConfigForFile("./test/sample.ts");
+      expect(calculatedConfig.rules).toMatchSnapshot();
     },
   );
 });
