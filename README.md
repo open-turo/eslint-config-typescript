@@ -27,6 +27,13 @@ const turoConfig = require("@open-turo/eslint-config-typescript");
 module.exports = turoConfig();
 ```
 
+The `turoConfig` function accepts an options object with the following properties:
+
+- `allowModules` - List of modules to allow in the `n/no-unpublished-import` rule
+- `ignores` - List of patterns to ignore. Defaults to `["@jest/globals", "nock"]`
+- `typescript` - Whether to include typescript rules. Defaults to `true`
+- `ecmaVersion` - The ECMAScript version to use. Defaults to `latest`
+
 ### **[.eslintrc](https://eslint.org/docs/latest/use/configure/configuration-files)** (legacy example)
 
 ```jsonc
