@@ -1224,6 +1224,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "no-shadow-restricted-names": [
     2,
+    {
+      "reportGlobalThis": false,
+    },
   ],
   "no-space-before-semi": [
     0,
@@ -1280,6 +1283,7 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
       "allowTaggedTemplates": false,
       "allowTernary": false,
       "enforceForJSX": false,
+      "ignoreDirectives": false,
     },
   ],
   "no-unused-labels": [
@@ -4186,6 +4190,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "no-shadow-restricted-names": [
     2,
+    {
+      "reportGlobalThis": false,
+    },
   ],
   "no-space-before-semi": [
     0,
@@ -4242,6 +4249,7 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
       "allowTaggedTemplates": false,
       "allowTernary": false,
       "enforceForJSX": false,
+      "ignoreDirectives": false,
     },
   ],
   "no-unused-labels": [
