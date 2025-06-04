@@ -1303,6 +1303,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "no-useless-escape": [
     2,
+    {
+      "allowRegexCharacters": [],
+    },
   ],
   "no-var": [
     2,
@@ -4269,6 +4272,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "no-useless-escape": [
     2,
+    {
+      "allowRegexCharacters": [],
+    },
   ],
   "no-var": [
     2,
