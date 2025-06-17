@@ -1,3 +1,6 @@
+// @ts-check
+
+/** @import { ConfigWithExtends } from "typescript-eslint" */
 const eslint = require("@eslint/js");
 const tsParser = require("@typescript-eslint/parser");
 const importPlugin = require("eslint-plugin-import");
@@ -28,6 +31,13 @@ const typescriptLanguageOptions = () => ({
   },
 });
 
+/**
+ * @typedef {NonNullable<NonNullable<ConfigWithExtends['languageOptions']>['parserOptions']>['ecmaVersion']} EcmaVersion
+ */
+
+/**
+ * @param {EcmaVersion} [ecmaVersion]
+ */
 const javascriptConfig = (ecmaVersion = "latest") =>
   tseslint.config(eslint.configs.recommended, {
     files: [FILES_JS],
@@ -38,9 +48,19 @@ const javascriptConfig = (ecmaVersion = "latest") =>
     },
   });
 
+const getImportPluginFlatConfigs = () => {
+  if (!importPlugin.flatConfigs) {
+    throw new Error(
+      "Unexpected value from eslint-plugin-import. You will need to upgrade the plugin.",
+    );
+  }
+
+  return importPlugin.flatConfigs;
+};
+
 const importConfig = () =>
   tseslint.config({
-    extends: [importPlugin.flatConfigs.recommended],
+    extends: [getImportPluginFlatConfigs().recommended],
     rules: {
       "import/default": "off",
       "import/named": "off",
@@ -110,7 +130,8 @@ const typescriptConfig = () =>
   tseslint.config({
     extends: [
       tseslint.configs.recommendedTypeChecked,
-      importPlugin.flatConfigs.typescript,
+      // @ts-expect-error -- We are inferring the types of this import from runtime, but the rule values are inferred as `string` instead of `RuleEntry` ("off" | "warn" | "error")
+      getImportPluginFlatConfigs().typescript,
     ],
     files: [FILES_TS, FILES_TSX],
     languageOptions: typescriptLanguageOptions(),
@@ -154,17 +175,16 @@ const typescriptConfig = () =>
 
 /**
  *
- * @param options Configuration options
- * @param options.typescript Whether to include typescript rules
- * @returns {ConfigArray}
+ * @param {object} options Configuration options
+ * @param {boolean} options.typescript Whether to include typescript rules
  */
 const testConfig = (options) => {
   const typescriptRules = options.typescript
-    ? {
+    ? /** @type {const} */ ({
         // this turns the original rule off *only* for test files, for jestPlugin compatibility
         "@typescript-eslint/unbound-method": "off",
         "jest/unbound-method": "error",
-      }
+      })
     : {};
   return tseslint.config({
     extends: [jestPlugin.configs["flat/recommended"]],
@@ -186,6 +206,9 @@ const testConfig = (options) => {
   });
 };
 
+/**
+ * @param {string[]} ignores
+ */
 const ignoresConfig = (ignores = []) =>
   tseslint.config({
     ignores: ["**/.yalc", "**/dist", ...ignores],
@@ -193,16 +216,16 @@ const ignoresConfig = (ignores = []) =>
 
 /**
  * Turo eslint configuration for typescript
- * @param [options] - Eslint config options
- * @param [options.allowModules] - List of modules to allow in the n/no-unpublished-import rule
- * @param [options.ignores] - List of patterns to ignore
- * @param [options.typescript] - Whether to include typescript rules
- * @param [options.ecmaVersion] - The ECMAScript version to use
- * @returns {ConfigArray}
+ * @param {object} [options] - Eslint config options
+ * @param {string[]} [options.allowModules] - List of modules to allow in the n/no-unpublished-import rule
+ * @param {string[]} [options.ignores] - List of patterns to ignore
+ * @param {boolean} [options.typescript] - Whether to include typescript rules
+ * @param {EcmaVersion} [options.ecmaVersion] - The ECMAScript version to use
  */
 module.exports = function config(options = {}) {
   const useTypescript =
     options.typescript === undefined ? true : options.typescript;
+
   return tseslint.config(
     javascriptConfig(options.ecmaVersion),
     importConfig(),
