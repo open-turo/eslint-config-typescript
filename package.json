@@ -4,7 +4,6 @@
   "type": "module",
   "dependencies": {
     "@eslint/js": "9.29.0",
-    "typescript-eslint": "8.34.1",
     "@typescript-eslint/eslint-plugin": "8.34.1",
     "@typescript-eslint/parser": "8.34.1",
     "eslint-config-prettier": "10.1.5",
@@ -16,7 +15,8 @@
     "eslint-plugin-perfectionist": "4.14.0",
     "eslint-plugin-prettier": "5.4.1",
     "eslint-plugin-sonarjs": "3.0.2",
-    "eslint-plugin-unicorn": "56.0.1"
+    "eslint-plugin-unicorn": "56.0.1",
+    "typescript-eslint": "8.34.1"
   },
   "devDependencies": {
     "eslint": "9.29.0",
@@ -54,5 +54,6 @@
     "access": "public"
   },
   "repository": "https://github.com/open-turo/eslint-config-typescript",
-  "version": "16.0.7"
+  "version": "16.0.7",
+  "packageManager": "npm@11.4.2+sha512.f90c1ec8b207b625d6edb6693aef23dacb39c38e4217fe8c46a973f119cab392ac0de23fe3f07e583188dae9fd9108b3845ad6f525b598742bd060ebad60bff3"
 }
