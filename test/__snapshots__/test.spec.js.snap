@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`validate config the flat config is correct for index.cjs 1`] = `
 {
@@ -1601,6 +1601,10 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "sonarjs/arrow-function-convention": [
     0,
+    {
+      "requireBodyBraces": false,
+      "requireParameterParentheses": false,
+    },
   ],
   "sonarjs/assertions-in-tests": [
     2,
@@ -1682,6 +1686,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "sonarjs/class-name": [
     2,
+    {
+      "format": "^[A-Z][a-zA-Z0-9]*$",
+    },
   ],
   "sonarjs/class-prototype": [
     0,
@@ -1691,12 +1698,18 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "sonarjs/cognitive-complexity": [
     2,
+    15,
   ],
   "sonarjs/comma-or-logical-or-case": [
     2,
   ],
   "sonarjs/comment-regex": [
     0,
+    {
+      "flags": "",
+      "message": "The regular expression matches this comment.",
+      "regularExpression": "",
+    },
   ],
   "sonarjs/concise-regex": [
     2,
@@ -1712,6 +1725,10 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "sonarjs/content-length": [
     2,
+    {
+      "fileUploadSizeLimit": 8000000,
+      "standardSizeLimit": 2000000,
+    },
   ],
   "sonarjs/content-security-policy": [
     2,
@@ -1730,6 +1747,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "sonarjs/cyclomatic-complexity": [
     0,
+    {
+      "threshold": 10,
+    },
   ],
   "sonarjs/declarations-in-global-scope": [
     0,
@@ -1772,15 +1792,23 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "sonarjs/enforce-trailing-comma": [
     0,
+    "always-multiline",
   ],
   "sonarjs/existing-groups": [
     2,
   ],
   "sonarjs/expression-complexity": [
     0,
+    {
+      "max": 3,
+    },
   ],
   "sonarjs/file-header": [
     0,
+    {
+      "headerFormat": "",
+      "isRegularExpression": false,
+    },
   ],
   "sonarjs/file-name-differ-from-class": [
     0,
@@ -1808,6 +1836,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "sonarjs/function-name": [
     0,
+    {
+      "format": "^[_a-z][a-zA-Z0-9]*$",
+    },
   ],
   "sonarjs/function-return-type": [
     0,
@@ -1853,24 +1884,40 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "sonarjs/max-lines": [
     0,
+    {
+      "maximum": 1000,
+    },
   ],
   "sonarjs/max-lines-per-function": [
     0,
+    {
+      "maximum": 200,
+    },
   ],
   "sonarjs/max-switch-cases": [
     2,
+    30,
   ],
   "sonarjs/max-union-size": [
     0,
+    {
+      "threshold": 3,
+    },
   ],
   "sonarjs/misplaced-loop-counter": [
     2,
   ],
   "sonarjs/nested-control-flow": [
     0,
+    {
+      "maximumNestingLevel": 3,
+    },
   ],
   "sonarjs/new-operator-misuse": [
     2,
+    {
+      "considerJSDoc": false,
+    },
   ],
   "sonarjs/no-all-duplicated-branches": [
     2,
@@ -1925,6 +1972,10 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "sonarjs/no-duplicate-string": [
     0,
+    {
+      "ignoreStrings": "application/json",
+      "threshold": 3,
+    },
   ],
   "sonarjs/no-duplicated-branches": [
     2,
@@ -1982,9 +2033,21 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "sonarjs/no-hardcoded-passwords": [
     2,
+    {
+      "passwordWords": [
+        "password",
+        "pwd",
+        "passwd",
+        "passphrase",
+      ],
+    },
   ],
   "sonarjs/no-hardcoded-secrets": [
     2,
+    {
+      "randomnessSensibility": 5,
+      "secretWords": "api[_.-]?key,auth,credential,secret,token",
+    },
   ],
   "sonarjs/no-hook-setter-in-body": [
     2,
@@ -1997,6 +2060,7 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "sonarjs/no-identical-functions": [
     2,
+    3,
   ],
   "sonarjs/no-ignored-exceptions": [
     0,
@@ -2006,6 +2070,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "sonarjs/no-implicit-dependencies": [
     0,
+    {
+      "whitelist": [],
+    },
   ],
   "sonarjs/no-implicit-global": [
     2,
@@ -2027,9 +2094,11 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "sonarjs/no-intrusive-permissions": [
     2,
-  ],
-  "sonarjs/no-invalid-await": [
-    2,
+    {
+      "permissions": [
+        "geolocation",
+      ],
+    },
   ],
   "sonarjs/no-invalid-regexp": [
     2,
@@ -2285,6 +2354,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "sonarjs/regex-complexity": [
     2,
+    {
+      "threshold": 20,
+    },
   ],
   "sonarjs/regular-expr": [
     0,
@@ -2375,6 +2447,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "sonarjs/variable-name": [
     0,
+    {
+      "format": "^[_$A-Za-z][$A-Za-z0-9]*$|^[_$A-Z][_$A-Z0-9]+$",
+    },
   ],
   "sonarjs/void-use": [
     2,
@@ -4570,6 +4645,10 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/arrow-function-convention": [
     0,
+    {
+      "requireBodyBraces": false,
+      "requireParameterParentheses": false,
+    },
   ],
   "sonarjs/assertions-in-tests": [
     2,
@@ -4651,6 +4730,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/class-name": [
     2,
+    {
+      "format": "^[A-Z][a-zA-Z0-9]*$",
+    },
   ],
   "sonarjs/class-prototype": [
     0,
@@ -4660,12 +4742,18 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/cognitive-complexity": [
     2,
+    15,
   ],
   "sonarjs/comma-or-logical-or-case": [
     2,
   ],
   "sonarjs/comment-regex": [
     0,
+    {
+      "flags": "",
+      "message": "The regular expression matches this comment.",
+      "regularExpression": "",
+    },
   ],
   "sonarjs/concise-regex": [
     2,
@@ -4681,6 +4769,10 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/content-length": [
     2,
+    {
+      "fileUploadSizeLimit": 8000000,
+      "standardSizeLimit": 2000000,
+    },
   ],
   "sonarjs/content-security-policy": [
     2,
@@ -4699,6 +4791,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/cyclomatic-complexity": [
     0,
+    {
+      "threshold": 10,
+    },
   ],
   "sonarjs/declarations-in-global-scope": [
     0,
@@ -4741,15 +4836,23 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/enforce-trailing-comma": [
     0,
+    "always-multiline",
   ],
   "sonarjs/existing-groups": [
     2,
   ],
   "sonarjs/expression-complexity": [
     0,
+    {
+      "max": 3,
+    },
   ],
   "sonarjs/file-header": [
     0,
+    {
+      "headerFormat": "",
+      "isRegularExpression": false,
+    },
   ],
   "sonarjs/file-name-differ-from-class": [
     0,
@@ -4777,6 +4880,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/function-name": [
     0,
+    {
+      "format": "^[_a-z][a-zA-Z0-9]*$",
+    },
   ],
   "sonarjs/function-return-type": [
     0,
@@ -4822,24 +4928,40 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/max-lines": [
     0,
+    {
+      "maximum": 1000,
+    },
   ],
   "sonarjs/max-lines-per-function": [
     0,
+    {
+      "maximum": 200,
+    },
   ],
   "sonarjs/max-switch-cases": [
     2,
+    30,
   ],
   "sonarjs/max-union-size": [
     0,
+    {
+      "threshold": 3,
+    },
   ],
   "sonarjs/misplaced-loop-counter": [
     2,
   ],
   "sonarjs/nested-control-flow": [
     0,
+    {
+      "maximumNestingLevel": 3,
+    },
   ],
   "sonarjs/new-operator-misuse": [
     2,
+    {
+      "considerJSDoc": false,
+    },
   ],
   "sonarjs/no-all-duplicated-branches": [
     2,
@@ -4894,6 +5016,10 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/no-duplicate-string": [
     0,
+    {
+      "ignoreStrings": "application/json",
+      "threshold": 3,
+    },
   ],
   "sonarjs/no-duplicated-branches": [
     2,
@@ -4951,9 +5077,21 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/no-hardcoded-passwords": [
     2,
+    {
+      "passwordWords": [
+        "password",
+        "pwd",
+        "passwd",
+        "passphrase",
+      ],
+    },
   ],
   "sonarjs/no-hardcoded-secrets": [
     2,
+    {
+      "randomnessSensibility": 5,
+      "secretWords": "api[_.-]?key,auth,credential,secret,token",
+    },
   ],
   "sonarjs/no-hook-setter-in-body": [
     2,
@@ -4966,6 +5104,7 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/no-identical-functions": [
     2,
+    3,
   ],
   "sonarjs/no-ignored-exceptions": [
     0,
@@ -4975,6 +5114,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/no-implicit-dependencies": [
     0,
+    {
+      "whitelist": [],
+    },
   ],
   "sonarjs/no-implicit-global": [
     2,
@@ -4996,9 +5138,11 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/no-intrusive-permissions": [
     2,
-  ],
-  "sonarjs/no-invalid-await": [
-    2,
+    {
+      "permissions": [
+        "geolocation",
+      ],
+    },
   ],
   "sonarjs/no-invalid-regexp": [
     2,
@@ -5254,6 +5398,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/regex-complexity": [
     2,
+    {
+      "threshold": 20,
+    },
   ],
   "sonarjs/regular-expr": [
     0,
@@ -5344,6 +5491,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/variable-name": [
     0,
+    {
+      "format": "^[_$A-Za-z][$A-Za-z0-9]*$|^[_$A-Z][_$A-Z0-9]+$",
+    },
   ],
   "sonarjs/void-use": [
     2,
@@ -8031,9 +8181,6 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "error",
   ],
   "sonarjs/no-intrusive-permissions": [
-    "error",
-  ],
-  "sonarjs/no-invalid-await": [
     "error",
   ],
   "sonarjs/no-invalid-regexp": [
