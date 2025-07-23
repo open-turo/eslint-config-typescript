@@ -21,7 +21,7 @@
   "devDependencies": {
     "@prettier/plugin-oxc": "0.0.4",
     "eslint": "9.31.0",
-    "jest": "30.0.4",
+    "jest": "30.0.5",
     "prettier": "3.6.2"
   },
   "engines": {
