@@ -2157,9 +2157,6 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   "sonarjs/no-nested-template-literals": [
     2,
   ],
-  "sonarjs/no-one-iteration-loop": [
-    2,
-  ],
   "sonarjs/no-os-command-from-path": [
     2,
   ],
@@ -5207,9 +5204,6 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "sonarjs/no-nested-template-literals": [
     2,
   ],
-  "sonarjs/no-one-iteration-loop": [
-    2,
-  ],
   "sonarjs/no-os-command-from-path": [
     2,
   ],
@@ -8253,9 +8247,6 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "off",
   ],
   "sonarjs/no-nested-template-literals": [
-    "error",
-  ],
-  "sonarjs/no-one-iteration-loop": [
     "error",
   ],
   "sonarjs/no-os-command-from-path": [
