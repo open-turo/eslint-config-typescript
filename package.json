@@ -55,6 +55,6 @@
     "access": "public"
   },
   "repository": "https://github.com/open-turo/eslint-config-typescript",
-  "version": "18.0.7",
+  "version": "18.0.8",
   "packageManager": "npm@11.5.2"
 }
