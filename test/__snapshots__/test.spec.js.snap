@@ -1170,6 +1170,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "no-misleading-character-class": [
     2,
+    {
+      "allowEscape": false,
+    },
   ],
   "no-mixed-operators": [
     0,
@@ -4217,6 +4220,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "no-misleading-character-class": [
     2,
+    {
+      "allowEscape": false,
+    },
   ],
   "no-mixed-operators": [
     0,
