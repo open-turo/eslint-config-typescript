@@ -226,10 +226,11 @@ const vitestTestConfig = (options) => {
 };
 
 /**
- *
+ * Creates test configuration for the specified framework
  * @param {object} options Configuration options
  * @param {boolean} options.typescript Whether to include typescript rules
  * @param {"jest" | "vitest"} options.testFramework Test framework to use
+ * @returns {ReturnType<typeof eslintConfig.defineConfig>} ESLint configuration for test files
  */
 const testConfig = (options) => {
   const frameworkConfig =
@@ -249,7 +250,9 @@ const testConfig = (options) => {
 };
 
 /**
- * @param {string[]} ignores
+ * Creates ignore patterns configuration
+ * @param {string[]} ignores Additional patterns to ignore
+ * @returns {ReturnType<typeof eslintConfig.defineConfig>} ESLint configuration with ignore patterns
  */
 const ignoresConfig = (ignores = []) =>
   eslintConfig.defineConfig({
