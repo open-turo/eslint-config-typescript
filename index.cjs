@@ -3,6 +3,7 @@
 /** @import { ConfigWithExtends } from "typescript-eslint" */
 const eslint = require("@eslint/js");
 const tsParser = require("@typescript-eslint/parser");
+const vitestPlugin = require("@vitest/eslint-plugin");
 const importPlugin = require("eslint-plugin-import");
 const jestPlugin = require("eslint-plugin-jest");
 const jsonPlugin = require("eslint-plugin-json");
@@ -11,6 +12,7 @@ const perfectionistPlugin = require("eslint-plugin-perfectionist");
 const prettierPluginRecommended = require("eslint-plugin-prettier/recommended");
 const sonarjsPlugin = require("eslint-plugin-sonarjs");
 const unicornPlugin = require("eslint-plugin-unicorn");
+const eslintConfig = require("eslint/config");
 const tseslint = require("typescript-eslint");
 
 const FILES_JS = "**/*.?([cm])js";
@@ -39,7 +41,7 @@ const typescriptLanguageOptions = () => ({
  * @param {EcmaVersion} [ecmaVersion]
  */
 const javascriptConfig = (ecmaVersion = "latest") =>
-  tseslint.config(eslint.configs.recommended, {
+  eslintConfig.defineConfig(eslint.configs.recommended, {
     files: [FILES_JS],
     languageOptions: {
       parserOptions: {
@@ -59,7 +61,7 @@ const getImportPluginFlatConfigs = () => {
 };
 
 const importConfig = () =>
-  tseslint.config({
+  eslintConfig.defineConfig({
     extends: [getImportPluginFlatConfigs().recommended],
     rules: {
       "import/default": "off",
@@ -82,7 +84,7 @@ const importConfig = () =>
   });
 
 const nPluginConfig = (allowModules = ["@jest/globals", "nock"]) =>
-  tseslint.config({
+  eslintConfig.defineConfig({
     extends: [
       nPlugin.configs["flat/recommended"],
       nPlugin.configs["flat/mixed-esm-and-cjs"],
@@ -100,7 +102,7 @@ const nPluginConfig = (allowModules = ["@jest/globals", "nock"]) =>
   });
 
 const sonarJsConfig = () =>
-  tseslint.config({
+  eslintConfig.defineConfig({
     extends: [sonarjsPlugin.configs.recommended],
     rules: {
       // Noisy rule - we may have helpers/methods that we mark as @deprecated but aren't planning to remove in the near future. This rule also significantly adds to eslint running time, which slows down both local development and CI.
@@ -127,7 +129,7 @@ const sonarJsConfig = () =>
   });
 
 const typescriptConfig = () =>
-  tseslint.config({
+  eslintConfig.defineConfig({
     extends: [
       tseslint.configs.recommendedTypeChecked,
       // @ts-expect-error -- We are inferring the types of this import from runtime, but the rule values are inferred as `string` instead of `RuleEntry` ("off" | "warn" | "error")
@@ -183,15 +185,14 @@ const typescriptConfig = () =>
  * @param {object} options Configuration options
  * @param {boolean} options.typescript Whether to include typescript rules
  */
-const testConfig = (options) => {
+const jestTestConfig = (options) => {
   const typescriptRules = options.typescript
     ? /** @type {const} */ ({
-        // this turns the original rule off *only* for test files, for jestPlugin compatibility
         "@typescript-eslint/unbound-method": "off",
         "jest/unbound-method": "error",
       })
     : {};
-  return tseslint.config({
+  return eslintConfig.defineConfig({
     extends: [jestPlugin.configs["flat/recommended"]],
     files: FILES_TEST,
     languageOptions: {
@@ -202,20 +203,59 @@ const testConfig = (options) => {
     rules: {
       ...jestPlugin.configs["flat/recommended"].rules,
       ...typescriptRules,
-      "import/no-extraneous-dependencies": [
-        "error",
-        { devDependencies: FILES_TEST },
-      ],
       "jest/no-jest-import": "off",
     },
   });
 };
 
 /**
- * @param {string[]} ignores
+ * Creates Vitest-specific test configuration
+ * @param {object} options Configuration options
+ * @param {boolean} options.typescript Whether to include typescript rules
+ */
+const vitestTestConfig = (options) => {
+  return eslintConfig.defineConfig({
+    extends: [vitestPlugin.configs.recommended],
+    files: FILES_TEST,
+    languageOptions: {
+      globals: vitestPlugin.environments.env.globals,
+      ...(options.typescript ? typescriptLanguageOptions() : {}),
+    },
+    plugins: { vitest: vitestPlugin },
+  });
+};
+
+/**
+ * Creates test configuration for the specified framework
+ * @param {object} options Configuration options
+ * @param {boolean} options.typescript Whether to include typescript rules
+ * @param {"jest" | "vitest"} options.testFramework Test framework to use
+ * @returns {ReturnType<typeof eslintConfig.defineConfig>} ESLint configuration for test files
+ */
+const testConfig = (options) => {
+  const frameworkConfig =
+    options.testFramework === "vitest"
+      ? vitestTestConfig(options)
+      : jestTestConfig(options);
+
+  return eslintConfig.defineConfig(...frameworkConfig, {
+    files: FILES_TEST,
+    rules: {
+      "import/no-extraneous-dependencies": [
+        "error",
+        { devDependencies: FILES_TEST },
+      ],
+    },
+  });
+};
+
+/**
+ * Creates ignore patterns configuration
+ * @param {string[]} ignores Additional patterns to ignore
+ * @returns {ReturnType<typeof eslintConfig.defineConfig>} ESLint configuration with ignore patterns
  */
 const ignoresConfig = (ignores = []) =>
-  tseslint.config({
+  eslintConfig.defineConfig({
     ignores: ["**/.yalc", "**/dist", ...ignores],
   });
 
@@ -226,22 +266,34 @@ const ignoresConfig = (ignores = []) =>
  * @param {string[]} [options.ignores] - List of patterns to ignore
  * @param {boolean} [options.typescript] - Whether to include typescript rules
  * @param {EcmaVersion} [options.ecmaVersion] - The ECMAScript version to use
+ * @param {"jest" | "vitest"} [options.testFramework] - Test framework to use (defaults to "jest")
  */
 module.exports = function config(options = {}) {
   const useTypescript =
     options.typescript === undefined ? true : options.typescript;
+  const testFramework = options.testFramework || "jest";
 
-  return tseslint.config(
+  if (testFramework !== "jest" && testFramework !== "vitest") {
+    throw new Error(
+      `Invalid testFramework option: "${testFramework}". Valid values are "jest" or "vitest".`,
+    );
+  }
+
+  const defaultAllowModules =
+    testFramework === "vitest" ? ["nock"] : ["@jest/globals", "nock"];
+  const allowModules = options.allowModules || defaultAllowModules;
+
+  return eslintConfig.defineConfig(
     javascriptConfig(options.ecmaVersion),
     importConfig(),
-    nPluginConfig(options.allowModules),
+    nPluginConfig(allowModules),
     perfectionistPlugin.configs["recommended-alphabetical"],
     sonarJsConfig(),
     unicornPlugin.configs["flat/recommended"],
     prettierPluginRecommended,
     jsonPlugin.configs["recommended"],
     useTypescript ? typescriptConfig() : {},
-    testConfig({ typescript: useTypescript }),
+    testConfig({ testFramework, typescript: useTypescript }),
     ignoresConfig(options.ignores),
   );
 };
