@@ -11,6 +11,7 @@ const perfectionistPlugin = require("eslint-plugin-perfectionist");
 const prettierPluginRecommended = require("eslint-plugin-prettier/recommended");
 const sonarjsPlugin = require("eslint-plugin-sonarjs");
 const unicornPlugin = require("eslint-plugin-unicorn");
+const vitestPlugin = require("@vitest/eslint-plugin");
 const tseslint = require("typescript-eslint");
 
 const FILES_JS = "**/*.?([cm])js";
@@ -183,10 +184,9 @@ const typescriptConfig = () =>
  * @param {object} options Configuration options
  * @param {boolean} options.typescript Whether to include typescript rules
  */
-const testConfig = (options) => {
+const jestTestConfig = (options) => {
   const typescriptRules = options.typescript
     ? /** @type {const} */ ({
-        // this turns the original rule off *only* for test files, for jestPlugin compatibility
         "@typescript-eslint/unbound-method": "off",
         "jest/unbound-method": "error",
       })
@@ -212,6 +212,42 @@ const testConfig = (options) => {
 };
 
 /**
+ *
+ * @param {object} options Configuration options
+ * @param {boolean} options.typescript Whether to include typescript rules
+ */
+const vitestTestConfig = (options) => {
+  return tseslint.config({
+    extends: [vitestPlugin.configs.recommended],
+    files: FILES_TEST,
+    languageOptions: {
+      globals: vitestPlugin.environments.env.globals,
+      ...(options.typescript ? typescriptLanguageOptions() : {}),
+    },
+    plugins: { vitest: vitestPlugin },
+    rules: {
+      "import/no-extraneous-dependencies": [
+        "error",
+        { devDependencies: FILES_TEST },
+      ],
+    },
+  });
+};
+
+/**
+ *
+ * @param {object} options Configuration options
+ * @param {boolean} options.typescript Whether to include typescript rules
+ * @param {"jest" | "vitest"} options.testFramework Test framework to use
+ */
+const testConfig = (options) => {
+  if (options.testFramework === "vitest") {
+    return vitestTestConfig(options);
+  }
+  return jestTestConfig(options);
+};
+
+/**
  * @param {string[]} ignores
  */
 const ignoresConfig = (ignores = []) =>
@@ -226,22 +262,34 @@ const ignoresConfig = (ignores = []) =>
  * @param {string[]} [options.ignores] - List of patterns to ignore
  * @param {boolean} [options.typescript] - Whether to include typescript rules
  * @param {EcmaVersion} [options.ecmaVersion] - The ECMAScript version to use
+ * @param {"jest" | "vitest"} [options.testFramework] - Test framework to use (defaults to "jest")
  */
 module.exports = function config(options = {}) {
   const useTypescript =
     options.typescript === undefined ? true : options.typescript;
+  const testFramework = options.testFramework || "jest";
+
+  if (testFramework !== "jest" && testFramework !== "vitest") {
+    throw new Error(
+      `Invalid testFramework option: "${testFramework}". Valid values are "jest" or "vitest".`,
+    );
+  }
+
+  const defaultAllowModules =
+    testFramework === "vitest" ? ["nock"] : ["@jest/globals", "nock"];
+  const allowModules = options.allowModules || defaultAllowModules;
 
   return tseslint.config(
     javascriptConfig(options.ecmaVersion),
     importConfig(),
-    nPluginConfig(options.allowModules),
+    nPluginConfig(allowModules),
     perfectionistPlugin.configs["recommended-alphabetical"],
     sonarJsConfig(),
     unicornPlugin.configs["flat/recommended"],
     prettierPluginRecommended,
     jsonPlugin.configs["recommended"],
     useTypescript ? typescriptConfig() : {},
-    testConfig({ typescript: useTypescript }),
+    testConfig({ testFramework, typescript: useTypescript }),
     ignoresConfig(options.ignores),
   );
 };
