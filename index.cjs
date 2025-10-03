@@ -12,6 +12,7 @@ const perfectionistPlugin = require("eslint-plugin-perfectionist");
 const prettierPluginRecommended = require("eslint-plugin-prettier/recommended");
 const sonarjsPlugin = require("eslint-plugin-sonarjs");
 const unicornPlugin = require("eslint-plugin-unicorn");
+const eslintConfig = require("eslint/config");
 const tseslint = require("typescript-eslint");
 
 const FILES_JS = "**/*.?([cm])js";
@@ -40,7 +41,7 @@ const typescriptLanguageOptions = () => ({
  * @param {EcmaVersion} [ecmaVersion]
  */
 const javascriptConfig = (ecmaVersion = "latest") =>
-  tseslint.config(eslint.configs.recommended, {
+  eslintConfig.defineConfig(eslint.configs.recommended, {
     files: [FILES_JS],
     languageOptions: {
       parserOptions: {
@@ -60,7 +61,7 @@ const getImportPluginFlatConfigs = () => {
 };
 
 const importConfig = () =>
-  tseslint.config({
+  eslintConfig.defineConfig({
     extends: [getImportPluginFlatConfigs().recommended],
     rules: {
       "import/default": "off",
@@ -83,7 +84,7 @@ const importConfig = () =>
   });
 
 const nPluginConfig = (allowModules = ["@jest/globals", "nock"]) =>
-  tseslint.config({
+  eslintConfig.defineConfig({
     extends: [
       nPlugin.configs["flat/recommended"],
       nPlugin.configs["flat/mixed-esm-and-cjs"],
@@ -101,7 +102,7 @@ const nPluginConfig = (allowModules = ["@jest/globals", "nock"]) =>
   });
 
 const sonarJsConfig = () =>
-  tseslint.config({
+  eslintConfig.defineConfig({
     extends: [sonarjsPlugin.configs.recommended],
     rules: {
       // Noisy rule - we may have helpers/methods that we mark as @deprecated but aren't planning to remove in the near future. This rule also significantly adds to eslint running time, which slows down both local development and CI.
@@ -128,7 +129,7 @@ const sonarJsConfig = () =>
   });
 
 const typescriptConfig = () =>
-  tseslint.config({
+  eslintConfig.defineConfig({
     extends: [
       tseslint.configs.recommendedTypeChecked,
       // @ts-expect-error -- We are inferring the types of this import from runtime, but the rule values are inferred as `string` instead of `RuleEntry` ("off" | "warn" | "error")
@@ -191,7 +192,7 @@ const jestTestConfig = (options) => {
         "jest/unbound-method": "error",
       })
     : {};
-  return tseslint.config({
+  return eslintConfig.defineConfig({
     extends: [jestPlugin.configs["flat/recommended"]],
     files: FILES_TEST,
     languageOptions: {
@@ -213,7 +214,7 @@ const jestTestConfig = (options) => {
  * @param {boolean} options.typescript Whether to include typescript rules
  */
 const vitestTestConfig = (options) => {
-  return tseslint.config({
+  return eslintConfig.defineConfig({
     extends: [vitestPlugin.configs.recommended],
     files: FILES_TEST,
     languageOptions: {
@@ -251,7 +252,7 @@ const testConfig = (options) => {
  * @param {string[]} ignores
  */
 const ignoresConfig = (ignores = []) =>
-  tseslint.config({
+  eslintConfig.defineConfig({
     ignores: ["**/.yalc", "**/dist", ...ignores],
   });
 
@@ -279,7 +280,7 @@ module.exports = function config(options = {}) {
     testFramework === "vitest" ? ["nock"] : ["@jest/globals", "nock"];
   const allowModules = options.allowModules || defaultAllowModules;
 
-  return tseslint.config(
+  return eslintConfig.defineConfig(
     javascriptConfig(options.ecmaVersion),
     importConfig(),
     nPluginConfig(allowModules),
