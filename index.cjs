@@ -202,17 +202,13 @@ const jestTestConfig = (options) => {
     rules: {
       ...jestPlugin.configs["flat/recommended"].rules,
       ...typescriptRules,
-      "import/no-extraneous-dependencies": [
-        "error",
-        { devDependencies: FILES_TEST },
-      ],
       "jest/no-jest-import": "off",
     },
   });
 };
 
 /**
- *
+ * Creates Vitest-specific test configuration
  * @param {object} options Configuration options
  * @param {boolean} options.typescript Whether to include typescript rules
  */
@@ -225,12 +221,6 @@ const vitestTestConfig = (options) => {
       ...(options.typescript ? typescriptLanguageOptions() : {}),
     },
     plugins: { vitest: vitestPlugin },
-    rules: {
-      "import/no-extraneous-dependencies": [
-        "error",
-        { devDependencies: FILES_TEST },
-      ],
-    },
   });
 };
 
@@ -241,10 +231,20 @@ const vitestTestConfig = (options) => {
  * @param {"jest" | "vitest"} options.testFramework Test framework to use
  */
 const testConfig = (options) => {
-  if (options.testFramework === "vitest") {
-    return vitestTestConfig(options);
-  }
-  return jestTestConfig(options);
+  const frameworkConfig =
+    options.testFramework === "vitest"
+      ? vitestTestConfig(options)
+      : jestTestConfig(options);
+
+  return eslintConfig.defineConfig(...frameworkConfig, {
+    files: FILES_TEST,
+    rules: {
+      "import/no-extraneous-dependencies": [
+        "error",
+        { devDependencies: FILES_TEST },
+      ],
+    },
+  });
 };
 
 /**
