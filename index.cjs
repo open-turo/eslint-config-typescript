@@ -188,6 +188,7 @@ const typescriptConfig = () =>
 const jestTestConfig = (options) => {
   const typescriptRules = options.typescript
     ? /** @type {const} */ ({
+        // this turns the original rule off *only* for test files, for jestPlugin compatibility
         "@typescript-eslint/unbound-method": "off",
         "jest/unbound-method": "error",
       })
