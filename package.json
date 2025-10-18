@@ -3,10 +3,10 @@
   "description": "Turo eslint configuration for typescript",
   "type": "module",
   "dependencies": {
-    "@eslint/js": "9.37.0",
+    "@eslint/js": "9.38.0",
     "@typescript-eslint/eslint-plugin": "8.46.1",
     "@typescript-eslint/parser": "8.46.1",
-    "@vitest/eslint-plugin": "1.3.18",
+    "@vitest/eslint-plugin": "1.3.23",
     "eslint-config-prettier": "10.1.8",
     "eslint-import-resolver-typescript": "4.4.4",
     "eslint-plugin-import": "2.32.0",
@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@prettier/plugin-oxc": "0.0.4",
-    "eslint": "9.37.0",
+    "eslint": "9.38.0",
     "jest": "30.2.0",
     "prettier": "3.6.2"
   },
