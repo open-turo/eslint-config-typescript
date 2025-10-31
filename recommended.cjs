@@ -110,6 +110,10 @@ module.exports = {
     "sonarjs/deprecation": "off",
     // This rule is not helpful in TypeScript files, and in JavaScript we often return different types from functions, so this is not a strictness level we want to enforce.
     "sonarjs/function-return-type": "off",
+    // Performance issues with this rule, and TypeScript already catches the primary case (async constructors are a compile error)
+    "sonarjs/no-async-constructor": "off",
+    // Performance issues, inconsistent behavior, and primarily catches edge cases rather than common issues
+    "sonarjs/no-dead-store": "off",
     // We may want to catch errors but not use the error object directly, just trigger error handling fallbacks within the catch block.
     "sonarjs/no-ignored-exceptions": "off",
     "sonarjs/no-nested-functions": ["warn", { threshold: 5 }],
