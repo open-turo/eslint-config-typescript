@@ -1,4 +1,7 @@
+/** @import { ParserOptions } from "@typescript-eslint/parser"; */
 import { loadESLint } from "eslint";
+
+import recommendedConfig from "../recommended.cjs";
 
 describe("validate config", () => {
   const testFileName = "test.js";
@@ -13,11 +16,23 @@ describe("validate config", () => {
     const ESLint = await loadESLint({
       useFlatConfig: false,
     });
+    const modifiedRecommendedConfig = {
+      ...recommendedConfig,
+      parserOptions: {
+        ...recommendedConfig.parserOptions,
+        /**
+         * @typescript-eslint/parser@8.46.4 errors if `projectService` and `project` are both defined.
+         * `@typescript-eslint` recommends `projectService` over `project`, and we use `projectService` in the non-legacy config,
+         * but not the legacy `recommended` config. Because thi spec uses `projectService`, we explicitly omit `project` here to avoid the error.
+         */
+        project: undefined,
+      },
+    };
     const linter = new ESLint({
+      baseConfig: modifiedRecommendedConfig,
       overrideConfig: {
         parserOptions,
       },
-      overrideConfigFile: "./recommended.cjs",
     });
     const messages = await linter.lintText(code, {
       filePath: testFileName,
