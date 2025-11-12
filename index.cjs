@@ -1,6 +1,7 @@
 // @ts-check
 
 /** @import { ConfigWithExtends } from "typescript-eslint" */
+/** @import { ParserOptions } from "@typescript-eslint/parser"; */
 const eslint = require("@eslint/js");
 const tsParser = require("@typescript-eslint/parser");
 const vitestPlugin = require("@vitest/eslint-plugin");
@@ -27,6 +28,7 @@ const FILES_TEST = [
 
 const typescriptLanguageOptions = () => ({
   parser: tsParser,
+  /** @type {ParserOptions} */
   parserOptions: {
     projectService: true,
     tsconfigRootDir: process.cwd(),
@@ -44,6 +46,7 @@ const javascriptConfig = (ecmaVersion = "latest") =>
   eslintConfig.defineConfig(eslint.configs.recommended, {
     files: [FILES_JS],
     languageOptions: {
+      /** @type {ParserOptions} */
       parserOptions: {
         ecmaVersion,
       },
@@ -136,7 +139,6 @@ const typescriptConfig = () =>
   eslintConfig.defineConfig({
     extends: [
       tseslint.configs.recommendedTypeChecked,
-      // @ts-expect-error -- We are inferring the types of this import from runtime, but the rule values are inferred as `string` instead of `RuleEntry` ("off" | "warn" | "error")
       getImportPluginFlatConfigs().typescript,
     ],
     files: [FILES_TS, FILES_TSX],
