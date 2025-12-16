@@ -12957,6 +12957,9 @@ exports[`validate config the legacy recommended config is correct 1`] = `
   "@typescript-eslint/no-useless-constructor": [
     "error",
   ],
+  "@typescript-eslint/no-useless-default-assignment": [
+    "error",
+  ],
   "@typescript-eslint/no-wrapper-object-types": [
     "error",
   ],
