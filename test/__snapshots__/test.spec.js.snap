@@ -1702,9 +1702,6 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   "sonarjs/class-prototype": [
     0,
   ],
-  "sonarjs/code-eval": [
-    2,
-  ],
   "sonarjs/cognitive-complexity": [
     2,
     15,
@@ -1801,10 +1798,6 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "sonarjs/encryption-secure-mode": [
     2,
-  ],
-  "sonarjs/enforce-trailing-comma": [
-    0,
-    "always-multiline",
   ],
   "sonarjs/existing-groups": [
     2,
@@ -2214,6 +2207,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   "sonarjs/no-selector-parameter": [
     2,
   ],
+  "sonarjs/no-session-cookies-on-static-assets": [
+    2,
+  ],
   "sonarjs/no-skipped-tests": [
     2,
   ],
@@ -2411,9 +2407,6 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "sonarjs/strings-comparison": [
     0,
-  ],
-  "sonarjs/super-invocation": [
-    2,
   ],
   "sonarjs/table-header": [
     2,
@@ -4761,9 +4754,6 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "sonarjs/class-prototype": [
     0,
   ],
-  "sonarjs/code-eval": [
-    2,
-  ],
   "sonarjs/cognitive-complexity": [
     2,
     15,
@@ -4860,10 +4850,6 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/encryption-secure-mode": [
     2,
-  ],
-  "sonarjs/enforce-trailing-comma": [
-    0,
-    "always-multiline",
   ],
   "sonarjs/existing-groups": [
     2,
@@ -5273,6 +5259,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "sonarjs/no-selector-parameter": [
     2,
   ],
+  "sonarjs/no-session-cookies-on-static-assets": [
+    2,
+  ],
   "sonarjs/no-skipped-tests": [
     2,
   ],
@@ -5470,9 +5459,6 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/strings-comparison": [
     0,
-  ],
-  "sonarjs/super-invocation": [
-    2,
   ],
   "sonarjs/table-header": [
     2,
@@ -7820,9 +7806,6 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
   "sonarjs/class-prototype": [
     0,
   ],
-  "sonarjs/code-eval": [
-    2,
-  ],
   "sonarjs/cognitive-complexity": [
     2,
     15,
@@ -7919,10 +7902,6 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
   ],
   "sonarjs/encryption-secure-mode": [
     2,
-  ],
-  "sonarjs/enforce-trailing-comma": [
-    0,
-    "always-multiline",
   ],
   "sonarjs/existing-groups": [
     2,
@@ -8332,6 +8311,9 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
   "sonarjs/no-selector-parameter": [
     2,
   ],
+  "sonarjs/no-session-cookies-on-static-assets": [
+    2,
+  ],
   "sonarjs/no-skipped-tests": [
     2,
   ],
@@ -8529,9 +8511,6 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
   ],
   "sonarjs/strings-comparison": [
     0,
-  ],
-  "sonarjs/super-invocation": [
-    2,
   ],
   "sonarjs/table-header": [
     2,
@@ -10879,9 +10858,6 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "sonarjs/class-prototype": [
     0,
   ],
-  "sonarjs/code-eval": [
-    2,
-  ],
   "sonarjs/cognitive-complexity": [
     2,
     15,
@@ -10978,10 +10954,6 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   ],
   "sonarjs/encryption-secure-mode": [
     2,
-  ],
-  "sonarjs/enforce-trailing-comma": [
-    0,
-    "always-multiline",
   ],
   "sonarjs/existing-groups": [
     2,
@@ -11391,6 +11363,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "sonarjs/no-selector-parameter": [
     2,
   ],
+  "sonarjs/no-session-cookies-on-static-assets": [
+    2,
+  ],
   "sonarjs/no-skipped-tests": [
     2,
   ],
@@ -11588,9 +11563,6 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   ],
   "sonarjs/strings-comparison": [
     0,
-  ],
-  "sonarjs/super-invocation": [
-    2,
   ],
   "sonarjs/table-header": [
     2,
@@ -14001,9 +13973,6 @@ exports[`validate config the legacy recommended config is correct 1`] = `
   "sonarjs/class-prototype": [
     "off",
   ],
-  "sonarjs/code-eval": [
-    "error",
-  ],
   "sonarjs/cognitive-complexity": [
     "error",
   ],
@@ -14087,9 +14056,6 @@ exports[`validate config the legacy recommended config is correct 1`] = `
   ],
   "sonarjs/encryption-secure-mode": [
     "error",
-  ],
-  "sonarjs/enforce-trailing-comma": [
-    "off",
   ],
   "sonarjs/existing-groups": [
     "error",
@@ -14448,6 +14414,9 @@ exports[`validate config the legacy recommended config is correct 1`] = `
   "sonarjs/no-selector-parameter": [
     "error",
   ],
+  "sonarjs/no-session-cookies-on-static-assets": [
+    "error",
+  ],
   "sonarjs/no-skipped-tests": [
     "error",
   ],
@@ -14642,9 +14611,6 @@ exports[`validate config the legacy recommended config is correct 1`] = `
   ],
   "sonarjs/strings-comparison": [
     "off",
-  ],
-  "sonarjs/super-invocation": [
-    "error",
   ],
   "sonarjs/table-header": [
     "error",
