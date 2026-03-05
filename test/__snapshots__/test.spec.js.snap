@@ -1506,8 +1506,84 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   "perfectionist/sort-classes": [
     2,
     {
-      "order": "asc",
-      "type": "alphabetical",
+      "groups": [
+        "index-signature",
+        [
+          "static-property",
+          "static-accessor-property",
+        ],
+        [
+          "static-get-method",
+          "static-set-method",
+        ],
+        [
+          "protected-static-property",
+          "protected-static-accessor-property",
+        ],
+        [
+          "protected-static-get-method",
+          "protected-static-set-method",
+        ],
+        [
+          "private-static-property",
+          "private-static-accessor-property",
+        ],
+        [
+          "private-static-get-method",
+          "private-static-set-method",
+        ],
+        "static-block",
+        [
+          "property",
+          "accessor-property",
+        ],
+        [
+          "protected-property",
+          "protected-accessor-property",
+        ],
+        [
+          "private-property",
+          "private-accessor-property",
+        ],
+        "constructor",
+        [
+          "get-method",
+          "set-method",
+        ],
+        [
+          "protected-get-method",
+          "protected-set-method",
+        ],
+        [
+          "private-get-method",
+          "private-set-method",
+        ],
+        [
+          "static-method",
+          "static-function-property",
+        ],
+        [
+          "protected-static-method",
+          "protected-static-function-property",
+        ],
+        [
+          "private-static-method",
+          "private-static-function-property",
+        ],
+        [
+          "method",
+          "function-property",
+        ],
+        [
+          "protected-method",
+          "protected-function-property",
+        ],
+        [
+          "private-method",
+          "private-function-property",
+        ],
+        "unknown",
+      ],
     },
   ],
   "perfectionist/sort-decorators": [
@@ -1618,15 +1694,13 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   "perfectionist/sort-switch-case": [
     2,
     {
-      "order": "asc",
-      "type": "alphabetical",
+      "type": "natural",
     },
   ],
   "perfectionist/sort-union-types": [
     2,
     {
-      "order": "asc",
-      "type": "alphabetical",
+      "type": "natural",
     },
   ],
   "perfectionist/sort-variable-declarations": [
@@ -4705,8 +4779,84 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "perfectionist/sort-classes": [
     2,
     {
-      "order": "asc",
-      "type": "alphabetical",
+      "groups": [
+        "index-signature",
+        [
+          "static-property",
+          "static-accessor-property",
+        ],
+        [
+          "static-get-method",
+          "static-set-method",
+        ],
+        [
+          "protected-static-property",
+          "protected-static-accessor-property",
+        ],
+        [
+          "protected-static-get-method",
+          "protected-static-set-method",
+        ],
+        [
+          "private-static-property",
+          "private-static-accessor-property",
+        ],
+        [
+          "private-static-get-method",
+          "private-static-set-method",
+        ],
+        "static-block",
+        [
+          "property",
+          "accessor-property",
+        ],
+        [
+          "protected-property",
+          "protected-accessor-property",
+        ],
+        [
+          "private-property",
+          "private-accessor-property",
+        ],
+        "constructor",
+        [
+          "get-method",
+          "set-method",
+        ],
+        [
+          "protected-get-method",
+          "protected-set-method",
+        ],
+        [
+          "private-get-method",
+          "private-set-method",
+        ],
+        [
+          "static-method",
+          "static-function-property",
+        ],
+        [
+          "protected-static-method",
+          "protected-static-function-property",
+        ],
+        [
+          "private-static-method",
+          "private-static-function-property",
+        ],
+        [
+          "method",
+          "function-property",
+        ],
+        [
+          "protected-method",
+          "protected-function-property",
+        ],
+        [
+          "private-method",
+          "private-function-property",
+        ],
+        "unknown",
+      ],
     },
   ],
   "perfectionist/sort-decorators": [
@@ -4817,15 +4967,13 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "perfectionist/sort-switch-case": [
     2,
     {
-      "order": "asc",
-      "type": "alphabetical",
+      "type": "natural",
     },
   ],
   "perfectionist/sort-union-types": [
     2,
     {
-      "order": "asc",
-      "type": "alphabetical",
+      "type": "natural",
     },
   ],
   "perfectionist/sort-variable-declarations": [
@@ -7901,8 +8049,84 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
   "perfectionist/sort-classes": [
     2,
     {
-      "order": "asc",
-      "type": "alphabetical",
+      "groups": [
+        "index-signature",
+        [
+          "static-property",
+          "static-accessor-property",
+        ],
+        [
+          "static-get-method",
+          "static-set-method",
+        ],
+        [
+          "protected-static-property",
+          "protected-static-accessor-property",
+        ],
+        [
+          "protected-static-get-method",
+          "protected-static-set-method",
+        ],
+        [
+          "private-static-property",
+          "private-static-accessor-property",
+        ],
+        [
+          "private-static-get-method",
+          "private-static-set-method",
+        ],
+        "static-block",
+        [
+          "property",
+          "accessor-property",
+        ],
+        [
+          "protected-property",
+          "protected-accessor-property",
+        ],
+        [
+          "private-property",
+          "private-accessor-property",
+        ],
+        "constructor",
+        [
+          "get-method",
+          "set-method",
+        ],
+        [
+          "protected-get-method",
+          "protected-set-method",
+        ],
+        [
+          "private-get-method",
+          "private-set-method",
+        ],
+        [
+          "static-method",
+          "static-function-property",
+        ],
+        [
+          "protected-static-method",
+          "protected-static-function-property",
+        ],
+        [
+          "private-static-method",
+          "private-static-function-property",
+        ],
+        [
+          "method",
+          "function-property",
+        ],
+        [
+          "protected-method",
+          "protected-function-property",
+        ],
+        [
+          "private-method",
+          "private-function-property",
+        ],
+        "unknown",
+      ],
     },
   ],
   "perfectionist/sort-decorators": [
@@ -8013,15 +8237,13 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
   "perfectionist/sort-switch-case": [
     2,
     {
-      "order": "asc",
-      "type": "alphabetical",
+      "type": "natural",
     },
   ],
   "perfectionist/sort-union-types": [
     2,
     {
-      "order": "asc",
-      "type": "alphabetical",
+      "type": "natural",
     },
   ],
   "perfectionist/sort-variable-declarations": [
@@ -11178,8 +11400,84 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "perfectionist/sort-classes": [
     2,
     {
-      "order": "asc",
-      "type": "alphabetical",
+      "groups": [
+        "index-signature",
+        [
+          "static-property",
+          "static-accessor-property",
+        ],
+        [
+          "static-get-method",
+          "static-set-method",
+        ],
+        [
+          "protected-static-property",
+          "protected-static-accessor-property",
+        ],
+        [
+          "protected-static-get-method",
+          "protected-static-set-method",
+        ],
+        [
+          "private-static-property",
+          "private-static-accessor-property",
+        ],
+        [
+          "private-static-get-method",
+          "private-static-set-method",
+        ],
+        "static-block",
+        [
+          "property",
+          "accessor-property",
+        ],
+        [
+          "protected-property",
+          "protected-accessor-property",
+        ],
+        [
+          "private-property",
+          "private-accessor-property",
+        ],
+        "constructor",
+        [
+          "get-method",
+          "set-method",
+        ],
+        [
+          "protected-get-method",
+          "protected-set-method",
+        ],
+        [
+          "private-get-method",
+          "private-set-method",
+        ],
+        [
+          "static-method",
+          "static-function-property",
+        ],
+        [
+          "protected-static-method",
+          "protected-static-function-property",
+        ],
+        [
+          "private-static-method",
+          "private-static-function-property",
+        ],
+        [
+          "method",
+          "function-property",
+        ],
+        [
+          "protected-method",
+          "protected-function-property",
+        ],
+        [
+          "private-method",
+          "private-function-property",
+        ],
+        "unknown",
+      ],
     },
   ],
   "perfectionist/sort-decorators": [
@@ -11290,15 +11588,13 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "perfectionist/sort-switch-case": [
     2,
     {
-      "order": "asc",
-      "type": "alphabetical",
+      "type": "natural",
     },
   ],
   "perfectionist/sort-union-types": [
     2,
     {
-      "order": "asc",
-      "type": "alphabetical",
+      "type": "natural",
     },
   ],
   "perfectionist/sort-variable-declarations": [
@@ -14392,8 +14688,84 @@ exports[`validate config the legacy recommended config is correct 1`] = `
   "perfectionist/sort-classes": [
     "error",
     {
-      "order": "asc",
-      "type": "alphabetical",
+      "groups": [
+        "index-signature",
+        [
+          "static-property",
+          "static-accessor-property",
+        ],
+        [
+          "static-get-method",
+          "static-set-method",
+        ],
+        [
+          "protected-static-property",
+          "protected-static-accessor-property",
+        ],
+        [
+          "protected-static-get-method",
+          "protected-static-set-method",
+        ],
+        [
+          "private-static-property",
+          "private-static-accessor-property",
+        ],
+        [
+          "private-static-get-method",
+          "private-static-set-method",
+        ],
+        "static-block",
+        [
+          "property",
+          "accessor-property",
+        ],
+        [
+          "protected-property",
+          "protected-accessor-property",
+        ],
+        [
+          "private-property",
+          "private-accessor-property",
+        ],
+        "constructor",
+        [
+          "get-method",
+          "set-method",
+        ],
+        [
+          "protected-get-method",
+          "protected-set-method",
+        ],
+        [
+          "private-get-method",
+          "private-set-method",
+        ],
+        [
+          "static-method",
+          "static-function-property",
+        ],
+        [
+          "protected-static-method",
+          "protected-static-function-property",
+        ],
+        [
+          "private-static-method",
+          "private-static-function-property",
+        ],
+        [
+          "method",
+          "function-property",
+        ],
+        [
+          "protected-method",
+          "protected-function-property",
+        ],
+        [
+          "private-method",
+          "private-function-property",
+        ],
+        "unknown",
+      ],
     },
   ],
   "perfectionist/sort-decorators": [
@@ -14504,15 +14876,13 @@ exports[`validate config the legacy recommended config is correct 1`] = `
   "perfectionist/sort-switch-case": [
     "error",
     {
-      "order": "asc",
-      "type": "alphabetical",
+      "type": "natural",
     },
   ],
   "perfectionist/sort-union-types": [
     "error",
     {
-      "order": "asc",
-      "type": "alphabetical",
+      "type": "natural",
     },
   ],
   "perfectionist/sort-variable-declarations": [
