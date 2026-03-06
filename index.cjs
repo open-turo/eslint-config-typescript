@@ -295,6 +295,47 @@ module.exports = function config(options = {}) {
     importConfig(),
     nPluginConfig(allowModules),
     perfectionistPlugin.configs["recommended-alphabetical"],
+    {
+      rules: {
+        // Sort classes by natural order to match @typescript-eslint/member-ordering rule - https://perfectionist.dev/rules/sort-classes#groups
+        "perfectionist/sort-classes": [
+          "error",
+          {
+            groups: [
+              "index-signature",
+              ["static-property", "static-accessor-property"],
+              ["static-get-method", "static-set-method"],
+              [
+                "protected-static-property",
+                "protected-static-accessor-property",
+              ],
+              ["protected-static-get-method", "protected-static-set-method"],
+              ["private-static-property", "private-static-accessor-property"],
+              ["private-static-get-method", "private-static-set-method"],
+              "static-block",
+              ["property", "accessor-property"],
+              ["protected-property", "protected-accessor-property"],
+              ["private-property", "private-accessor-property"],
+              "constructor",
+              ["get-method", "set-method"],
+              ["protected-get-method", "protected-set-method"],
+              ["private-get-method", "private-set-method"],
+              ["static-method", "static-function-property"],
+              ["protected-static-method", "protected-static-function-property"],
+              ["private-static-method", "private-static-function-property"],
+              ["method", "function-property"],
+              ["protected-method", "protected-function-property"],
+              ["private-method", "private-function-property"],
+              "unknown",
+            ],
+          },
+        ],
+        // Sort switch case by natural order - https://perfectionist.dev/rules/sort-switch-case.html#options
+        "perfectionist/sort-switch-case": ["error", { type: "natural" }],
+        // Sort union types by natural order - https://perfectionist.dev/rules/sort-union-types.html#options
+        "perfectionist/sort-union-types": ["error", { type: "natural" }],
+      },
+    },
     sonarJsConfig(),
     unicornPlugin.configs["flat/recommended"],
     prettierPluginRecommended,
