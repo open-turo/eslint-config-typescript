@@ -3,6 +3,8 @@ import { loadESLint } from "eslint";
 
 import recommendedConfig from "../recommended.cjs";
 
+const TEST_FILE_PATH = "./test/sample.test.ts";
+
 describe("validate config", () => {
   const testFileName = "test.js";
   const code = `const foo = 1;\nconsole.log(foo);\n`;
@@ -40,7 +42,7 @@ describe("validate config", () => {
     expect(messages[0].messages).toEqual([]);
     expect(messages[0].errorCount).toEqual(0);
     const calculatedConfig =
-      await linter.calculateConfigForFile("./test/sample.ts");
+      await linter.calculateConfigForFile(TEST_FILE_PATH);
     expect(calculatedConfig.rules).toMatchSnapshot();
   });
 
@@ -68,7 +70,7 @@ describe("validate config", () => {
       expect(messages[0].messages).toEqual([]);
       expect(messages[0].errorCount).toEqual(0);
       const calculatedConfig =
-        await linter.calculateConfigForFile("./test/sample.ts");
+        await linter.calculateConfigForFile(TEST_FILE_PATH);
       expect(calculatedConfig.rules).toMatchSnapshot();
     },
   );
@@ -97,7 +99,7 @@ describe("validate config", () => {
       expect(messages[0].messages).toEqual([]);
       expect(messages[0].errorCount).toEqual(0);
       const calculatedConfig =
-        await linter.calculateConfigForFile("./test/sample.ts");
+        await linter.calculateConfigForFile(TEST_FILE_PATH);
       expect(calculatedConfig.rules).toMatchSnapshot();
     },
   );
