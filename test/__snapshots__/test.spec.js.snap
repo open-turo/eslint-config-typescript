@@ -553,6 +553,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "@typescript-eslint/ban-ts-comment": [
     2,
+    {
+      "minimumDescriptionLength": 10,
+    },
   ],
   "@typescript-eslint/block-spacing": [
     0,
@@ -619,6 +622,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   "@typescript-eslint/no-duplicate-type-constituents": [
     2,
   ],
+  "@typescript-eslint/no-dynamic-delete": [
+    2,
+  ],
   "@typescript-eslint/no-empty-object-type": [
     2,
   ],
@@ -634,6 +640,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   "@typescript-eslint/no-extra-semi": [
     0,
   ],
+  "@typescript-eslint/no-extraneous-class": [
+    2,
+  ],
   "@typescript-eslint/no-floating-promises": [
     2,
   ],
@@ -646,16 +655,34 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   "@typescript-eslint/no-import-type-side-effects": [
     2,
   ],
+  "@typescript-eslint/no-invalid-void-type": [
+    2,
+  ],
+  "@typescript-eslint/no-meaningless-void-operator": [
+    2,
+  ],
   "@typescript-eslint/no-misused-new": [
     2,
   ],
   "@typescript-eslint/no-misused-promises": [
     2,
   ],
+  "@typescript-eslint/no-misused-spread": [
+    2,
+  ],
+  "@typescript-eslint/no-mixed-enums": [
+    2,
+  ],
   "@typescript-eslint/no-namespace": [
     2,
   ],
+  "@typescript-eslint/no-non-null-asserted-nullish-coalescing": [
+    2,
+  ],
   "@typescript-eslint/no-non-null-asserted-optional-chain": [
+    2,
+  ],
+  "@typescript-eslint/no-non-null-assertion": [
     2,
   ],
   "@typescript-eslint/no-redundant-type-constituents": [
@@ -673,6 +700,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   "@typescript-eslint/no-unnecessary-condition": [
     0,
   ],
+  "@typescript-eslint/no-unnecessary-template-expression": [
+    2,
+  ],
   "@typescript-eslint/no-unnecessary-type-arguments": [
     0,
   ],
@@ -680,6 +710,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
     2,
   ],
   "@typescript-eslint/no-unnecessary-type-constraint": [
+    2,
+  ],
+  "@typescript-eslint/no-unnecessary-type-conversion": [
     2,
   ],
   "@typescript-eslint/no-unnecessary-type-parameters": [
@@ -726,6 +759,12 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
       "argsIgnorePattern": "^_",
     },
   ],
+  "@typescript-eslint/no-useless-constructor": [
+    2,
+  ],
+  "@typescript-eslint/no-useless-default-assignment": [
+    2,
+  ],
   "@typescript-eslint/no-wrapper-object-types": [
     2,
   ],
@@ -738,10 +777,19 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   "@typescript-eslint/prefer-as-const": [
     2,
   ],
+  "@typescript-eslint/prefer-literal-enum-member": [
+    2,
+  ],
   "@typescript-eslint/prefer-namespace-keyword": [
     2,
   ],
   "@typescript-eslint/prefer-promise-reject-errors": [
+    2,
+  ],
+  "@typescript-eslint/prefer-reduce-type-parameter": [
+    2,
+  ],
+  "@typescript-eslint/prefer-return-this-type": [
     2,
   ],
   "@typescript-eslint/prefer-ts-expect-error": [
@@ -750,14 +798,36 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   "@typescript-eslint/quotes": [
     0,
   ],
+  "@typescript-eslint/related-getter-setter-pairs": [
+    2,
+  ],
   "@typescript-eslint/require-await": [
     2,
   ],
   "@typescript-eslint/restrict-plus-operands": [
     2,
+    {
+      "allowAny": false,
+      "allowBoolean": false,
+      "allowNullish": false,
+      "allowNumberAndString": false,
+      "allowRegExp": false,
+    },
   ],
   "@typescript-eslint/restrict-template-expressions": [
     2,
+    {
+      "allowAny": false,
+      "allowBoolean": false,
+      "allowNever": false,
+      "allowNullish": false,
+      "allowNumber": false,
+      "allowRegExp": false,
+    },
+  ],
+  "@typescript-eslint/return-await": [
+    2,
+    "error-handling-correctness-only",
   ],
   "@typescript-eslint/semi": [
     0,
@@ -778,6 +848,12 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
     0,
   ],
   "@typescript-eslint/unbound-method": [
+    2,
+  ],
+  "@typescript-eslint/unified-signatures": [
+    2,
+  ],
+  "@typescript-eslint/use-unknown-in-catch-callback-variable": [
     2,
   ],
   "array-bracket-newline": [
@@ -1222,6 +1298,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   "no-reserved-keys": [
     0,
   ],
+  "no-return-await": [
+    0,
+  ],
   "no-self-assign": [
     2,
     {
@@ -1309,6 +1388,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "no-useless-catch": [
     2,
+  ],
+  "no-useless-constructor": [
+    0,
   ],
   "no-useless-escape": [
     2,
@@ -3605,6 +3687,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "@typescript-eslint/ban-ts-comment": [
     2,
+    {
+      "minimumDescriptionLength": 10,
+    },
   ],
   "@typescript-eslint/block-spacing": [
     0,
@@ -3671,6 +3756,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "@typescript-eslint/no-duplicate-type-constituents": [
     2,
   ],
+  "@typescript-eslint/no-dynamic-delete": [
+    2,
+  ],
   "@typescript-eslint/no-empty-object-type": [
     2,
   ],
@@ -3686,6 +3774,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "@typescript-eslint/no-extra-semi": [
     0,
   ],
+  "@typescript-eslint/no-extraneous-class": [
+    2,
+  ],
   "@typescript-eslint/no-floating-promises": [
     2,
   ],
@@ -3698,16 +3789,34 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "@typescript-eslint/no-import-type-side-effects": [
     2,
   ],
+  "@typescript-eslint/no-invalid-void-type": [
+    2,
+  ],
+  "@typescript-eslint/no-meaningless-void-operator": [
+    2,
+  ],
   "@typescript-eslint/no-misused-new": [
     2,
   ],
   "@typescript-eslint/no-misused-promises": [
     2,
   ],
+  "@typescript-eslint/no-misused-spread": [
+    2,
+  ],
+  "@typescript-eslint/no-mixed-enums": [
+    2,
+  ],
   "@typescript-eslint/no-namespace": [
     2,
   ],
+  "@typescript-eslint/no-non-null-asserted-nullish-coalescing": [
+    2,
+  ],
   "@typescript-eslint/no-non-null-asserted-optional-chain": [
+    2,
+  ],
+  "@typescript-eslint/no-non-null-assertion": [
     2,
   ],
   "@typescript-eslint/no-redundant-type-constituents": [
@@ -3725,6 +3834,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "@typescript-eslint/no-unnecessary-condition": [
     0,
   ],
+  "@typescript-eslint/no-unnecessary-template-expression": [
+    2,
+  ],
   "@typescript-eslint/no-unnecessary-type-arguments": [
     0,
   ],
@@ -3732,6 +3844,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     2,
   ],
   "@typescript-eslint/no-unnecessary-type-constraint": [
+    2,
+  ],
+  "@typescript-eslint/no-unnecessary-type-conversion": [
     2,
   ],
   "@typescript-eslint/no-unnecessary-type-parameters": [
@@ -3778,6 +3893,12 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
       "argsIgnorePattern": "^_",
     },
   ],
+  "@typescript-eslint/no-useless-constructor": [
+    2,
+  ],
+  "@typescript-eslint/no-useless-default-assignment": [
+    2,
+  ],
   "@typescript-eslint/no-wrapper-object-types": [
     2,
   ],
@@ -3790,10 +3911,19 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "@typescript-eslint/prefer-as-const": [
     2,
   ],
+  "@typescript-eslint/prefer-literal-enum-member": [
+    2,
+  ],
   "@typescript-eslint/prefer-namespace-keyword": [
     2,
   ],
   "@typescript-eslint/prefer-promise-reject-errors": [
+    2,
+  ],
+  "@typescript-eslint/prefer-reduce-type-parameter": [
+    2,
+  ],
+  "@typescript-eslint/prefer-return-this-type": [
     2,
   ],
   "@typescript-eslint/prefer-ts-expect-error": [
@@ -3802,14 +3932,36 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "@typescript-eslint/quotes": [
     0,
   ],
+  "@typescript-eslint/related-getter-setter-pairs": [
+    2,
+  ],
   "@typescript-eslint/require-await": [
     2,
   ],
   "@typescript-eslint/restrict-plus-operands": [
     2,
+    {
+      "allowAny": false,
+      "allowBoolean": false,
+      "allowNullish": false,
+      "allowNumberAndString": false,
+      "allowRegExp": false,
+    },
   ],
   "@typescript-eslint/restrict-template-expressions": [
     2,
+    {
+      "allowAny": false,
+      "allowBoolean": false,
+      "allowNever": false,
+      "allowNullish": false,
+      "allowNumber": false,
+      "allowRegExp": false,
+    },
+  ],
+  "@typescript-eslint/return-await": [
+    2,
+    "error-handling-correctness-only",
   ],
   "@typescript-eslint/semi": [
     0,
@@ -3830,6 +3982,12 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     0,
   ],
   "@typescript-eslint/unbound-method": [
+    2,
+  ],
+  "@typescript-eslint/unified-signatures": [
+    2,
+  ],
+  "@typescript-eslint/use-unknown-in-catch-callback-variable": [
     2,
   ],
   "array-bracket-newline": [
@@ -4274,6 +4432,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "no-reserved-keys": [
     0,
   ],
+  "no-return-await": [
+    0,
+  ],
   "no-self-assign": [
     2,
     {
@@ -4361,6 +4522,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "no-useless-catch": [
     2,
+  ],
+  "no-useless-constructor": [
+    0,
   ],
   "no-useless-escape": [
     2,
@@ -6657,6 +6821,9 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
   ],
   "@typescript-eslint/ban-ts-comment": [
     2,
+    {
+      "minimumDescriptionLength": 10,
+    },
   ],
   "@typescript-eslint/block-spacing": [
     0,
@@ -6723,6 +6890,9 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
   "@typescript-eslint/no-duplicate-type-constituents": [
     2,
   ],
+  "@typescript-eslint/no-dynamic-delete": [
+    2,
+  ],
   "@typescript-eslint/no-empty-object-type": [
     2,
   ],
@@ -6738,6 +6908,9 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
   "@typescript-eslint/no-extra-semi": [
     0,
   ],
+  "@typescript-eslint/no-extraneous-class": [
+    2,
+  ],
   "@typescript-eslint/no-floating-promises": [
     2,
   ],
@@ -6750,16 +6923,34 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
   "@typescript-eslint/no-import-type-side-effects": [
     2,
   ],
+  "@typescript-eslint/no-invalid-void-type": [
+    2,
+  ],
+  "@typescript-eslint/no-meaningless-void-operator": [
+    2,
+  ],
   "@typescript-eslint/no-misused-new": [
     2,
   ],
   "@typescript-eslint/no-misused-promises": [
     2,
   ],
+  "@typescript-eslint/no-misused-spread": [
+    2,
+  ],
+  "@typescript-eslint/no-mixed-enums": [
+    2,
+  ],
   "@typescript-eslint/no-namespace": [
     2,
   ],
+  "@typescript-eslint/no-non-null-asserted-nullish-coalescing": [
+    2,
+  ],
   "@typescript-eslint/no-non-null-asserted-optional-chain": [
+    2,
+  ],
+  "@typescript-eslint/no-non-null-assertion": [
     2,
   ],
   "@typescript-eslint/no-redundant-type-constituents": [
@@ -6777,6 +6968,9 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
   "@typescript-eslint/no-unnecessary-condition": [
     0,
   ],
+  "@typescript-eslint/no-unnecessary-template-expression": [
+    2,
+  ],
   "@typescript-eslint/no-unnecessary-type-arguments": [
     0,
   ],
@@ -6784,6 +6978,9 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
     2,
   ],
   "@typescript-eslint/no-unnecessary-type-constraint": [
+    2,
+  ],
+  "@typescript-eslint/no-unnecessary-type-conversion": [
     2,
   ],
   "@typescript-eslint/no-unnecessary-type-parameters": [
@@ -6830,6 +7027,12 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
       "argsIgnorePattern": "^_",
     },
   ],
+  "@typescript-eslint/no-useless-constructor": [
+    2,
+  ],
+  "@typescript-eslint/no-useless-default-assignment": [
+    2,
+  ],
   "@typescript-eslint/no-wrapper-object-types": [
     2,
   ],
@@ -6842,10 +7045,19 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
   "@typescript-eslint/prefer-as-const": [
     2,
   ],
+  "@typescript-eslint/prefer-literal-enum-member": [
+    2,
+  ],
   "@typescript-eslint/prefer-namespace-keyword": [
     2,
   ],
   "@typescript-eslint/prefer-promise-reject-errors": [
+    2,
+  ],
+  "@typescript-eslint/prefer-reduce-type-parameter": [
+    2,
+  ],
+  "@typescript-eslint/prefer-return-this-type": [
     2,
   ],
   "@typescript-eslint/prefer-ts-expect-error": [
@@ -6854,14 +7066,36 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
   "@typescript-eslint/quotes": [
     0,
   ],
+  "@typescript-eslint/related-getter-setter-pairs": [
+    2,
+  ],
   "@typescript-eslint/require-await": [
     2,
   ],
   "@typescript-eslint/restrict-plus-operands": [
     2,
+    {
+      "allowAny": false,
+      "allowBoolean": false,
+      "allowNullish": false,
+      "allowNumberAndString": false,
+      "allowRegExp": false,
+    },
   ],
   "@typescript-eslint/restrict-template-expressions": [
     2,
+    {
+      "allowAny": false,
+      "allowBoolean": false,
+      "allowNever": false,
+      "allowNullish": false,
+      "allowNumber": false,
+      "allowRegExp": false,
+    },
+  ],
+  "@typescript-eslint/return-await": [
+    2,
+    "error-handling-correctness-only",
   ],
   "@typescript-eslint/semi": [
     0,
@@ -6882,6 +7116,12 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
     0,
   ],
   "@typescript-eslint/unbound-method": [
+    2,
+  ],
+  "@typescript-eslint/unified-signatures": [
+    2,
+  ],
+  "@typescript-eslint/use-unknown-in-catch-callback-variable": [
     2,
   ],
   "array-bracket-newline": [
@@ -7326,6 +7566,9 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
   "no-reserved-keys": [
     0,
   ],
+  "no-return-await": [
+    0,
+  ],
   "no-self-assign": [
     2,
     {
@@ -7413,6 +7656,9 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
   ],
   "no-useless-catch": [
     2,
+  ],
+  "no-useless-constructor": [
+    0,
   ],
   "no-useless-escape": [
     2,
@@ -9709,6 +9955,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   ],
   "@typescript-eslint/ban-ts-comment": [
     2,
+    {
+      "minimumDescriptionLength": 10,
+    },
   ],
   "@typescript-eslint/block-spacing": [
     0,
@@ -9775,6 +10024,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "@typescript-eslint/no-duplicate-type-constituents": [
     2,
   ],
+  "@typescript-eslint/no-dynamic-delete": [
+    2,
+  ],
   "@typescript-eslint/no-empty-object-type": [
     2,
   ],
@@ -9790,6 +10042,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "@typescript-eslint/no-extra-semi": [
     0,
   ],
+  "@typescript-eslint/no-extraneous-class": [
+    2,
+  ],
   "@typescript-eslint/no-floating-promises": [
     2,
   ],
@@ -9802,16 +10057,34 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "@typescript-eslint/no-import-type-side-effects": [
     2,
   ],
+  "@typescript-eslint/no-invalid-void-type": [
+    2,
+  ],
+  "@typescript-eslint/no-meaningless-void-operator": [
+    2,
+  ],
   "@typescript-eslint/no-misused-new": [
     2,
   ],
   "@typescript-eslint/no-misused-promises": [
     2,
   ],
+  "@typescript-eslint/no-misused-spread": [
+    2,
+  ],
+  "@typescript-eslint/no-mixed-enums": [
+    2,
+  ],
   "@typescript-eslint/no-namespace": [
     2,
   ],
+  "@typescript-eslint/no-non-null-asserted-nullish-coalescing": [
+    2,
+  ],
   "@typescript-eslint/no-non-null-asserted-optional-chain": [
+    2,
+  ],
+  "@typescript-eslint/no-non-null-assertion": [
     2,
   ],
   "@typescript-eslint/no-redundant-type-constituents": [
@@ -9829,6 +10102,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "@typescript-eslint/no-unnecessary-condition": [
     0,
   ],
+  "@typescript-eslint/no-unnecessary-template-expression": [
+    2,
+  ],
   "@typescript-eslint/no-unnecessary-type-arguments": [
     0,
   ],
@@ -9836,6 +10112,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     2,
   ],
   "@typescript-eslint/no-unnecessary-type-constraint": [
+    2,
+  ],
+  "@typescript-eslint/no-unnecessary-type-conversion": [
     2,
   ],
   "@typescript-eslint/no-unnecessary-type-parameters": [
@@ -9882,6 +10161,12 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
       "argsIgnorePattern": "^_",
     },
   ],
+  "@typescript-eslint/no-useless-constructor": [
+    2,
+  ],
+  "@typescript-eslint/no-useless-default-assignment": [
+    2,
+  ],
   "@typescript-eslint/no-wrapper-object-types": [
     2,
   ],
@@ -9894,10 +10179,19 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "@typescript-eslint/prefer-as-const": [
     2,
   ],
+  "@typescript-eslint/prefer-literal-enum-member": [
+    2,
+  ],
   "@typescript-eslint/prefer-namespace-keyword": [
     2,
   ],
   "@typescript-eslint/prefer-promise-reject-errors": [
+    2,
+  ],
+  "@typescript-eslint/prefer-reduce-type-parameter": [
+    2,
+  ],
+  "@typescript-eslint/prefer-return-this-type": [
     2,
   ],
   "@typescript-eslint/prefer-ts-expect-error": [
@@ -9906,14 +10200,36 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "@typescript-eslint/quotes": [
     0,
   ],
+  "@typescript-eslint/related-getter-setter-pairs": [
+    2,
+  ],
   "@typescript-eslint/require-await": [
     2,
   ],
   "@typescript-eslint/restrict-plus-operands": [
     2,
+    {
+      "allowAny": false,
+      "allowBoolean": false,
+      "allowNullish": false,
+      "allowNumberAndString": false,
+      "allowRegExp": false,
+    },
   ],
   "@typescript-eslint/restrict-template-expressions": [
     2,
+    {
+      "allowAny": false,
+      "allowBoolean": false,
+      "allowNever": false,
+      "allowNullish": false,
+      "allowNumber": false,
+      "allowRegExp": false,
+    },
+  ],
+  "@typescript-eslint/return-await": [
+    2,
+    "error-handling-correctness-only",
   ],
   "@typescript-eslint/semi": [
     0,
@@ -9934,6 +10250,12 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     0,
   ],
   "@typescript-eslint/unbound-method": [
+    2,
+  ],
+  "@typescript-eslint/unified-signatures": [
+    2,
+  ],
+  "@typescript-eslint/use-unknown-in-catch-callback-variable": [
     2,
   ],
   "array-bracket-newline": [
@@ -10378,6 +10700,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "no-reserved-keys": [
     0,
   ],
+  "no-return-await": [
+    0,
+  ],
   "no-self-assign": [
     2,
     {
@@ -10465,6 +10790,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   ],
   "no-useless-catch": [
     2,
+  ],
+  "no-useless-constructor": [
+    0,
   ],
   "no-useless-escape": [
     2,

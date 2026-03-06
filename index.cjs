@@ -138,7 +138,7 @@ const sonarJsConfig = () =>
 const typescriptConfig = () =>
   eslintConfig.defineConfig({
     extends: [
-      tseslint.configs.recommendedTypeChecked,
+      tseslint.configs.strictTypeChecked,
       getImportPluginFlatConfigs().typescript,
     ],
     files: [FILES_TS, FILES_TSX],
