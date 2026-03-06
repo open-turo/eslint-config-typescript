@@ -13849,7 +13849,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "off",
   ],
   "constructor-super": [
-    "off",
+    2,
   ],
   "curly": [
     0,
@@ -13912,7 +13912,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "off",
   ],
   "getter-return": [
-    "off",
+    2,
   ],
   "implicit-arrow-linebreak": [
     "off",
@@ -14128,7 +14128,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "error",
   ],
   "no-class-assign": [
-    "off",
+    2,
   ],
   "no-comma-dangle": [
     "off",
@@ -14143,7 +14143,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     0,
   ],
   "no-const-assign": [
-    "off",
+    2,
   ],
   "no-constant-binary-expression": [
     "error",
@@ -14161,16 +14161,16 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "error",
   ],
   "no-dupe-args": [
-    "off",
+    2,
   ],
   "no-dupe-class-members": [
-    "off",
+    2,
   ],
   "no-dupe-else-if": [
     "error",
   ],
   "no-dupe-keys": [
-    "off",
+    2,
   ],
   "no-duplicate-case": [
     "error",
@@ -14206,7 +14206,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "off",
   ],
   "no-func-assign": [
-    "off",
+    2,
   ],
   "no-global-assign": [
     "error",
@@ -14215,7 +14215,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "off",
   ],
   "no-import-assign": [
-    "off",
+    2,
   ],
   "no-invalid-regexp": [
     "error",
@@ -14248,7 +14248,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "off",
   ],
   "no-new-native-nonconstructor": [
-    "off",
+    2,
   ],
   "no-new-symbol": [
     "off",
@@ -14257,7 +14257,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "error",
   ],
   "no-obj-calls": [
-    "off",
+    2,
   ],
   "no-octal": [
     "error",
@@ -14266,7 +14266,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "error",
   ],
   "no-redeclare": [
-    "off",
+    2,
   ],
   "no-regex-spaces": [
     "error",
@@ -14281,7 +14281,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "error",
   ],
   "no-setter-return": [
-    "off",
+    2,
   ],
   "no-shadow-restricted-names": [
     "error",
@@ -14299,7 +14299,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     0,
   ],
   "no-this-before-super": [
-    "off",
+    2,
   ],
   "no-throw-literal": [
     "off",
@@ -14308,19 +14308,19 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "off",
   ],
   "no-undef": [
-    "off",
+    2,
   ],
   "no-unexpected-multiline": [
     0,
   ],
   "no-unreachable": [
-    "off",
+    2,
   ],
   "no-unsafe-finally": [
     "error",
   ],
   "no-unsafe-negation": [
-    "off",
+    2,
   ],
   "no-unsafe-optional-chaining": [
     "error",
@@ -14335,7 +14335,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "error",
   ],
   "no-unused-vars": [
-    "off",
+    2,
   ],
   "no-useless-backreference": [
     "error",
@@ -14356,7 +14356,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "off",
   ],
   "no-with": [
-    "off",
+    2,
   ],
   "no-wrap-func": [
     "off",
@@ -15498,7 +15498,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "off",
   ],
   "unicorn/empty-brace-spaces": [
-    "error",
+    0,
   ],
   "unicorn/error-message": [
     "error",
@@ -15591,7 +15591,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "error",
   ],
   "unicorn/no-nested-ternary": [
-    "error",
+    0,
   ],
   "unicorn/no-new-array": [
     "error",
@@ -15660,7 +15660,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "error",
   ],
   "unicorn/number-literal-case": [
-    "error",
+    0,
   ],
   "unicorn/numeric-separators-style": [
     "error",
@@ -15837,7 +15837,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "error",
   ],
   "unicorn/template-indent": [
-    "error",
+    0,
   ],
   "unicorn/text-encoding-identifier-case": [
     "error",

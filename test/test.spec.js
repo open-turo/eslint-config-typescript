@@ -110,4 +110,87 @@ describe("validate config", () => {
       'Invalid testFramework option: "invalid". Valid values are "jest" or "vitest".',
     );
   });
+
+  test("validates the legacy config and the flat config are the same ruleset", async () => {
+    /**
+     * Legacy setup
+     */
+    const ESLintLegacy = await loadESLint({
+      useFlatConfig: false,
+    });
+    const modifiedRecommendedConfig = {
+      ...recommendedConfig,
+      parserOptions: {
+        ...recommendedConfig.parserOptions,
+        /**
+         * @typescript-eslint/parser@8.46.4 errors if `projectService` and `project` are both defined.
+         * `@typescript-eslint` recommends `projectService` over `project`, and we use `projectService` in the non-legacy config,
+         * but not the legacy `recommended` config. Because thi spec uses `projectService`, we explicitly omit `project` here to avoid the error.
+         */
+        project: undefined,
+      },
+    };
+    const linterLegacy = new ESLintLegacy({
+      baseConfig: modifiedRecommendedConfig,
+      overrideConfig: {
+        parserOptions,
+      },
+    });
+    const calculatedConfig = await linterLegacy.calculateConfigForFile(
+      "./test/sample.test.ts",
+    );
+
+    /**
+     * Flat config setup
+     */
+    const ESLint = await loadESLint({
+      useFlatConfig: true,
+    });
+    const { default: config } = await import(`../index.cjs`);
+    const linter = new ESLint({
+      baseConfig: config(),
+      overrideConfig: [
+        {
+          files: [testFileName],
+          languageOptions: {
+            parserOptions,
+          },
+        },
+      ],
+    });
+    const flatConfig = await linter.calculateConfigForFile(
+      "./test/sample.test.ts",
+    );
+    const SEVERITY_MAP = { error: 2, off: 0, warn: 1 };
+
+    /**
+     * Maps legacy rule severity strings ("off", "warn", "error") to numeric values (0, 1, 2)
+     * so that legacy and flat config rules can be compared.
+     */
+    function mapRulesToNumericSeverity(rules) {
+      const result = {};
+      for (const [ruleName, ruleValue] of Object.entries(rules)) {
+        /** `json` from the Flat config reports here even though it is only supposed to apply to JSON files */
+        if (ruleName.startsWith("json/")) continue;
+        if (Array.isArray(ruleValue)) {
+          const [severity] = ruleValue;
+          result[ruleName] = [
+            typeof severity === "string" ? SEVERITY_MAP[severity] : severity,
+          ];
+        } else if (typeof ruleValue === "string") {
+          result[ruleName] = [SEVERITY_MAP[ruleValue]];
+        } else {
+          result[ruleName] = ruleValue;
+        }
+      }
+      return result;
+    }
+
+    const mappedCalculatedConfig = mapRulesToNumericSeverity(
+      calculatedConfig.rules,
+    );
+    const mappedFlatConfig = mapRulesToNumericSeverity(flatConfig.rules);
+
+    expect(mappedCalculatedConfig).toStrictEqual(mappedFlatConfig);
+  });
 });
