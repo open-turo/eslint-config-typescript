@@ -848,7 +848,7 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
     0,
   ],
   "@typescript-eslint/unbound-method": [
-    2,
+    0,
   ],
   "@typescript-eslint/unified-signatures": [
     2,
@@ -997,7 +997,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
     2,
     {
       "devDependencies": [
-        "eslint.config.?([cm])[jt]s?(x)",
+        "**/__tests__/**/*.?([cm])[jt]s?(x)",
+        "**/*.spec.?([cm])[jt]s?(x)",
+        "**/*.test.?([cm])[jt]s?(x)",
       ],
     },
   ],
@@ -1018,6 +1020,69 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   ],
   "indent-legacy": [
     0,
+  ],
+  "jest/expect-expect": [
+    1,
+  ],
+  "jest/no-alias-methods": [
+    2,
+  ],
+  "jest/no-commented-out-tests": [
+    1,
+  ],
+  "jest/no-conditional-expect": [
+    2,
+  ],
+  "jest/no-deprecated-functions": [
+    2,
+  ],
+  "jest/no-disabled-tests": [
+    1,
+  ],
+  "jest/no-done-callback": [
+    2,
+  ],
+  "jest/no-export": [
+    2,
+  ],
+  "jest/no-focused-tests": [
+    2,
+  ],
+  "jest/no-identical-title": [
+    2,
+  ],
+  "jest/no-interpolation-in-snapshots": [
+    2,
+  ],
+  "jest/no-jasmine-globals": [
+    2,
+  ],
+  "jest/no-jest-import": [
+    0,
+  ],
+  "jest/no-mocks-import": [
+    2,
+  ],
+  "jest/no-standalone-expect": [
+    2,
+  ],
+  "jest/no-test-prefixes": [
+    2,
+  ],
+  "jest/unbound-method": [
+    2,
+  ],
+  "jest/valid-describe-callback": [
+    2,
+  ],
+  "jest/valid-expect": [
+    2,
+  ],
+  "jest/valid-expect-in-promise": [
+    2,
+  ],
+  "jest/valid-title": [
+    2,
   ],
   "jsx-quotes": [
     0,
@@ -3982,7 +4047,7 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     0,
   ],
   "@typescript-eslint/unbound-method": [
-    2,
+    0,
   ],
   "@typescript-eslint/unified-signatures": [
     2,
@@ -4131,7 +4196,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     2,
     {
       "devDependencies": [
-        "eslint.config.?([cm])[jt]s?(x)",
+        "**/__tests__/**/*.?([cm])[jt]s?(x)",
+        "**/*.spec.?([cm])[jt]s?(x)",
+        "**/*.test.?([cm])[jt]s?(x)",
       ],
     },
   ],
@@ -4152,6 +4219,69 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "indent-legacy": [
     0,
+  ],
+  "jest/expect-expect": [
+    1,
+  ],
+  "jest/no-alias-methods": [
+    2,
+  ],
+  "jest/no-commented-out-tests": [
+    1,
+  ],
+  "jest/no-conditional-expect": [
+    2,
+  ],
+  "jest/no-deprecated-functions": [
+    2,
+  ],
+  "jest/no-disabled-tests": [
+    1,
+  ],
+  "jest/no-done-callback": [
+    2,
+  ],
+  "jest/no-export": [
+    2,
+  ],
+  "jest/no-focused-tests": [
+    2,
+  ],
+  "jest/no-identical-title": [
+    2,
+  ],
+  "jest/no-interpolation-in-snapshots": [
+    2,
+  ],
+  "jest/no-jasmine-globals": [
+    2,
+  ],
+  "jest/no-jest-import": [
+    0,
+  ],
+  "jest/no-mocks-import": [
+    2,
+  ],
+  "jest/no-standalone-expect": [
+    2,
+  ],
+  "jest/no-test-prefixes": [
+    2,
+  ],
+  "jest/unbound-method": [
+    2,
+  ],
+  "jest/valid-describe-callback": [
+    2,
+  ],
+  "jest/valid-expect": [
+    2,
+  ],
+  "jest/valid-expect-in-promise": [
+    2,
+  ],
+  "jest/valid-title": [
+    2,
   ],
   "jsx-quotes": [
     0,
@@ -7265,7 +7395,9 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
     2,
     {
       "devDependencies": [
-        "eslint.config.?([cm])[jt]s?(x)",
+        "**/__tests__/**/*.?([cm])[jt]s?(x)",
+        "**/*.spec.?([cm])[jt]s?(x)",
+        "**/*.test.?([cm])[jt]s?(x)",
       ],
     },
   ],
@@ -7286,6 +7418,66 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
   ],
   "indent-legacy": [
     0,
+  ],
+  "jest/expect-expect": [
+    1,
+  ],
+  "jest/no-alias-methods": [
+    2,
+  ],
+  "jest/no-commented-out-tests": [
+    1,
+  ],
+  "jest/no-conditional-expect": [
+    2,
+  ],
+  "jest/no-deprecated-functions": [
+    2,
+  ],
+  "jest/no-disabled-tests": [
+    1,
+  ],
+  "jest/no-done-callback": [
+    2,
+  ],
+  "jest/no-export": [
+    2,
+  ],
+  "jest/no-focused-tests": [
+    2,
+  ],
+  "jest/no-identical-title": [
+    2,
+  ],
+  "jest/no-interpolation-in-snapshots": [
+    2,
+  ],
+  "jest/no-jasmine-globals": [
+    2,
+  ],
+  "jest/no-jest-import": [
+    0,
+  ],
+  "jest/no-mocks-import": [
+    2,
+  ],
+  "jest/no-standalone-expect": [
+    2,
+  ],
+  "jest/no-test-prefixes": [
+    2,
+  ],
+  "jest/valid-describe-callback": [
+    2,
+  ],
+  "jest/valid-expect": [
+    2,
+  ],
+  "jest/valid-expect-in-promise": [
+    2,
+  ],
+  "jest/valid-title": [
+    2,
   ],
   "jsx-quotes": [
     0,
@@ -9271,6 +9463,87 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
     2,
     {
       "requireStringLiterals": false,
+    },
+  ],
+  "vitest/expect-expect": [
+    2,
+    {
+      "additionalTestBlockFunctions": [],
+      "assertFunctionNames": [
+        "expect",
+        "assert",
+      ],
+    },
+  ],
+  "vitest/no-commented-out-tests": [
+    2,
+  ],
+  "vitest/no-conditional-expect": [
+    2,
+    {
+      "expectAssertions": false,
+    },
+  ],
+  "vitest/no-disabled-tests": [
+    1,
+  ],
+  "vitest/no-focused-tests": [
+    2,
+    {
+      "fixable": true,
+    },
+  ],
+  "vitest/no-identical-title": [
+    2,
+  ],
+  "vitest/no-import-node-test": [
+    2,
+  ],
+  "vitest/no-interpolation-in-snapshots": [
+    2,
+  ],
+  "vitest/no-mocks-import": [
+    2,
+  ],
+  "vitest/no-standalone-expect": [
+    2,
+    {
+      "additionalTestBlockFunctions": [],
+    },
+  ],
+  "vitest/no-unneeded-async-expect-function": [
+    2,
+  ],
+  "vitest/prefer-called-exactly-once-with": [
+    2,
+  ],
+  "vitest/require-local-test-context-for-concurrent-snapshots": [
+    2,
+  ],
+  "vitest/valid-describe-callback": [
+    2,
+  ],
+  "vitest/valid-expect": [
+    2,
+    {
+      "alwaysAwait": false,
+      "asyncMatchers": [
+        "toReject",
+        "toResolve",
+      ],
+      "maxArgs": 1,
+      "minArgs": 1,
+    },
+  ],
+  "vitest/valid-expect-in-promise": [
+    2,
+  ],
+  "vitest/valid-title": [
+    2,
+    {
+      "allowArguments": false,
+      "disallowedWords": [],
+      "ignoreTypeOfDescribeName": false,
     },
   ],
   "vue/array-bracket-newline": [
@@ -10399,7 +10672,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     2,
     {
       "devDependencies": [
-        "eslint.config.?([cm])[jt]s?(x)",
+        "**/__tests__/**/*.?([cm])[jt]s?(x)",
+        "**/*.spec.?([cm])[jt]s?(x)",
+        "**/*.test.?([cm])[jt]s?(x)",
       ],
     },
   ],
@@ -10420,6 +10695,66 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   ],
   "indent-legacy": [
     0,
+  ],
+  "jest/expect-expect": [
+    1,
+  ],
+  "jest/no-alias-methods": [
+    2,
+  ],
+  "jest/no-commented-out-tests": [
+    1,
+  ],
+  "jest/no-conditional-expect": [
+    2,
+  ],
+  "jest/no-deprecated-functions": [
+    2,
+  ],
+  "jest/no-disabled-tests": [
+    1,
+  ],
+  "jest/no-done-callback": [
+    2,
+  ],
+  "jest/no-export": [
+    2,
+  ],
+  "jest/no-focused-tests": [
+    2,
+  ],
+  "jest/no-identical-title": [
+    2,
+  ],
+  "jest/no-interpolation-in-snapshots": [
+    2,
+  ],
+  "jest/no-jasmine-globals": [
+    2,
+  ],
+  "jest/no-jest-import": [
+    0,
+  ],
+  "jest/no-mocks-import": [
+    2,
+  ],
+  "jest/no-standalone-expect": [
+    2,
+  ],
+  "jest/no-test-prefixes": [
+    2,
+  ],
+  "jest/valid-describe-callback": [
+    2,
+  ],
+  "jest/valid-expect": [
+    2,
+  ],
+  "jest/valid-expect-in-promise": [
+    2,
+  ],
+  "jest/valid-title": [
+    2,
   ],
   "jsx-quotes": [
     0,
@@ -12405,6 +12740,87 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     2,
     {
       "requireStringLiterals": false,
+    },
+  ],
+  "vitest/expect-expect": [
+    2,
+    {
+      "additionalTestBlockFunctions": [],
+      "assertFunctionNames": [
+        "expect",
+        "assert",
+      ],
+    },
+  ],
+  "vitest/no-commented-out-tests": [
+    2,
+  ],
+  "vitest/no-conditional-expect": [
+    2,
+    {
+      "expectAssertions": false,
+    },
+  ],
+  "vitest/no-disabled-tests": [
+    1,
+  ],
+  "vitest/no-focused-tests": [
+    2,
+    {
+      "fixable": true,
+    },
+  ],
+  "vitest/no-identical-title": [
+    2,
+  ],
+  "vitest/no-import-node-test": [
+    2,
+  ],
+  "vitest/no-interpolation-in-snapshots": [
+    2,
+  ],
+  "vitest/no-mocks-import": [
+    2,
+  ],
+  "vitest/no-standalone-expect": [
+    2,
+    {
+      "additionalTestBlockFunctions": [],
+    },
+  ],
+  "vitest/no-unneeded-async-expect-function": [
+    2,
+  ],
+  "vitest/prefer-called-exactly-once-with": [
+    2,
+  ],
+  "vitest/require-local-test-context-for-concurrent-snapshots": [
+    2,
+  ],
+  "vitest/valid-describe-callback": [
+    2,
+  ],
+  "vitest/valid-expect": [
+    2,
+    {
+      "alwaysAwait": false,
+      "asyncMatchers": [
+        "toReject",
+        "toResolve",
+      ],
+      "maxArgs": 1,
+      "minArgs": 1,
+    },
+  ],
+  "vitest/valid-expect-in-promise": [
+    2,
+  ],
+  "vitest/valid-title": [
+    2,
+    {
+      "allowArguments": false,
+      "disallowedWords": [],
+      "ignoreTypeOfDescribeName": false,
     },
   ],
   "vue/array-bracket-newline": [
