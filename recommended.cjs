@@ -1,3 +1,35 @@
+/**
+ * Our flat config contains some ESLint recommended config breaking changes.
+ * Additionally, there appear to be some differences between Unicorn's recommended flat config and the non-flat recommended config.
+ * This object changes those values so that we backport them to the legacy config, to ensure that linting
+ * stays consistent regardless of whether a user is consuming ESLint v8 or v9.
+ */
+const ESLINT_V9_DEFAULTS = {
+  "constructor-super": 2,
+  "getter-return": 2,
+  "no-class-assign": 2,
+  "no-const-assign": 2,
+  "no-dupe-args": 2,
+  "no-dupe-class-members": 2,
+  "no-dupe-keys": 2,
+  "no-func-assign": 2,
+  "no-import-assign": 2,
+  "no-new-native-nonconstructor": 2,
+  "no-obj-calls": 2,
+  "no-redeclare": 2,
+  "no-setter-return": 2,
+  "no-this-before-super": 2,
+  "no-undef": 2,
+  "no-unreachable": 2,
+  "no-unsafe-negation": 2,
+  "no-unused-vars": 2,
+  "no-with": 2,
+  "unicorn/empty-brace-spaces": 0,
+  "unicorn/no-nested-ternary": 0,
+  "unicorn/number-literal-case": 0,
+  "unicorn/template-indent": 0,
+};
+
 module.exports = {
   env: {
     es2022: true,
@@ -26,6 +58,12 @@ module.exports = {
         "jest/unbound-method": "error",
       },
     },
+    {
+      files: ["**/*.json"],
+      rules: {
+        "json/*": "error",
+      },
+    },
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -47,6 +85,7 @@ module.exports = {
   ],
   root: true,
   rules: {
+    ...ESLINT_V9_DEFAULTS,
     /** Forbids `as` casting (that excludes `as const`) to prevent unsafe type casts */
     "@typescript-eslint/consistent-type-assertions": [
       "error",
@@ -96,7 +135,6 @@ module.exports = {
     ],
     "import/prefer-default-export": "off",
     "jest/no-jest-import": "off",
-    "json/*": "error",
     "n/no-missing-import": "off",
     "n/no-unpublished-import": [
       "error",
