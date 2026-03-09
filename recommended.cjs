@@ -150,7 +150,6 @@ module.exports = {
         argsIgnorePattern: "^_",
       },
     ],
-    "@typescript-eslint/prefer-ts-expect-error": "error",
     "@typescript-eslint/unbound-method": "error",
     "import/default": "off",
     "import/named": "off",

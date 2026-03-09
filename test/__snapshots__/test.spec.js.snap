@@ -801,9 +801,6 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   "@typescript-eslint/prefer-return-this-type": [
     2,
   ],
-  "@typescript-eslint/prefer-ts-expect-error": [
-    2,
-  ],
   "@typescript-eslint/quotes": [
     0,
   ],
@@ -4086,9 +4083,6 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "@typescript-eslint/prefer-return-this-type": [
     2,
   ],
-  "@typescript-eslint/prefer-ts-expect-error": [
-    2,
-  ],
   "@typescript-eslint/quotes": [
     0,
   ],
@@ -7369,9 +7363,6 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
     2,
   ],
   "@typescript-eslint/prefer-return-this-type": [
-    2,
-  ],
-  "@typescript-eslint/prefer-ts-expect-error": [
     2,
   ],
   "@typescript-eslint/quotes": [
@@ -10737,9 +10728,6 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "@typescript-eslint/prefer-return-this-type": [
     2,
   ],
-  "@typescript-eslint/prefer-ts-expect-error": [
-    2,
-  ],
   "@typescript-eslint/quotes": [
     0,
   ],
@@ -14096,9 +14084,6 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "error",
   ],
   "@typescript-eslint/prefer-return-this-type": [
-    "error",
-  ],
-  "@typescript-eslint/prefer-ts-expect-error": [
     "error",
   ],
   "@typescript-eslint/quotes": [

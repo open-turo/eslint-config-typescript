@@ -199,7 +199,6 @@ const typescriptConfig = () =>
           argsIgnorePattern: "^_",
         },
       ],
-      "@typescript-eslint/prefer-ts-expect-error": "error",
       "@typescript-eslint/unbound-method": "error",
     },
   });
