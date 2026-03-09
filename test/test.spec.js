@@ -19,6 +19,31 @@ function getRuleSeverity(rules, ruleName) {
     : value;
 }
 
+const SEVERITY_MAP = { error: 2, off: 0, warn: 1 };
+
+/**
+ * Maps legacy rule severity strings ("off", "warn", "error") to numeric values (0, 1, 2)
+ * so that legacy and flat config rules can be compared.
+ */
+function mapRulesToNumericSeverity(rules) {
+  const result = {};
+  for (const [ruleName, ruleValue] of Object.entries(rules)) {
+    /** `json` from the Flat config reports here even though it is only supposed to apply to JSON files */
+    if (ruleName.startsWith("json/")) continue;
+    if (Array.isArray(ruleValue)) {
+      const [severity] = ruleValue;
+      result[ruleName] = [
+        typeof severity === "string" ? SEVERITY_MAP[severity] : severity,
+      ];
+    } else if (typeof ruleValue === "string") {
+      result[ruleName] = [SEVERITY_MAP[ruleValue]];
+    } else {
+      result[ruleName] = ruleValue;
+    }
+  }
+  return result;
+}
+
 /**
  * Extension rules from @typescript-eslint replace core ESLint rules for TypeScript.
  * Ensures 1:1 mapping: @typescript-eslint version is error, vanilla version is off.
@@ -241,6 +266,12 @@ describe("validate config", () => {
 
       const violations = [];
       for (const { baseRule, tsRule } of EXTENSION_RULES) {
+        /**
+         * @typescript-eslint/no-loss-of-precision is deprecated in favor of ESLint's rule.
+         * {@link https://typescript-eslint.io/rules/no-loss-of-precision/ Docs}
+         */
+        if (baseRule === "no-loss-of-precision") continue;
+
         const tsSeverity = getRuleSeverity(rules, tsRule);
         const baseSeverity = getRuleSeverity(rules, baseRule);
 
@@ -282,6 +313,12 @@ describe("validate config", () => {
 
     const violations = [];
     for (const { baseRule, tsRule } of EXTENSION_RULES) {
+      /**
+       * @typescript-eslint/no-loss-of-precision is deprecated in favor of ESLint's rule.
+       * {@link https://typescript-eslint.io/rules/no-loss-of-precision/ Docs}
+       */
+      if (baseRule === "no-loss-of-precision") continue;
+
       const tsSeverity = getRuleSeverity(rules, tsRule);
       const baseSeverity = getRuleSeverity(rules, baseRule);
 
@@ -353,30 +390,6 @@ describe("validate config", () => {
       ],
     });
     const flatConfig = await linter.calculateConfigForFile(TEST_FILE_PATH);
-    const SEVERITY_MAP = { error: 2, off: 0, warn: 1 };
-
-    /**
-     * Maps legacy rule severity strings ("off", "warn", "error") to numeric values (0, 1, 2)
-     * so that legacy and flat config rules can be compared.
-     */
-    function mapRulesToNumericSeverity(rules) {
-      const result = {};
-      for (const [ruleName, ruleValue] of Object.entries(rules)) {
-        /** `json` from the Flat config reports here even though it is only supposed to apply to JSON files */
-        if (ruleName.startsWith("json/")) continue;
-        if (Array.isArray(ruleValue)) {
-          const [severity] = ruleValue;
-          result[ruleName] = [
-            typeof severity === "string" ? SEVERITY_MAP[severity] : severity,
-          ];
-        } else if (typeof ruleValue === "string") {
-          result[ruleName] = [SEVERITY_MAP[ruleValue]];
-        } else {
-          result[ruleName] = ruleValue;
-        }
-      }
-      return result;
-    }
 
     const mappedCalculatedConfig = mapRulesToNumericSeverity(
       calculatedConfig.rules,

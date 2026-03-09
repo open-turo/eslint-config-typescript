@@ -7,6 +7,7 @@ const tsParser = require("@typescript-eslint/parser");
 const vitestPlugin = require("@vitest/eslint-plugin");
 const importPlugin = require("eslint-plugin-import");
 const jestPlugin = require("eslint-plugin-jest");
+// @ts-expect-error -- No @types declaration, and we should probably remove this plugin anyhow
 const jsonPlugin = require("eslint-plugin-json");
 const nPlugin = require("eslint-plugin-n");
 const perfectionistPlugin = require("eslint-plugin-perfectionist");
@@ -33,12 +34,10 @@ const FILES_TEST = [
  */
 const TYPESCRIPT_ESLINT_EXTENSION_RULES = /** @type {const} */ ({
   "@typescript-eslint/no-dupe-class-members": "error",
-  "@typescript-eslint/no-loss-of-precision": "error",
   "@typescript-eslint/no-redeclare": "error",
   "@typescript-eslint/no-unused-private-class-members": "error",
   "@typescript-eslint/no-unused-vars": "error",
   "no-dupe-class-members": "off",
-  "no-loss-of-precision": "off",
   "no-redeclare": "off",
   "no-unused-private-class-members": "off",
   "no-unused-vars": "off",
@@ -162,6 +161,7 @@ const typescriptConfig = () =>
     files: [FILES_TS, FILES_TSX],
     languageOptions: typescriptLanguageOptions(),
     rules: {
+      ...TYPESCRIPT_ESLINT_EXTENSION_RULES,
       /** Forbids `as` casting (that excludes `as const`) to prevent unsafe type casts */
       "@typescript-eslint/consistent-type-assertions": [
         "error",
@@ -360,16 +360,6 @@ module.exports = function config(options = {}) {
     jsonPlugin.configs["recommended"],
     useTypescript ? typescriptConfig() : {},
     testConfig({ testFramework, typescript: useTypescript }),
-    {
-      /**
-       * Core ESLint rules disabled for TS - must come last to override any config that enables them.
-       * @typescript-eslint provides TypeScript-aware equivalents.
-       */
-      files: [FILES_TS, FILES_TSX],
-      rules: {
-        ...TYPESCRIPT_ESLINT_EXTENSION_RULES,
-      },
-    },
     ignoresConfig(options.ignores),
   );
 };

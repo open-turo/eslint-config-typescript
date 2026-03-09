@@ -7,22 +7,22 @@
  * stays consistent regardless of whether a user is consuming ESLint v8 or v9.
  */
 const ESLINT_V9_DEFAULTS = {
-  "constructor-super": 2,
-  "getter-return": 2,
-  "no-class-assign": 2,
-  "no-const-assign": 2,
-  "no-dupe-args": 2,
-  "no-dupe-keys": 2,
-  "no-func-assign": 2,
-  "no-import-assign": 2,
-  "no-new-native-nonconstructor": 2,
-  "no-obj-calls": 2,
-  "no-setter-return": 2,
-  "no-this-before-super": 2,
-  "no-undef": 2,
-  "no-unreachable": 2,
-  "no-unsafe-negation": 2,
-  "no-with": 2,
+  "constructor-super": "off",
+  "getter-return": "off",
+  "no-class-assign": "off",
+  "no-const-assign": "off",
+  "no-dupe-args": "off",
+  "no-dupe-keys": "off",
+  "no-func-assign": "off",
+  "no-import-assign": "off",
+  "no-new-native-nonconstructor": "off",
+  "no-obj-calls": "off",
+  "no-setter-return": "off",
+  "no-this-before-super": "off",
+  "no-undef": "off",
+  "no-unreachable": "off",
+  "no-unsafe-negation": "off",
+  "no-with": "off",
 };
 
 /**
@@ -43,12 +43,10 @@ const UNICORN_RULES_OFF = {
  */
 const TYPESCRIPT_ESLINT_EXTENSION_RULES = /** @type {const} */ ({
   "@typescript-eslint/no-dupe-class-members": "error",
-  "@typescript-eslint/no-loss-of-precision": "error",
   "@typescript-eslint/no-redeclare": "error",
   "@typescript-eslint/no-unused-private-class-members": "error",
   "@typescript-eslint/no-unused-vars": "error",
   "no-dupe-class-members": "off",
-  "no-loss-of-precision": "off",
   "no-redeclare": "off",
   "no-unused-private-class-members": "off",
   "no-unused-vars": "off",
@@ -88,6 +86,10 @@ module.exports = {
         "json/*": "error",
       },
     },
+    {
+      files: ["**/*.ts", "**/*.tsx"],
+      rules: TYPESCRIPT_ESLINT_EXTENSION_RULES,
+    },
   ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -111,7 +113,6 @@ module.exports = {
   rules: {
     ...ESLINT_V9_DEFAULTS,
     ...UNICORN_RULES_OFF,
-    ...TYPESCRIPT_ESLINT_EXTENSION_RULES,
     /** Forbids `as` casting (that excludes `as const`) to prevent unsafe type casts */
     "@typescript-eslint/consistent-type-assertions": [
       "error",
