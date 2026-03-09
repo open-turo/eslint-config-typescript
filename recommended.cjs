@@ -1,3 +1,5 @@
+// @ts-check
+
 /**
  * Our flat config contains some ESLint recommended config breaking changes.
  * Additionally, there appear to be some differences between Unicorn's recommended flat config and the non-flat recommended config.
@@ -10,25 +12,47 @@ const ESLINT_V9_DEFAULTS = {
   "no-class-assign": 2,
   "no-const-assign": 2,
   "no-dupe-args": 2,
-  "no-dupe-class-members": 2,
   "no-dupe-keys": 2,
   "no-func-assign": 2,
   "no-import-assign": 2,
   "no-new-native-nonconstructor": 2,
   "no-obj-calls": 2,
-  "no-redeclare": 2,
   "no-setter-return": 2,
   "no-this-before-super": 2,
   "no-undef": 2,
   "no-unreachable": 2,
   "no-unsafe-negation": 2,
-  "no-unused-vars": 2,
   "no-with": 2,
+};
+
+/**
+ * Unicorn rules disabled in flat config (index.cjs); we mirror here so legacy matches flat.
+ * These conflict with Prettier or are too stylistic for a TypeScript-focused config.
+ */
+const UNICORN_RULES_OFF = {
   "unicorn/empty-brace-spaces": 0,
   "unicorn/no-nested-ternary": 0,
   "unicorn/number-literal-case": 0,
   "unicorn/template-indent": 0,
 };
+
+/**
+ * Core ESLint rules disabled for TS files - @typescript-eslint provides TypeScript-aware equivalents,
+ * but there are some rules enabled in ESLint v9 that are not yet disabled by @typescript-eslint.
+ * @see https://typescript-eslint.io/rules?=extension#rules
+ */
+const TYPESCRIPT_ESLINT_EXTENSION_RULES = /** @type {const} */ ({
+  "@typescript-eslint/no-dupe-class-members": "error",
+  "@typescript-eslint/no-loss-of-precision": "error",
+  "@typescript-eslint/no-redeclare": "error",
+  "@typescript-eslint/no-unused-private-class-members": "error",
+  "@typescript-eslint/no-unused-vars": "error",
+  "no-dupe-class-members": "off",
+  "no-loss-of-precision": "off",
+  "no-redeclare": "off",
+  "no-unused-private-class-members": "off",
+  "no-unused-vars": "off",
+});
 
 module.exports = {
   env: {
@@ -86,6 +110,8 @@ module.exports = {
   root: true,
   rules: {
     ...ESLINT_V9_DEFAULTS,
+    ...UNICORN_RULES_OFF,
+    ...TYPESCRIPT_ESLINT_EXTENSION_RULES,
     /** Forbids `as` casting (that excludes `as const`) to prevent unsafe type casts */
     "@typescript-eslint/consistent-type-assertions": [
       "error",

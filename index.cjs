@@ -26,6 +26,24 @@ const FILES_TEST = [
   `**/*.test.${FILES_SRC_EXTENSION}`,
 ];
 
+/**
+ * Core ESLint rules disabled for TS files - @typescript-eslint provides TypeScript-aware equivalents,
+ * but there are some rules enabled in ESLint v9 that are not yet disabled by @typescript-eslint.
+ * @see https://typescript-eslint.io/rules?=extension#rules
+ */
+const TYPESCRIPT_ESLINT_EXTENSION_RULES = /** @type {const} */ ({
+  "@typescript-eslint/no-dupe-class-members": "error",
+  "@typescript-eslint/no-loss-of-precision": "error",
+  "@typescript-eslint/no-redeclare": "error",
+  "@typescript-eslint/no-unused-private-class-members": "error",
+  "@typescript-eslint/no-unused-vars": "error",
+  "no-dupe-class-members": "off",
+  "no-loss-of-precision": "off",
+  "no-redeclare": "off",
+  "no-unused-private-class-members": "off",
+  "no-unused-vars": "off",
+});
+
 const typescriptLanguageOptions = () => ({
   parser: tsParser,
   /** @type {ParserOptions} */
@@ -342,6 +360,16 @@ module.exports = function config(options = {}) {
     jsonPlugin.configs["recommended"],
     useTypescript ? typescriptConfig() : {},
     testConfig({ testFramework, typescript: useTypescript }),
+    {
+      /**
+       * Core ESLint rules disabled for TS - must come last to override any config that enables them.
+       * @typescript-eslint provides TypeScript-aware equivalents.
+       */
+      files: [FILES_TS, FILES_TSX],
+      rules: {
+        ...TYPESCRIPT_ESLINT_EXTENSION_RULES,
+      },
+    },
     ignoresConfig(options.ignores),
   );
 };

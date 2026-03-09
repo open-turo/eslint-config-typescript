@@ -616,6 +616,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   "@typescript-eslint/no-deprecated": [
     0,
   ],
+  "@typescript-eslint/no-dupe-class-members": [
+    2,
+  ],
   "@typescript-eslint/no-duplicate-enum-values": [
     2,
   ],
@@ -658,6 +661,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   "@typescript-eslint/no-invalid-void-type": [
     2,
   ],
+  "@typescript-eslint/no-loss-of-precision": [
+    2,
+  ],
   "@typescript-eslint/no-meaningless-void-operator": [
     2,
   ],
@@ -683,6 +689,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
     2,
   ],
   "@typescript-eslint/no-non-null-assertion": [
+    2,
+  ],
+  "@typescript-eslint/no-redeclare": [
     2,
   ],
   "@typescript-eslint/no-redundant-type-constituents": [
@@ -752,6 +761,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
       "allowTaggedTemplates": false,
       "allowTernary": false,
     },
+  ],
+  "@typescript-eslint/no-unused-private-class-members": [
+    2,
   ],
   "@typescript-eslint/no-unused-vars": [
     2,
@@ -1225,7 +1237,7 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
     2,
   ],
   "no-dupe-class-members": [
-    2,
+    0,
   ],
   "no-dupe-else-if": [
     2,
@@ -1307,7 +1319,7 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
     },
   ],
   "no-loss-of-precision": [
-    2,
+    0,
   ],
   "no-misleading-character-class": [
     2,
@@ -1352,7 +1364,7 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
     2,
   ],
   "no-redeclare": [
-    2,
+    0,
     {
       "builtinGlobals": true,
     },
@@ -1443,10 +1455,10 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
     2,
   ],
   "no-unused-private-class-members": [
-    2,
+    0,
   ],
   "no-unused-vars": [
-    2,
+    0,
   ],
   "no-useless-backreference": [
     2,
@@ -3892,6 +3904,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "@typescript-eslint/no-deprecated": [
     0,
   ],
+  "@typescript-eslint/no-dupe-class-members": [
+    2,
+  ],
   "@typescript-eslint/no-duplicate-enum-values": [
     2,
   ],
@@ -3934,6 +3949,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "@typescript-eslint/no-invalid-void-type": [
     2,
   ],
+  "@typescript-eslint/no-loss-of-precision": [
+    2,
+  ],
   "@typescript-eslint/no-meaningless-void-operator": [
     2,
   ],
@@ -3959,6 +3977,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     2,
   ],
   "@typescript-eslint/no-non-null-assertion": [
+    2,
+  ],
+  "@typescript-eslint/no-redeclare": [
     2,
   ],
   "@typescript-eslint/no-redundant-type-constituents": [
@@ -4028,6 +4049,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
       "allowTaggedTemplates": false,
       "allowTernary": false,
     },
+  ],
+  "@typescript-eslint/no-unused-private-class-members": [
+    2,
   ],
   "@typescript-eslint/no-unused-vars": [
     2,
@@ -4501,7 +4525,7 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     2,
   ],
   "no-dupe-class-members": [
-    2,
+    0,
   ],
   "no-dupe-else-if": [
     2,
@@ -4583,7 +4607,7 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     },
   ],
   "no-loss-of-precision": [
-    2,
+    0,
   ],
   "no-misleading-character-class": [
     2,
@@ -4628,7 +4652,7 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     2,
   ],
   "no-redeclare": [
-    2,
+    0,
     {
       "builtinGlobals": true,
     },
@@ -4719,10 +4743,10 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     2,
   ],
   "no-unused-private-class-members": [
-    2,
+    0,
   ],
   "no-unused-vars": [
-    2,
+    0,
   ],
   "no-useless-backreference": [
     2,
@@ -7168,6 +7192,9 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
   "@typescript-eslint/no-deprecated": [
     0,
   ],
+  "@typescript-eslint/no-dupe-class-members": [
+    2,
+  ],
   "@typescript-eslint/no-duplicate-enum-values": [
     2,
   ],
@@ -7210,6 +7237,9 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
   "@typescript-eslint/no-invalid-void-type": [
     2,
   ],
+  "@typescript-eslint/no-loss-of-precision": [
+    2,
+  ],
   "@typescript-eslint/no-meaningless-void-operator": [
     2,
   ],
@@ -7235,6 +7265,9 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
     2,
   ],
   "@typescript-eslint/no-non-null-assertion": [
+    2,
+  ],
+  "@typescript-eslint/no-redeclare": [
     2,
   ],
   "@typescript-eslint/no-redundant-type-constituents": [
@@ -7304,6 +7337,9 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
       "allowTaggedTemplates": false,
       "allowTernary": false,
     },
+  ],
+  "@typescript-eslint/no-unused-private-class-members": [
+    2,
   ],
   "@typescript-eslint/no-unused-vars": [
     2,
@@ -7774,7 +7810,7 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
     2,
   ],
   "no-dupe-class-members": [
-    2,
+    0,
   ],
   "no-dupe-else-if": [
     2,
@@ -7856,7 +7892,7 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
     },
   ],
   "no-loss-of-precision": [
-    2,
+    0,
   ],
   "no-misleading-character-class": [
     2,
@@ -7901,7 +7937,7 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
     2,
   ],
   "no-redeclare": [
-    2,
+    0,
     {
       "builtinGlobals": true,
     },
@@ -7992,10 +8028,10 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
     2,
   ],
   "no-unused-private-class-members": [
-    2,
+    0,
   ],
   "no-unused-vars": [
-    2,
+    0,
   ],
   "no-useless-backreference": [
     2,
@@ -10522,6 +10558,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "@typescript-eslint/no-deprecated": [
     0,
   ],
+  "@typescript-eslint/no-dupe-class-members": [
+    2,
+  ],
   "@typescript-eslint/no-duplicate-enum-values": [
     2,
   ],
@@ -10564,6 +10603,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "@typescript-eslint/no-invalid-void-type": [
     2,
   ],
+  "@typescript-eslint/no-loss-of-precision": [
+    2,
+  ],
   "@typescript-eslint/no-meaningless-void-operator": [
     2,
   ],
@@ -10589,6 +10631,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     2,
   ],
   "@typescript-eslint/no-non-null-assertion": [
+    2,
+  ],
+  "@typescript-eslint/no-redeclare": [
     2,
   ],
   "@typescript-eslint/no-redundant-type-constituents": [
@@ -10658,6 +10703,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
       "allowTaggedTemplates": false,
       "allowTernary": false,
     },
+  ],
+  "@typescript-eslint/no-unused-private-class-members": [
+    2,
   ],
   "@typescript-eslint/no-unused-vars": [
     2,
@@ -11128,7 +11176,7 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     2,
   ],
   "no-dupe-class-members": [
-    2,
+    0,
   ],
   "no-dupe-else-if": [
     2,
@@ -11210,7 +11258,7 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     },
   ],
   "no-loss-of-precision": [
-    2,
+    0,
   ],
   "no-misleading-character-class": [
     2,
@@ -11255,7 +11303,7 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     2,
   ],
   "no-redeclare": [
-    2,
+    0,
     {
       "builtinGlobals": true,
     },
@@ -11346,10 +11394,10 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     2,
   ],
   "no-unused-private-class-members": [
-    2,
+    0,
   ],
   "no-unused-vars": [
-    2,
+    0,
   ],
   "no-useless-backreference": [
     2,
@@ -13876,6 +13924,9 @@ exports[`validate config the legacy recommended config is correct 1`] = `
   "@typescript-eslint/no-deprecated": [
     "off",
   ],
+  "@typescript-eslint/no-dupe-class-members": [
+    "error",
+  ],
   "@typescript-eslint/no-duplicate-enum-values": [
     "error",
   ],
@@ -13918,6 +13969,9 @@ exports[`validate config the legacy recommended config is correct 1`] = `
   "@typescript-eslint/no-invalid-void-type": [
     "error",
   ],
+  "@typescript-eslint/no-loss-of-precision": [
+    "error",
+  ],
   "@typescript-eslint/no-meaningless-void-operator": [
     "error",
   ],
@@ -13943,6 +13997,9 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "error",
   ],
   "@typescript-eslint/no-non-null-assertion": [
+    "error",
+  ],
+  "@typescript-eslint/no-redeclare": [
     "error",
   ],
   "@typescript-eslint/no-redundant-type-constituents": [
@@ -14006,6 +14063,9 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "error",
   ],
   "@typescript-eslint/no-unused-expressions": [
+    "error",
+  ],
+  "@typescript-eslint/no-unused-private-class-members": [
     "error",
   ],
   "@typescript-eslint/no-unused-vars": [
@@ -14472,7 +14532,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     2,
   ],
   "no-dupe-class-members": [
-    2,
+    "off",
   ],
   "no-dupe-else-if": [
     "error",
@@ -14532,7 +14592,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "error",
   ],
   "no-loss-of-precision": [
-    "error",
+    "off",
   ],
   "no-misleading-character-class": [
     "error",
@@ -14574,7 +14634,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "error",
   ],
   "no-redeclare": [
-    2,
+    "off",
   ],
   "no-regex-spaces": [
     "error",
@@ -14640,10 +14700,10 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "error",
   ],
   "no-unused-private-class-members": [
-    "error",
+    "off",
   ],
   "no-unused-vars": [
-    2,
+    "off",
   ],
   "no-useless-backreference": [
     "error",
