@@ -1923,6 +1923,9 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   "sonarjs/class-prototype": [
     0,
   ],
+  "sonarjs/code-eval": [
+    2,
+  ],
   "sonarjs/cognitive-complexity": [
     2,
     15,
@@ -5196,6 +5199,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "sonarjs/class-prototype": [
     0,
   ],
+  "sonarjs/code-eval": [
+    2,
+  ],
   "sonarjs/cognitive-complexity": [
     2,
     15,
@@ -8465,6 +8471,9 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
   ],
   "sonarjs/class-prototype": [
     0,
+  ],
+  "sonarjs/code-eval": [
+    2,
   ],
   "sonarjs/cognitive-complexity": [
     2,
@@ -11817,6 +11826,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "sonarjs/class-prototype": [
     0,
   ],
+  "sonarjs/code-eval": [
+    2,
+  ],
   "sonarjs/cognitive-complexity": [
     2,
     15,
@@ -15086,6 +15098,9 @@ exports[`validate config the legacy recommended config is correct 1`] = `
   ],
   "sonarjs/class-prototype": [
     "off",
+  ],
+  "sonarjs/code-eval": [
+    "error",
   ],
   "sonarjs/cognitive-complexity": [
     "error",
