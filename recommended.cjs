@@ -1,31 +1,6 @@
 // @ts-check
 
 /**
- * Our flat config contains some ESLint recommended config breaking changes.
- * Additionally, there appear to be some differences between Unicorn's recommended flat config and the non-flat recommended config.
- * This object changes those values so that we backport them to the legacy config, to ensure that linting
- * stays consistent regardless of whether a user is consuming ESLint v8 or v9.
- */
-const ESLINT_V9_DEFAULTS = {
-  "constructor-super": "off",
-  "getter-return": "off",
-  "no-class-assign": "off",
-  "no-const-assign": "off",
-  "no-dupe-args": "off",
-  "no-dupe-keys": "off",
-  "no-func-assign": "off",
-  "no-import-assign": "off",
-  "no-new-native-nonconstructor": "off",
-  "no-obj-calls": "off",
-  "no-setter-return": "off",
-  "no-this-before-super": "off",
-  "no-undef": "off",
-  "no-unreachable": "off",
-  "no-unsafe-negation": "off",
-  "no-with": "off",
-};
-
-/**
  * Unicorn rules disabled in flat config (index.cjs); we mirror here so legacy matches flat.
  * These conflict with Prettier or are too stylistic for a TypeScript-focused config.
  */
@@ -111,7 +86,6 @@ module.exports = {
   ],
   root: true,
   rules: {
-    ...ESLINT_V9_DEFAULTS,
     ...UNICORN_RULES_OFF,
     /** Forbids `as` casting (that excludes `as const`) to prevent unsafe type casts */
     "@typescript-eslint/consistent-type-assertions": [
