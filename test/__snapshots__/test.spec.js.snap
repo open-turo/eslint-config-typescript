@@ -616,9 +616,6 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
   "@typescript-eslint/no-deprecated": [
     0,
   ],
-  "@typescript-eslint/no-dupe-class-members": [
-    2,
-  ],
   "@typescript-eslint/no-duplicate-enum-values": [
     2,
   ],
@@ -758,9 +755,6 @@ exports[`validate config the flat config is correct for index.cjs 1`] = `
       "allowTaggedTemplates": false,
       "allowTernary": false,
     },
-  ],
-  "@typescript-eslint/no-unused-private-class-members": [
-    2,
   ],
   "@typescript-eslint/no-unused-vars": [
     2,
@@ -3898,9 +3892,6 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "@typescript-eslint/no-deprecated": [
     0,
   ],
-  "@typescript-eslint/no-dupe-class-members": [
-    2,
-  ],
   "@typescript-eslint/no-duplicate-enum-values": [
     2,
   ],
@@ -4040,9 +4031,6 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
       "allowTaggedTemplates": false,
       "allowTernary": false,
     },
-  ],
-  "@typescript-eslint/no-unused-private-class-members": [
-    2,
   ],
   "@typescript-eslint/no-unused-vars": [
     2,
@@ -7180,9 +7168,6 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
   "@typescript-eslint/no-deprecated": [
     0,
   ],
-  "@typescript-eslint/no-dupe-class-members": [
-    2,
-  ],
   "@typescript-eslint/no-duplicate-enum-values": [
     2,
   ],
@@ -7322,9 +7307,6 @@ exports[`validate config the flat config with vitest is correct for index.cjs 1`
       "allowTaggedTemplates": false,
       "allowTernary": false,
     },
-  ],
-  "@typescript-eslint/no-unused-private-class-members": [
-    2,
   ],
   "@typescript-eslint/no-unused-vars": [
     2,
@@ -10543,9 +10525,6 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "@typescript-eslint/no-deprecated": [
     0,
   ],
-  "@typescript-eslint/no-dupe-class-members": [
-    2,
-  ],
   "@typescript-eslint/no-duplicate-enum-values": [
     2,
   ],
@@ -10685,9 +10664,6 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
       "allowTaggedTemplates": false,
       "allowTernary": false,
     },
-  ],
-  "@typescript-eslint/no-unused-private-class-members": [
-    2,
   ],
   "@typescript-eslint/no-unused-vars": [
     2,
@@ -13906,9 +13882,6 @@ exports[`validate config the legacy recommended config is correct 1`] = `
   "@typescript-eslint/no-deprecated": [
     "off",
   ],
-  "@typescript-eslint/no-dupe-class-members": [
-    "error",
-  ],
   "@typescript-eslint/no-duplicate-enum-values": [
     "error",
   ],
@@ -14042,9 +14015,6 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "error",
   ],
   "@typescript-eslint/no-unused-expressions": [
-    "error",
-  ],
-  "@typescript-eslint/no-unused-private-class-members": [
     "error",
   ],
   "@typescript-eslint/no-unused-vars": [
@@ -15919,7 +15889,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "off",
   ],
   "unicorn/empty-brace-spaces": [
-    0,
+    "off",
   ],
   "unicorn/error-message": [
     "error",
@@ -16012,7 +15982,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "error",
   ],
   "unicorn/no-nested-ternary": [
-    0,
+    "off",
   ],
   "unicorn/no-new-array": [
     "error",
@@ -16081,7 +16051,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "error",
   ],
   "unicorn/number-literal-case": [
-    0,
+    "off",
   ],
   "unicorn/numeric-separators-style": [
     "error",
@@ -16258,7 +16228,7 @@ exports[`validate config the legacy recommended config is correct 1`] = `
     "error",
   ],
   "unicorn/template-indent": [
-    0,
+    "off",
   ],
   "unicorn/text-encoding-identifier-case": [
     "error",
