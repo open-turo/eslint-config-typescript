@@ -46,7 +46,8 @@
   "scripts": {
     "build": "echo noop",
     "lint": "eslint './*.{cjs,mjs}' test/test.spec.js",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "tsc": "tsc"
   },
   "peerDependencies": {
     "eslint": "^8.18.0 || ^9.0.0",
