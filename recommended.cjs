@@ -5,26 +5,27 @@
  * These conflict with Prettier or are too stylistic for a TypeScript-focused config.
  */
 const UNICORN_RULES_OFF = {
-  "unicorn/empty-brace-spaces": 0,
-  "unicorn/no-nested-ternary": 0,
-  "unicorn/number-literal-case": 0,
-  "unicorn/template-indent": 0,
+  "unicorn/empty-brace-spaces": "off",
+  "unicorn/no-nested-ternary": "off",
+  "unicorn/number-literal-case": "off",
+  "unicorn/template-indent": "off",
 };
 
 /**
- * Core ESLint rules disabled for TS files - @typescript-eslint provides TypeScript-aware equivalents,
- * but there are some rules enabled in ESLint v9 that are not yet disabled by @typescript-eslint.
+ * `@typescript-eslint` generally disables extended rules in favor of its own rules,
+ * but in a couple cases we desire additional configuration.
  * @see https://typescript-eslint.io/rules?=extension#rules
  */
 const TYPESCRIPT_ESLINT_EXTENSION_RULES = /** @type {const} */ ({
-  "@typescript-eslint/no-dupe-class-members": "error",
+  /**
+   * `no-redeclare` is not enabled, but this is not a `/recommended` rule since the TypeScript compiler
+   * covers most uses of this rule. However, we want to forbid declaration merging.
+   */
   "@typescript-eslint/no-redeclare": "error",
-  "@typescript-eslint/no-unused-private-class-members": "error",
-  "@typescript-eslint/no-unused-vars": "error",
-  "no-dupe-class-members": "off",
-  "no-redeclare": "off",
+  /** Covered by tsconfig.json */
+  "@typescript-eslint/no-unused-private-class-members": "off",
+  /** Covered by tsconfig.json */
   "no-unused-private-class-members": "off",
-  "no-unused-vars": "off",
 });
 
 module.exports = {
