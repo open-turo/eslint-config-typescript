@@ -23,5 +23,13 @@
     "jsx": "react"
   },
   "exclude": ["node_modules", "lib"],
-  "include": ["index.cjs", "recommended.cjs", "src", "test", "**/*.json"]
+  "include": [
+    "index.cjs",
+    "index.d.cts",
+    "index.d.mts",
+    "recommended.cjs",
+    "src",
+    "test",
+    "**/*.json"
+  ]
 }
