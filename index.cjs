@@ -7,7 +7,6 @@ const tsParser = require("@typescript-eslint/parser");
 const vitestPlugin = require("@vitest/eslint-plugin");
 const importPlugin = require("eslint-plugin-import");
 const jestPlugin = require("eslint-plugin-jest");
-// @ts-expect-error -- No @types declaration, and we should probably remove this plugin anyhow
 const jsonPlugin = require("eslint-plugin-json");
 const nPlugin = require("eslint-plugin-n");
 const perfectionistPlugin = require("eslint-plugin-perfectionist");
@@ -291,7 +290,7 @@ const ignoresConfig = (ignores = []) =>
  * @param {EcmaVersion} [options.ecmaVersion] - The ECMAScript version to use
  * @param {"jest" | "vitest"} [options.testFramework] - Test framework to use (defaults to "jest")
  */
-module.exports = function config(options = {}) {
+const config = function config(options = {}) {
   const useTypescript =
     options.typescript === undefined ? true : options.typescript;
   const testFramework = options.testFramework || "jest";
@@ -361,3 +360,17 @@ module.exports = function config(options = {}) {
     ignoresConfig(options.ignores),
   );
 };
+
+config.plugins = {
+  eslint,
+  importPlugin,
+  jestPlugin,
+  nPlugin,
+  perfectionistPlugin,
+  sonarjsPlugin,
+  tseslint,
+  unicornPlugin,
+  vitestPlugin,
+};
+
+module.exports = config;
