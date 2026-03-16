@@ -1,11 +1,11 @@
 import type eslint from "@eslint/js";
-import type vitestPlugin from "@vitest/eslint-plugin";
+import type vitest from "@vitest/eslint-plugin";
 import type importPlugin from "eslint-plugin-import";
-import type jestPlugin from "eslint-plugin-jest";
-import type nPlugin from "eslint-plugin-n";
-import type perfectionistPlugin from "eslint-plugin-perfectionist";
-import type sonarjsPlugin from "eslint-plugin-sonarjs";
-import type unicornPlugin from "eslint-plugin-unicorn";
+import type jest from "eslint-plugin-jest";
+import type n from "eslint-plugin-n";
+import type perfectionist from "eslint-plugin-perfectionist";
+import type sonarjs from "eslint-plugin-sonarjs";
+import type unicorn from "eslint-plugin-unicorn";
 import type { Config } from "eslint/config";
 import type tseslint from "typescript-eslint";
 
@@ -30,14 +30,14 @@ declare namespace config {
    */
   interface Plugins {
     eslint: typeof eslint;
-    importPlugin: typeof importPlugin;
-    jestPlugin: typeof jestPlugin;
-    nPlugin: typeof nPlugin;
-    perfectionistPlugin: typeof perfectionistPlugin;
-    sonarjsPlugin: typeof sonarjsPlugin;
+    import: typeof importPlugin;
+    jest: typeof jest;
+    n: typeof n;
+    perfectionist: typeof perfectionist;
+    sonarjs: typeof sonarjs;
     tseslint: typeof tseslint;
-    unicornPlugin: typeof unicornPlugin;
-    vitestPlugin: typeof vitestPlugin;
+    unicorn: typeof unicorn;
+    vitest: typeof vitest;
   }
 
   const plugins: Plugins;
