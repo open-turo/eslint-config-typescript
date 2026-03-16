@@ -363,14 +363,14 @@ const config = function config(options = {}) {
 
 config.plugins = {
   eslint,
-  importPlugin,
-  jestPlugin,
-  nPlugin,
-  perfectionistPlugin,
-  sonarjsPlugin,
+  import: importPlugin,
+  jest: jestPlugin,
+  n: nPlugin,
+  perfectionist: perfectionistPlugin,
+  sonarjs: sonarjsPlugin,
   tseslint,
-  unicornPlugin,
-  vitestPlugin,
+  unicorn: unicornPlugin,
+  vitest: vitestPlugin,
 };
 
 module.exports = config;
