@@ -975,25 +975,25 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   "implicit-arrow-linebreak": [
     0,
   ],
-  "import/default": [
+  "import-x/default": [
     0,
   ],
-  "import/export": [
+  "import-x/export": [
     2,
   ],
-  "import/named": [
+  "import-x/named": [
     0,
   ],
-  "import/namespace": [
+  "import-x/namespace": [
     0,
   ],
-  "import/no-default-export": [
+  "import-x/no-default-export": [
     2,
   ],
-  "import/no-duplicates": [
+  "import-x/no-duplicates": [
     1,
   ],
-  "import/no-extraneous-dependencies": [
+  "import-x/no-extraneous-dependencies": [
     2,
     {
       "devDependencies": [
@@ -1003,16 +1003,16 @@ exports[`validate config the flat config is correct for index.js 1`] = `
       ],
     },
   ],
-  "import/no-named-as-default": [
+  "import-x/no-named-as-default": [
     1,
   ],
-  "import/no-named-as-default-member": [
+  "import-x/no-named-as-default-member": [
     1,
   ],
-  "import/no-unresolved": [
+  "import-x/no-unresolved": [
     2,
   ],
-  "import/prefer-default-export": [
+  "import-x/prefer-default-export": [
     0,
   ],
   "indent": [
@@ -1375,7 +1375,7 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   "no-shadow-restricted-names": [
     2,
     {
-      "reportGlobalThis": false,
+      "reportGlobalThis": true,
     },
   ],
   "no-space-before-semi": [
@@ -1398,6 +1398,9 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   ],
   "no-trailing-spaces": [
     0,
+  ],
+  "no-unassigned-vars": [
+    2,
   ],
   "no-undef": [
     0,
@@ -1444,6 +1447,9 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   ],
   "no-unused-vars": [
     0,
+  ],
+  "no-useless-assignment": [
+    2,
   ],
   "no-useless-backreference": [
     2,
@@ -1746,6 +1752,12 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   ],
   "prefer-spread": [
     2,
+  ],
+  "preserve-caught-error": [
+    2,
+    {
+      "requireCatchParameter": false,
+    },
   ],
   "prettier/prettier": [
     2,
@@ -4262,25 +4274,25 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "implicit-arrow-linebreak": [
     0,
   ],
-  "import/default": [
+  "import-x/default": [
     0,
   ],
-  "import/export": [
+  "import-x/export": [
     2,
   ],
-  "import/named": [
+  "import-x/named": [
     0,
   ],
-  "import/namespace": [
+  "import-x/namespace": [
     0,
   ],
-  "import/no-default-export": [
+  "import-x/no-default-export": [
     2,
   ],
-  "import/no-duplicates": [
+  "import-x/no-duplicates": [
     1,
   ],
-  "import/no-extraneous-dependencies": [
+  "import-x/no-extraneous-dependencies": [
     2,
     {
       "devDependencies": [
@@ -4290,16 +4302,16 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
       ],
     },
   ],
-  "import/no-named-as-default": [
+  "import-x/no-named-as-default": [
     1,
   ],
-  "import/no-named-as-default-member": [
+  "import-x/no-named-as-default-member": [
     1,
   ],
-  "import/no-unresolved": [
+  "import-x/no-unresolved": [
     2,
   ],
-  "import/prefer-default-export": [
+  "import-x/prefer-default-export": [
     0,
   ],
   "indent": [
@@ -4662,7 +4674,7 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "no-shadow-restricted-names": [
     2,
     {
-      "reportGlobalThis": false,
+      "reportGlobalThis": true,
     },
   ],
   "no-space-before-semi": [
@@ -4685,6 +4697,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "no-trailing-spaces": [
     0,
+  ],
+  "no-unassigned-vars": [
+    2,
   ],
   "no-undef": [
     0,
@@ -4731,6 +4746,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "no-unused-vars": [
     0,
+  ],
+  "no-useless-assignment": [
+    2,
   ],
   "no-useless-backreference": [
     2,
@@ -5033,6 +5051,12 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "prefer-spread": [
     2,
+  ],
+  "preserve-caught-error": [
+    2,
+    {
+      "requireCatchParameter": false,
+    },
   ],
   "prettier/prettier": [
     2,
@@ -7549,25 +7573,25 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   "implicit-arrow-linebreak": [
     0,
   ],
-  "import/default": [
+  "import-x/default": [
     0,
   ],
-  "import/export": [
+  "import-x/export": [
     2,
   ],
-  "import/named": [
+  "import-x/named": [
     0,
   ],
-  "import/namespace": [
+  "import-x/namespace": [
     0,
   ],
-  "import/no-default-export": [
+  "import-x/no-default-export": [
     2,
   ],
-  "import/no-duplicates": [
+  "import-x/no-duplicates": [
     1,
   ],
-  "import/no-extraneous-dependencies": [
+  "import-x/no-extraneous-dependencies": [
     2,
     {
       "devDependencies": [
@@ -7577,16 +7601,16 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
       ],
     },
   ],
-  "import/no-named-as-default": [
+  "import-x/no-named-as-default": [
     1,
   ],
-  "import/no-named-as-default-member": [
+  "import-x/no-named-as-default-member": [
     1,
   ],
-  "import/no-unresolved": [
+  "import-x/no-unresolved": [
     2,
   ],
-  "import/prefer-default-export": [
+  "import-x/prefer-default-export": [
     0,
   ],
   "indent": [
@@ -7949,7 +7973,7 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   "no-shadow-restricted-names": [
     2,
     {
-      "reportGlobalThis": false,
+      "reportGlobalThis": true,
     },
   ],
   "no-space-before-semi": [
@@ -7972,6 +7996,9 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   ],
   "no-trailing-spaces": [
     0,
+  ],
+  "no-unassigned-vars": [
+    2,
   ],
   "no-undef": [
     0,
@@ -8018,6 +8045,9 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   ],
   "no-unused-vars": [
     0,
+  ],
+  "no-useless-assignment": [
+    2,
   ],
   "no-useless-backreference": [
     2,
@@ -8320,6 +8350,12 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   ],
   "prefer-spread": [
     2,
+  ],
+  "preserve-caught-error": [
+    2,
+    {
+      "requireCatchParameter": false,
+    },
   ],
   "prettier/prettier": [
     2,
@@ -10923,25 +10959,25 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "implicit-arrow-linebreak": [
     0,
   ],
-  "import/default": [
+  "import-x/default": [
     0,
   ],
-  "import/export": [
+  "import-x/export": [
     2,
   ],
-  "import/named": [
+  "import-x/named": [
     0,
   ],
-  "import/namespace": [
+  "import-x/namespace": [
     0,
   ],
-  "import/no-default-export": [
+  "import-x/no-default-export": [
     2,
   ],
-  "import/no-duplicates": [
+  "import-x/no-duplicates": [
     1,
   ],
-  "import/no-extraneous-dependencies": [
+  "import-x/no-extraneous-dependencies": [
     2,
     {
       "devDependencies": [
@@ -10951,16 +10987,16 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
       ],
     },
   ],
-  "import/no-named-as-default": [
+  "import-x/no-named-as-default": [
     1,
   ],
-  "import/no-named-as-default-member": [
+  "import-x/no-named-as-default-member": [
     1,
   ],
-  "import/no-unresolved": [
+  "import-x/no-unresolved": [
     2,
   ],
-  "import/prefer-default-export": [
+  "import-x/prefer-default-export": [
     0,
   ],
   "indent": [
@@ -11323,7 +11359,7 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "no-shadow-restricted-names": [
     2,
     {
-      "reportGlobalThis": false,
+      "reportGlobalThis": true,
     },
   ],
   "no-space-before-semi": [
@@ -11346,6 +11382,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   ],
   "no-trailing-spaces": [
     0,
+  ],
+  "no-unassigned-vars": [
+    2,
   ],
   "no-undef": [
     0,
@@ -11392,6 +11431,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   ],
   "no-unused-vars": [
     0,
+  ],
+  "no-useless-assignment": [
+    2,
   ],
   "no-useless-backreference": [
     2,
@@ -11694,6 +11736,12 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   ],
   "prefer-spread": [
     2,
+  ],
+  "preserve-caught-error": [
+    2,
+    {
+      "requireCatchParameter": false,
+    },
   ],
   "prettier/prettier": [
     2,

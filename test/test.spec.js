@@ -123,9 +123,7 @@ describe("validate config", () => {
   test.each(["index.mjs", "index.js"])(
     `the flat config is correct for %s`,
     async (configFile) => {
-      const ESLint = await loadESLint({
-        useFlatConfig: true,
-      });
+      const ESLint = await loadESLint();
       const { default: config } = await import(`../${configFile}`);
       const linter = new ESLint({
         baseConfig: config(),
@@ -152,9 +150,7 @@ describe("validate config", () => {
   test.each(["index.mjs", "index.js"])(
     `the flat config with vitest is correct for %s`,
     async (configFile) => {
-      const ESLint = await loadESLint({
-        useFlatConfig: true,
-      });
+      const ESLint = await loadESLint();
       const { default: config } = await import(`../${configFile}`);
       const linter = new ESLint({
         baseConfig: config({ testFramework: "vitest" }),
@@ -181,9 +177,7 @@ describe("validate config", () => {
   test.each(["index.mjs", "index.js"])(
     `the flat config maintains 1:1 mapping for @typescript-eslint extension rules (%s)`,
     async (configFile) => {
-      const ESLint = await loadESLint({
-        useFlatConfig: true,
-      });
+      const ESLint = await loadESLint();
       const { default: config } = await import(`../${configFile}`);
       const linter = new ESLint({
         baseConfig: config(),

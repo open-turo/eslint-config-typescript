@@ -1,6 +1,6 @@
 import type eslint from "@eslint/js";
 import type vitest from "@vitest/eslint-plugin";
-import type importPlugin from "eslint-plugin-import";
+import type importX from "eslint-plugin-import-x";
 import type jest from "eslint-plugin-jest";
 import type n from "eslint-plugin-n";
 import type perfectionist from "eslint-plugin-perfectionist";
@@ -30,7 +30,7 @@ declare namespace config {
    */
   interface Plugins {
     eslint: typeof eslint;
-    import: typeof importPlugin;
+    import: typeof importX;
     jest: typeof jest;
     n: typeof n;
     perfectionist: typeof perfectionist;
