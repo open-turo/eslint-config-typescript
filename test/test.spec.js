@@ -1,8 +1,6 @@
 /** @import { ParserOptions } from "@typescript-eslint/parser"; */
 import { loadESLint } from "eslint";
 
-import recommendedConfig from "../recommended.cjs";
-
 const TEST_FILE_PATH = "./test/sample.test.ts";
 
 function getRuleSeverity(rules, ruleName) {
@@ -17,31 +15,6 @@ function getRuleSeverity(rules, ruleName) {
   return typeof value === "string"
     ? { error: 2, off: 0, warn: 1 }[value]
     : value;
-}
-
-const SEVERITY_MAP = { error: 2, off: 0, warn: 1 };
-
-/**
- * Maps legacy rule severity strings ("off", "warn", "error") to numeric values (0, 1, 2)
- * so that legacy and flat config rules can be compared.
- */
-function mapRulesToNumericSeverity(rules) {
-  const result = {};
-  for (const [ruleName, ruleValue] of Object.entries(rules)) {
-    /** `json` from the Flat config reports here even though it is only supposed to apply to JSON files */
-    if (ruleName.startsWith("json/")) continue;
-    if (Array.isArray(ruleValue)) {
-      const [severity] = ruleValue;
-      result[ruleName] = [
-        typeof severity === "string" ? SEVERITY_MAP[severity] : severity,
-      ];
-    } else if (typeof ruleValue === "string") {
-      result[ruleName] = [SEVERITY_MAP[ruleValue]];
-    } else {
-      result[ruleName] = ruleValue;
-    }
-  }
-  return result;
 }
 
 /**
@@ -147,44 +120,10 @@ describe("validate config", () => {
     },
   };
 
-  test("the legacy recommended config is correct", async () => {
-    const ESLint = await loadESLint({
-      useFlatConfig: false,
-    });
-    const modifiedRecommendedConfig = {
-      ...recommendedConfig,
-      parserOptions: {
-        ...recommendedConfig.parserOptions,
-        /**
-         * @typescript-eslint/parser@8.46.4 errors if `projectService` and `project` are both defined.
-         * `@typescript-eslint` recommends `projectService` over `project`, and we use `projectService` in the non-legacy config,
-         * but not the legacy `recommended` config. Because thi spec uses `projectService`, we explicitly omit `project` here to avoid the error.
-         */
-        project: undefined,
-      },
-    };
-    const linter = new ESLint({
-      baseConfig: modifiedRecommendedConfig,
-      overrideConfig: {
-        parserOptions,
-      },
-    });
-    const messages = await linter.lintText(code, {
-      filePath: testFileName,
-    });
-    expect(messages[0].messages).toEqual([]);
-    expect(messages[0].errorCount).toEqual(0);
-    const calculatedConfig =
-      await linter.calculateConfigForFile(TEST_FILE_PATH);
-    expect(calculatedConfig.rules).toMatchSnapshot();
-  });
-
   test.each(["index.mjs", "index.cjs"])(
     `the flat config is correct for %s`,
     async (configFile) => {
-      const ESLint = await loadESLint({
-        useFlatConfig: true,
-      });
+      const ESLint = await loadESLint();
       const { default: config } = await import(`../${configFile}`);
       const linter = new ESLint({
         baseConfig: config(),
@@ -211,9 +150,7 @@ describe("validate config", () => {
   test.each(["index.mjs", "index.cjs"])(
     `the flat config with vitest is correct for %s`,
     async (configFile) => {
-      const ESLint = await loadESLint({
-        useFlatConfig: true,
-      });
+      const ESLint = await loadESLint();
       const { default: config } = await import(`../${configFile}`);
       const linter = new ESLint({
         baseConfig: config({ testFramework: "vitest" }),
@@ -240,9 +177,7 @@ describe("validate config", () => {
   test.each(["index.mjs", "index.cjs"])(
     `the flat config maintains 1:1 mapping for @typescript-eslint extension rules (%s)`,
     async (configFile) => {
-      const ESLint = await loadESLint({
-        useFlatConfig: true,
-      });
+      const ESLint = await loadESLint();
       const { default: config } = await import(`../${configFile}`);
       const linter = new ESLint({
         baseConfig: config(),
@@ -290,112 +225,10 @@ describe("validate config", () => {
     },
   );
 
-  test("the legacy recommended config maintains 1:1 mapping for @typescript-eslint extension rules", async () => {
-    const ESLint = await loadESLint({
-      useFlatConfig: false,
-    });
-    const modifiedRecommendedConfig = {
-      ...recommendedConfig,
-      parserOptions: {
-        ...recommendedConfig.parserOptions,
-        project: undefined,
-      },
-    };
-    const linter = new ESLint({
-      baseConfig: modifiedRecommendedConfig,
-      overrideConfig: {
-        parserOptions,
-      },
-    });
-    const calculatedConfig =
-      await linter.calculateConfigForFile(TEST_FILE_PATH);
-    const rules = calculatedConfig.rules;
-
-    const violations = [];
-    for (const { baseRule, tsRule } of EXTENSION_RULES) {
-      /**
-       * @typescript-eslint/no-loss-of-precision is deprecated in favor of ESLint's rule.
-       * {@link https://typescript-eslint.io/rules/no-loss-of-precision/ Docs}
-       */
-      if (baseRule === "no-loss-of-precision") continue;
-
-      const tsSeverity = getRuleSeverity(rules, tsRule);
-      const baseSeverity = getRuleSeverity(rules, baseRule);
-
-      if (baseSeverity !== undefined && baseSeverity !== 0) {
-        violations.push(
-          `${baseRule} must be off (use ${tsRule}), got severity ${baseSeverity}`,
-        );
-      }
-      if (tsSeverity !== undefined && tsSeverity !== 0 && tsSeverity !== 2) {
-        violations.push(
-          `${tsRule} must be error when enabled, got severity ${tsSeverity}`,
-        );
-      }
-    }
-    expect(violations).toEqual([]);
-  });
-
   test("throws error for invalid testFramework", async () => {
     const { default: config } = await import("../index.cjs");
     expect(() => config({ testFramework: "invalid" })).toThrow(
       'Invalid testFramework option: "invalid". Valid values are "jest" or "vitest".',
     );
-  });
-
-  test("validates the legacy config and the flat config are the same ruleset", async () => {
-    /**
-     * Legacy setup
-     */
-    const ESLintLegacy = await loadESLint({
-      useFlatConfig: false,
-    });
-    const modifiedRecommendedConfig = {
-      ...recommendedConfig,
-      parserOptions: {
-        ...recommendedConfig.parserOptions,
-        /**
-         * @typescript-eslint/parser@8.46.4 errors if `projectService` and `project` are both defined.
-         * `@typescript-eslint` recommends `projectService` over `project`, and we use `projectService` in the non-legacy config,
-         * but not the legacy `recommended` config. Because thi spec uses `projectService`, we explicitly omit `project` here to avoid the error.
-         */
-        project: undefined,
-      },
-    };
-    const linterLegacy = new ESLintLegacy({
-      baseConfig: modifiedRecommendedConfig,
-      overrideConfig: {
-        parserOptions,
-      },
-    });
-    const calculatedConfig =
-      await linterLegacy.calculateConfigForFile(TEST_FILE_PATH);
-
-    /**
-     * Flat config setup
-     */
-    const ESLint = await loadESLint({
-      useFlatConfig: true,
-    });
-    const { default: config } = await import(`../index.cjs`);
-    const linter = new ESLint({
-      baseConfig: config(),
-      overrideConfig: [
-        {
-          files: [testFileName],
-          languageOptions: {
-            parserOptions,
-          },
-        },
-      ],
-    });
-    const flatConfig = await linter.calculateConfigForFile(TEST_FILE_PATH);
-
-    const mappedCalculatedConfig = mapRulesToNumericSeverity(
-      calculatedConfig.rules,
-    );
-    const mappedFlatConfig = mapRulesToNumericSeverity(flatConfig.rules);
-
-    expect(mappedCalculatedConfig).toStrictEqual(mappedFlatConfig);
   });
 });

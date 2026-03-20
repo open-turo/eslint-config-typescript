@@ -27,7 +27,6 @@
     "index.cjs",
     "index.d.cts",
     "index.d.mts",
-    "recommended.cjs",
     "src",
     "test",
     "**/*.json"
