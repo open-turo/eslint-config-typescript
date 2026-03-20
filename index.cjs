@@ -5,7 +5,8 @@
 const eslint = require("@eslint/js");
 const tsParser = require("@typescript-eslint/parser");
 const vitestPlugin = require("@vitest/eslint-plugin");
-const importPlugin = require("eslint-plugin-import");
+const importXModule = require("eslint-plugin-import-x");
+const importXPlugin = importXModule.importX;
 const jestPlugin = require("eslint-plugin-jest");
 const jsonPlugin = require("eslint-plugin-json");
 const nPlugin = require("eslint-plugin-n");
@@ -68,32 +69,32 @@ const javascriptConfig = (ecmaVersion = "latest") =>
     },
   });
 
-const getImportPluginFlatConfigs = () => {
-  if (!importPlugin.flatConfigs) {
+const getImportXFlatConfigs = () => {
+  if (!importXModule.flatConfigs) {
     throw new Error(
-      "Unexpected value from eslint-plugin-import. You will need to upgrade the plugin.",
+      "Unexpected value from eslint-plugin-import-x. You will need to upgrade the plugin.",
     );
   }
 
-  return importPlugin.flatConfigs;
+  return importXModule.flatConfigs;
 };
 
 const importConfig = () =>
   eslintConfig.defineConfig({
-    extends: [getImportPluginFlatConfigs().recommended],
+    extends: [getImportXFlatConfigs().recommended],
     rules: {
-      "import/default": "off",
-      "import/named": "off",
-      "import/namespace": "off",
-      "import/no-default-export": "error",
-      "import/no-extraneous-dependencies": [
+      "import-x/default": "off",
+      "import-x/named": "off",
+      "import-x/namespace": "off",
+      "import-x/no-default-export": "error",
+      "import-x/no-extraneous-dependencies": [
         "error",
         { devDependencies: [`eslint.config.${FILES_SRC_EXTENSION}`] },
       ],
-      "import/prefer-default-export": "off",
+      "import-x/prefer-default-export": "off",
     },
     settings: {
-      "import/resolver": {
+      "import-x/resolver": {
         typescript: {
           alwaysTryTypes: true,
         },
@@ -154,7 +155,7 @@ const typescriptConfig = () =>
   eslintConfig.defineConfig({
     extends: [
       tseslint.configs.strictTypeChecked,
-      getImportPluginFlatConfigs().typescript,
+      getImportXFlatConfigs().typescript,
     ],
     files: [FILES_TS, FILES_TSX],
     languageOptions: typescriptLanguageOptions(),
@@ -263,7 +264,7 @@ const testConfig = (options) => {
   return eslintConfig.defineConfig(...frameworkConfig, {
     files: FILES_TEST,
     rules: {
-      "import/no-extraneous-dependencies": [
+      "import-x/no-extraneous-dependencies": [
         "error",
         { devDependencies: FILES_TEST },
       ],
@@ -290,7 +291,7 @@ const ignoresConfig = (ignores = []) =>
  * @param {EcmaVersion} [options.ecmaVersion] - The ECMAScript version to use
  * @param {"jest" | "vitest"} [options.testFramework] - Test framework to use (defaults to "jest")
  */
-const config = function config(options = {}) {
+function config(options = {}) {
   const useTypescript =
     options.typescript === undefined ? true : options.typescript;
   const testFramework = options.testFramework || "jest";
@@ -359,11 +360,11 @@ const config = function config(options = {}) {
     testConfig({ testFramework, typescript: useTypescript }),
     ignoresConfig(options.ignores),
   );
-};
+}
 
 config.plugins = {
   eslint,
-  import: importPlugin,
+  import: importXPlugin,
   jest: jestPlugin,
   n: nPlugin,
   perfectionist: perfectionistPlugin,

@@ -19,7 +19,7 @@ Install the package and all of its peer dependencies:
 npx install-peerdeps --dev @open-turo/eslint-config-typescript
 ```
 
-### [`eslint.config.js`](https://eslint.org/docs/latest/use/configure/configuration-files-new) (requires eslint>=v8.23.0)
+### Flat config ([`eslint.config.js`](https://eslint.org/docs/latest/use/configure/configuration-files))
 
 ```js
 const turoConfig = require("@open-turo/eslint-config-typescript");
@@ -44,16 +44,6 @@ module.exports = turoConfig({
   testFramework: "vitest",
 });
 ```
-
-### **[.eslintrc](https://eslint.org/docs/latest/use/configure/configuration-files)** (legacy example)
-
-```jsonc
-{
-  "extends": "@open-turo/eslint-config-typescript/recommended"],
-}
-```
-
-You will have to set the `ESLINT_USE_FLAT_CONFIG` env var to true.
 
 ## Development
 
