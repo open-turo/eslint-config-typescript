@@ -30,34 +30,25 @@
   },
   "homepage": "https://github.com/open-turo/eslint-config-typescript#readme",
   "license": "MIT",
-  "main": "index.cjs",
+  "main": "index.js",
   "module": "index.mjs",
-  "types": "index.d.cts",
+  "types": "index.d.mts",
   "exports": {
     ".": {
-      "import": {
-        "types": "./index.d.mts",
-        "default": "./index.mjs"
-      },
-      "require": {
-        "types": "./index.d.cts",
-        "default": "./index.cjs"
-      },
+      "types": "./index.d.mts",
+      "import": "./index.mjs",
       "default": "./index.mjs"
-    },
-    "./recommended": {
-      "require": "./recommended.cjs"
     }
   },
   "name": "@open-turo/eslint-config-typescript",
   "scripts": {
     "build": "echo noop",
-    "lint": "eslint './*.{cjs,mjs}' test/test.spec.js",
+    "lint": "eslint './*.{js,mjs}' test/test.spec.js",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "tsc": "tsc"
   },
   "peerDependencies": {
-    "eslint": "^8.18.0 || ^9.0.0",
+    "eslint": "^9.0.0",
     "prettier": "^3.0.0"
   },
   "publishConfig": {
