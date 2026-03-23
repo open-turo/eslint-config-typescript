@@ -2,19 +2,19 @@
 
 /** @import { ConfigWithExtends } from "typescript-eslint" */
 /** @import { ParserOptions } from "@typescript-eslint/parser"; */
-const eslint = require("@eslint/js");
-const tsParser = require("@typescript-eslint/parser");
-const vitestPlugin = require("@vitest/eslint-plugin");
-const importPlugin = require("eslint-plugin-import");
-const jestPlugin = require("eslint-plugin-jest");
-const jsonPlugin = require("eslint-plugin-json");
-const nPlugin = require("eslint-plugin-n");
-const perfectionistPlugin = require("eslint-plugin-perfectionist");
-const prettierPluginRecommended = require("eslint-plugin-prettier/recommended");
-const sonarjsPlugin = require("eslint-plugin-sonarjs");
-const unicornPlugin = require("eslint-plugin-unicorn");
-const eslintConfig = require("eslint/config");
-const tseslint = require("typescript-eslint");
+import eslint from "@eslint/js";
+import tsParser from "@typescript-eslint/parser";
+import vitestPlugin from "@vitest/eslint-plugin";
+import importPlugin from "eslint-plugin-import";
+import jestPlugin from "eslint-plugin-jest";
+import jsonPlugin from "eslint-plugin-json";
+import nPlugin from "eslint-plugin-n";
+import perfectionistPlugin from "eslint-plugin-perfectionist";
+import prettierPluginRecommended from "eslint-plugin-prettier/recommended";
+import sonarjsPlugin from "eslint-plugin-sonarjs";
+import unicornPlugin from "eslint-plugin-unicorn";
+import eslintConfig from "eslint/config";
+import tseslint from "typescript-eslint";
 
 const FILES_JS = "**/*.?([cm])js";
 const FILES_SRC_EXTENSION = "?([cm])[jt]s?(x)";
@@ -373,4 +373,5 @@ config.plugins = {
   vitest: vitestPlugin,
 };
 
-module.exports = config;
+// eslint-disable-next-line import/no-default-export -- package entry matches ESLint flat-config convention
+export default config;
