@@ -22,9 +22,9 @@ npx install-peerdeps --dev @open-turo/eslint-config-typescript
 ### [`eslint.config.js`](https://eslint.org/docs/latest/use/configure/configuration-files-new) (requires eslint>=v8.23.0)
 
 ```js
-const turoConfig = require("@open-turo/eslint-config-typescript");
+import turoConfig from "@open-turo/eslint-config-typescript";
 
-module.exports = turoConfig();
+export default turoConfig();
 ```
 
 The `turoConfig` function accepts an options object with the following properties:
@@ -38,22 +38,12 @@ The `turoConfig` function accepts an options object with the following propertie
 #### Vitest Configuration Example
 
 ```js
-const turoConfig = require("@open-turo/eslint-config-typescript");
+import turoConfig from "@open-turo/eslint-config-typescript";
 
-module.exports = turoConfig({
+export default turoConfig({
   testFramework: "vitest",
 });
 ```
-
-### **[.eslintrc](https://eslint.org/docs/latest/use/configure/configuration-files)** (legacy example)
-
-```jsonc
-{
-  "extends": "@open-turo/eslint-config-typescript/recommended"],
-}
-```
-
-You will have to set the `ESLINT_USE_FLAT_CONFIG` env var to true.
 
 ## Development
 

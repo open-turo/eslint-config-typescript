@@ -24,10 +24,10 @@
   },
   "exclude": ["node_modules", "lib"],
   "include": [
-    "index.cjs",
+    "ambient.d.ts",
     "index.d.cts",
     "index.d.mts",
-    "recommended.cjs",
+    "index.js",
     "src",
     "test",
     "**/*.json"
