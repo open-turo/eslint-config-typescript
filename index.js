@@ -7,6 +7,7 @@ import tsParser from "@typescript-eslint/parser";
 import vitestPlugin from "@vitest/eslint-plugin";
 import importPlugin from "eslint-plugin-import";
 import jestPlugin from "eslint-plugin-jest";
+// @ts-expect-error -- No @types for eslint-plugin-json
 import jsonPlugin from "eslint-plugin-json";
 import nPlugin from "eslint-plugin-n";
 import perfectionistPlugin from "eslint-plugin-perfectionist";

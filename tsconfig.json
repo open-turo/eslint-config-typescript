@@ -24,7 +24,6 @@
   },
   "exclude": ["node_modules", "lib"],
   "include": [
-    "ambient.d.ts",
     "index.d.cts",
     "index.d.mts",
     "index.js",
