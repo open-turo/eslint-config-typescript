@@ -1132,9 +1132,6 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   "n/no-process-exit": [
     2,
   ],
-  "n/no-unpublished-bin": [
-    2,
-  ],
   "n/no-unpublished-import": [
     2,
     {
@@ -4425,9 +4422,6 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "n/no-process-exit": [
     2,
   ],
-  "n/no-unpublished-bin": [
-    2,
-  ],
   "n/no-unpublished-import": [
     2,
     {
@@ -7716,9 +7710,6 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
     2,
   ],
   "n/no-process-exit": [
-    2,
-  ],
-  "n/no-unpublished-bin": [
     2,
   ],
   "n/no-unpublished-import": [
@@ -11090,9 +11081,6 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     2,
   ],
   "n/no-process-exit": [
-    2,
-  ],
-  "n/no-unpublished-bin": [
     2,
   ],
   "n/no-unpublished-import": [
