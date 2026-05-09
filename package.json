@@ -22,7 +22,7 @@
   "devDependencies": {
     "@prettier/plugin-oxc": "0.1.4",
     "eslint": "9.39.4",
-    "jest": "30.4.1",
+    "jest": "30.4.2",
     "prettier": "3.8.3"
   },
   "engines": {
@@ -56,5 +56,5 @@
   },
   "repository": "https://github.com/open-turo/eslint-config-typescript",
   "version": "23.0.9",
-  "packageManager": "npm@11.14.0"
+  "packageManager": "npm@11.14.1"
 }
