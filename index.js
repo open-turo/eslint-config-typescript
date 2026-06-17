@@ -198,6 +198,18 @@ const typescriptConfig = () =>
           argsIgnorePattern: "^_",
         },
       ],
+      "@typescript-eslint/restrict-template-expressions": [
+        "error",
+        {
+          allowAny: false,
+          allowBoolean: false,
+          allowNever: false,
+          allowNullish: false,
+          /** Strict type-checked configuration doesn't allow number, but we often interpolate numbers for convenience */
+          allowNumber: true,
+          allowRegExp: false,
+        },
+      ],
       "@typescript-eslint/unbound-method": "error",
     },
   });
