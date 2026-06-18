@@ -9796,6 +9796,12 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   "vitest/require-local-test-context-for-concurrent-snapshots": [
     2,
   ],
+  "vitest/unbound-method": [
+    2,
+    {
+      "ignoreStatic": false,
+    },
+  ],
   "vitest/valid-describe-callback": [
     2,
   ],
@@ -13166,6 +13172,12 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   ],
   "vitest/require-local-test-context-for-concurrent-snapshots": [
     2,
+  ],
+  "vitest/unbound-method": [
+    2,
+    {
+      "ignoreStatic": false,
+    },
   ],
   "vitest/valid-describe-callback": [
     2,
