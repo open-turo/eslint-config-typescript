@@ -249,6 +249,12 @@ const jestTestConfig = (options) => {
  * @param {boolean} options.typescript Whether to include typescript rules
  */
 const vitestTestConfig = (options) => {
+  const typescriptRules = options.typescript
+    ? /** @type {const} */ ({
+        "@typescript-eslint/unbound-method": "off",
+        "vitest/unbound-method": "error",
+      })
+    : {};
   return eslintConfig.defineConfig({
     extends: [vitestPlugin.configs.recommended],
     files: FILES_TEST,
@@ -257,6 +263,10 @@ const vitestTestConfig = (options) => {
       ...(options.typescript ? typescriptLanguageOptions() : {}),
     },
     plugins: { vitest: vitestPlugin },
+    rules: {
+      ...vitestPlugin.configs.recommended.rules,
+      ...typescriptRules,
+    },
   });
 };
 
