@@ -1850,6 +1850,9 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   "sonarjs/assertions-in-tests": [
     2,
   ],
+  "sonarjs/async-test-assertions": [
+    2,
+  ],
   "sonarjs/aws-apigateway-public-api": [
     2,
   ],
@@ -1892,9 +1895,6 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   "sonarjs/aws-s3-bucket-public-access": [
     2,
   ],
-  "sonarjs/aws-s3-bucket-server-encryption": [
-    0,
-  ],
   "sonarjs/aws-s3-bucket-versioning": [
     2,
   ],
@@ -1918,9 +1918,6 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   ],
   "sonarjs/call-argument-line": [
     2,
-  ],
-  "sonarjs/certificate-transparency": [
-    0,
   ],
   "sonarjs/chai-determinate-assertion": [
     2,
@@ -1959,7 +1956,7 @@ exports[`validate config the flat config is correct for index.js 1`] = `
     0,
   ],
   "sonarjs/confidential-information-logging": [
-    2,
+    0,
   ],
   "sonarjs/constructor-for-side-effects": [
     2,
@@ -1976,9 +1973,6 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   ],
   "sonarjs/cookie-no-httponly": [
     2,
-  ],
-  "sonarjs/cookies": [
-    0,
   ],
   "sonarjs/cors": [
     2,
@@ -2013,9 +2007,6 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   "sonarjs/disabled-timeout": [
     2,
   ],
-  "sonarjs/dns-prefetching": [
-    0,
-  ],
   "sonarjs/dompurify-unsafe-config": [
     2,
   ],
@@ -2030,9 +2021,6 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   ],
   "sonarjs/empty-string-repetition": [
     2,
-  ],
-  "sonarjs/encryption": [
-    0,
   ],
   "sonarjs/encryption-secure-mode": [
     2,
@@ -2072,7 +2060,7 @@ exports[`validate config the flat config is correct for index.js 1`] = `
     2,
   ],
   "sonarjs/frame-ancestors": [
-    2,
+    0,
   ],
   "sonarjs/function-inside-loop": [
     2,
@@ -2099,6 +2087,9 @@ exports[`validate config the flat config is correct for index.js 1`] = `
     2,
   ],
   "sonarjs/hidden-files": [
+    0,
+  ],
+  "sonarjs/hooks-before-test-cases": [
     2,
   ],
   "sonarjs/in-operator-type-error": [
@@ -2202,7 +2193,7 @@ exports[`validate config the flat config is correct for index.js 1`] = `
     2,
   ],
   "sonarjs/no-commented-code": [
-    2,
+    0,
   ],
   "sonarjs/no-control-regex": [
     2,
@@ -2222,6 +2213,9 @@ exports[`validate config the flat config is correct for index.js 1`] = `
       "ignoreStrings": "application/json",
       "threshold": 3,
     },
+  ],
+  "sonarjs/no-duplicate-test-title": [
+    2,
   ],
   "sonarjs/no-duplicated-branches": [
     2,
@@ -2247,6 +2241,9 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   "sonarjs/no-empty-test-file": [
     2,
   ],
+  "sonarjs/no-empty-test-title": [
+    2,
+  ],
   "sonarjs/no-equals-in-for-termination": [
     2,
   ],
@@ -2259,8 +2256,14 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   "sonarjs/no-fallthrough": [
     2,
   ],
+  "sonarjs/no-floating-point-equality": [
+    2,
+  ],
   "sonarjs/no-for-in-iterable": [
     0,
+  ],
+  "sonarjs/no-forced-browser-interaction": [
+    2,
   ],
   "sonarjs/no-function-declaration-in-block": [
     0,
@@ -2326,6 +2329,9 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   "sonarjs/no-in-misuse": [
     2,
   ],
+  "sonarjs/no-incompatible-assertion-types": [
+    2,
+  ],
   "sonarjs/no-incomplete-assertions": [
     2,
   ],
@@ -2339,7 +2345,7 @@ exports[`validate config the flat config is correct for index.js 1`] = `
     2,
   ],
   "sonarjs/no-intrusive-permissions": [
-    2,
+    0,
     {
       "permissions": [
         "geolocation",
@@ -2356,7 +2362,7 @@ exports[`validate config the flat config is correct for index.js 1`] = `
     2,
   ],
   "sonarjs/no-ip-forward": [
-    2,
+    0,
   ],
   "sonarjs/no-labels": [
     2,
@@ -2374,7 +2380,7 @@ exports[`validate config the flat config is correct for index.js 1`] = `
     2,
   ],
   "sonarjs/no-mixed-content": [
-    2,
+    0,
   ],
   "sonarjs/no-nested-assignment": [
     2,
@@ -2463,6 +2469,9 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   "sonarjs/no-table-as-layout": [
     2,
   ],
+  "sonarjs/no-trivial-assertions": [
+    2,
+  ],
   "sonarjs/no-try-promise": [
     2,
   ],
@@ -2511,9 +2520,6 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   "sonarjs/no-variable-usage-before-declaration": [
     0,
   ],
-  "sonarjs/no-vue-bypass-sanitization": [
-    0,
-  ],
   "sonarjs/no-weak-cipher": [
     2,
   ],
@@ -2539,7 +2545,7 @@ exports[`validate config the flat config is correct for index.js 1`] = `
     0,
   ],
   "sonarjs/os-command": [
-    2,
+    0,
   ],
   "sonarjs/post-message": [
     2,
@@ -2571,14 +2577,14 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   "sonarjs/prefer-single-boolean-return": [
     2,
   ],
+  "sonarjs/prefer-specific-assertions": [
+    2,
+  ],
   "sonarjs/prefer-type-guard": [
     2,
   ],
   "sonarjs/prefer-while": [
     2,
-  ],
-  "sonarjs/process-argv": [
-    0,
   ],
   "sonarjs/production-debug": [
     2,
@@ -2604,9 +2610,6 @@ exports[`validate config the flat config is correct for index.js 1`] = `
       "threshold": 20,
     },
   ],
-  "sonarjs/regular-expr": [
-    0,
-  ],
   "sonarjs/review-blockchain-mnemonic": [
     2,
   ],
@@ -2625,17 +2628,11 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   "sonarjs/slow-regex": [
     2,
   ],
-  "sonarjs/sockets": [
-    0,
-  ],
   "sonarjs/sql-queries": [
     2,
   ],
   "sonarjs/stable-tests": [
     2,
-  ],
-  "sonarjs/standard-input": [
-    0,
   ],
   "sonarjs/stateful-regex": [
     2,
@@ -2645,6 +2642,9 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   ],
   "sonarjs/strings-comparison": [
     0,
+  ],
+  "sonarjs/super-linear-regex": [
+    2,
   ],
   "sonarjs/table-header": [
     2,
@@ -2711,9 +2711,6 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   ],
   "sonarjs/xml-parser-xxe": [
     2,
-  ],
-  "sonarjs/xpath": [
-    0,
   ],
   "space-after-function-name": [
     0,
@@ -5140,6 +5137,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "sonarjs/assertions-in-tests": [
     2,
   ],
+  "sonarjs/async-test-assertions": [
+    2,
+  ],
   "sonarjs/aws-apigateway-public-api": [
     2,
   ],
@@ -5182,9 +5182,6 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "sonarjs/aws-s3-bucket-public-access": [
     2,
   ],
-  "sonarjs/aws-s3-bucket-server-encryption": [
-    0,
-  ],
   "sonarjs/aws-s3-bucket-versioning": [
     2,
   ],
@@ -5208,9 +5205,6 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/call-argument-line": [
     2,
-  ],
-  "sonarjs/certificate-transparency": [
-    0,
   ],
   "sonarjs/chai-determinate-assertion": [
     2,
@@ -5249,7 +5243,7 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     0,
   ],
   "sonarjs/confidential-information-logging": [
-    2,
+    0,
   ],
   "sonarjs/constructor-for-side-effects": [
     2,
@@ -5266,9 +5260,6 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/cookie-no-httponly": [
     2,
-  ],
-  "sonarjs/cookies": [
-    0,
   ],
   "sonarjs/cors": [
     2,
@@ -5303,9 +5294,6 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "sonarjs/disabled-timeout": [
     2,
   ],
-  "sonarjs/dns-prefetching": [
-    0,
-  ],
   "sonarjs/dompurify-unsafe-config": [
     2,
   ],
@@ -5320,9 +5308,6 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/empty-string-repetition": [
     2,
-  ],
-  "sonarjs/encryption": [
-    0,
   ],
   "sonarjs/encryption-secure-mode": [
     2,
@@ -5362,7 +5347,7 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     2,
   ],
   "sonarjs/frame-ancestors": [
-    2,
+    0,
   ],
   "sonarjs/function-inside-loop": [
     2,
@@ -5389,6 +5374,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     2,
   ],
   "sonarjs/hidden-files": [
+    0,
+  ],
+  "sonarjs/hooks-before-test-cases": [
     2,
   ],
   "sonarjs/in-operator-type-error": [
@@ -5492,7 +5480,7 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     2,
   ],
   "sonarjs/no-commented-code": [
-    2,
+    0,
   ],
   "sonarjs/no-control-regex": [
     2,
@@ -5512,6 +5500,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
       "ignoreStrings": "application/json",
       "threshold": 3,
     },
+  ],
+  "sonarjs/no-duplicate-test-title": [
+    2,
   ],
   "sonarjs/no-duplicated-branches": [
     2,
@@ -5537,6 +5528,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "sonarjs/no-empty-test-file": [
     2,
   ],
+  "sonarjs/no-empty-test-title": [
+    2,
+  ],
   "sonarjs/no-equals-in-for-termination": [
     2,
   ],
@@ -5549,8 +5543,14 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "sonarjs/no-fallthrough": [
     2,
   ],
+  "sonarjs/no-floating-point-equality": [
+    2,
+  ],
   "sonarjs/no-for-in-iterable": [
     0,
+  ],
+  "sonarjs/no-forced-browser-interaction": [
+    2,
   ],
   "sonarjs/no-function-declaration-in-block": [
     0,
@@ -5616,6 +5616,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "sonarjs/no-in-misuse": [
     2,
   ],
+  "sonarjs/no-incompatible-assertion-types": [
+    2,
+  ],
   "sonarjs/no-incomplete-assertions": [
     2,
   ],
@@ -5629,7 +5632,7 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     2,
   ],
   "sonarjs/no-intrusive-permissions": [
-    2,
+    0,
     {
       "permissions": [
         "geolocation",
@@ -5646,7 +5649,7 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     2,
   ],
   "sonarjs/no-ip-forward": [
-    2,
+    0,
   ],
   "sonarjs/no-labels": [
     2,
@@ -5664,7 +5667,7 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     2,
   ],
   "sonarjs/no-mixed-content": [
-    2,
+    0,
   ],
   "sonarjs/no-nested-assignment": [
     2,
@@ -5753,6 +5756,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "sonarjs/no-table-as-layout": [
     2,
   ],
+  "sonarjs/no-trivial-assertions": [
+    2,
+  ],
   "sonarjs/no-try-promise": [
     2,
   ],
@@ -5801,9 +5807,6 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "sonarjs/no-variable-usage-before-declaration": [
     0,
   ],
-  "sonarjs/no-vue-bypass-sanitization": [
-    0,
-  ],
   "sonarjs/no-weak-cipher": [
     2,
   ],
@@ -5829,7 +5832,7 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     0,
   ],
   "sonarjs/os-command": [
-    2,
+    0,
   ],
   "sonarjs/post-message": [
     2,
@@ -5861,14 +5864,14 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "sonarjs/prefer-single-boolean-return": [
     2,
   ],
+  "sonarjs/prefer-specific-assertions": [
+    2,
+  ],
   "sonarjs/prefer-type-guard": [
     2,
   ],
   "sonarjs/prefer-while": [
     2,
-  ],
-  "sonarjs/process-argv": [
-    0,
   ],
   "sonarjs/production-debug": [
     2,
@@ -5894,9 +5897,6 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
       "threshold": 20,
     },
   ],
-  "sonarjs/regular-expr": [
-    0,
-  ],
   "sonarjs/review-blockchain-mnemonic": [
     2,
   ],
@@ -5915,17 +5915,11 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "sonarjs/slow-regex": [
     2,
   ],
-  "sonarjs/sockets": [
-    0,
-  ],
   "sonarjs/sql-queries": [
     2,
   ],
   "sonarjs/stable-tests": [
     2,
-  ],
-  "sonarjs/standard-input": [
-    0,
   ],
   "sonarjs/stateful-regex": [
     2,
@@ -5935,6 +5929,9 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/strings-comparison": [
     0,
+  ],
+  "sonarjs/super-linear-regex": [
+    2,
   ],
   "sonarjs/table-header": [
     2,
@@ -6001,9 +5998,6 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   ],
   "sonarjs/xml-parser-xxe": [
     2,
-  ],
-  "sonarjs/xpath": [
-    0,
   ],
   "space-after-function-name": [
     0,
@@ -8430,6 +8424,9 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   "sonarjs/assertions-in-tests": [
     2,
   ],
+  "sonarjs/async-test-assertions": [
+    2,
+  ],
   "sonarjs/aws-apigateway-public-api": [
     2,
   ],
@@ -8472,9 +8469,6 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   "sonarjs/aws-s3-bucket-public-access": [
     2,
   ],
-  "sonarjs/aws-s3-bucket-server-encryption": [
-    0,
-  ],
   "sonarjs/aws-s3-bucket-versioning": [
     2,
   ],
@@ -8498,9 +8492,6 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   ],
   "sonarjs/call-argument-line": [
     2,
-  ],
-  "sonarjs/certificate-transparency": [
-    0,
   ],
   "sonarjs/chai-determinate-assertion": [
     2,
@@ -8539,7 +8530,7 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
     0,
   ],
   "sonarjs/confidential-information-logging": [
-    2,
+    0,
   ],
   "sonarjs/constructor-for-side-effects": [
     2,
@@ -8556,9 +8547,6 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   ],
   "sonarjs/cookie-no-httponly": [
     2,
-  ],
-  "sonarjs/cookies": [
-    0,
   ],
   "sonarjs/cors": [
     2,
@@ -8593,9 +8581,6 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   "sonarjs/disabled-timeout": [
     2,
   ],
-  "sonarjs/dns-prefetching": [
-    0,
-  ],
   "sonarjs/dompurify-unsafe-config": [
     2,
   ],
@@ -8610,9 +8595,6 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   ],
   "sonarjs/empty-string-repetition": [
     2,
-  ],
-  "sonarjs/encryption": [
-    0,
   ],
   "sonarjs/encryption-secure-mode": [
     2,
@@ -8652,7 +8634,7 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
     2,
   ],
   "sonarjs/frame-ancestors": [
-    2,
+    0,
   ],
   "sonarjs/function-inside-loop": [
     2,
@@ -8679,6 +8661,9 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
     2,
   ],
   "sonarjs/hidden-files": [
+    0,
+  ],
+  "sonarjs/hooks-before-test-cases": [
     2,
   ],
   "sonarjs/in-operator-type-error": [
@@ -8782,7 +8767,7 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
     2,
   ],
   "sonarjs/no-commented-code": [
-    2,
+    0,
   ],
   "sonarjs/no-control-regex": [
     2,
@@ -8802,6 +8787,9 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
       "ignoreStrings": "application/json",
       "threshold": 3,
     },
+  ],
+  "sonarjs/no-duplicate-test-title": [
+    2,
   ],
   "sonarjs/no-duplicated-branches": [
     2,
@@ -8827,6 +8815,9 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   "sonarjs/no-empty-test-file": [
     2,
   ],
+  "sonarjs/no-empty-test-title": [
+    2,
+  ],
   "sonarjs/no-equals-in-for-termination": [
     2,
   ],
@@ -8839,8 +8830,14 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   "sonarjs/no-fallthrough": [
     2,
   ],
+  "sonarjs/no-floating-point-equality": [
+    2,
+  ],
   "sonarjs/no-for-in-iterable": [
     0,
+  ],
+  "sonarjs/no-forced-browser-interaction": [
+    2,
   ],
   "sonarjs/no-function-declaration-in-block": [
     0,
@@ -8906,6 +8903,9 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   "sonarjs/no-in-misuse": [
     2,
   ],
+  "sonarjs/no-incompatible-assertion-types": [
+    2,
+  ],
   "sonarjs/no-incomplete-assertions": [
     2,
   ],
@@ -8919,7 +8919,7 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
     2,
   ],
   "sonarjs/no-intrusive-permissions": [
-    2,
+    0,
     {
       "permissions": [
         "geolocation",
@@ -8936,7 +8936,7 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
     2,
   ],
   "sonarjs/no-ip-forward": [
-    2,
+    0,
   ],
   "sonarjs/no-labels": [
     2,
@@ -8954,7 +8954,7 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
     2,
   ],
   "sonarjs/no-mixed-content": [
-    2,
+    0,
   ],
   "sonarjs/no-nested-assignment": [
     2,
@@ -9043,6 +9043,9 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   "sonarjs/no-table-as-layout": [
     2,
   ],
+  "sonarjs/no-trivial-assertions": [
+    2,
+  ],
   "sonarjs/no-try-promise": [
     2,
   ],
@@ -9091,9 +9094,6 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   "sonarjs/no-variable-usage-before-declaration": [
     0,
   ],
-  "sonarjs/no-vue-bypass-sanitization": [
-    0,
-  ],
   "sonarjs/no-weak-cipher": [
     2,
   ],
@@ -9119,7 +9119,7 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
     0,
   ],
   "sonarjs/os-command": [
-    2,
+    0,
   ],
   "sonarjs/post-message": [
     2,
@@ -9151,14 +9151,14 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   "sonarjs/prefer-single-boolean-return": [
     2,
   ],
+  "sonarjs/prefer-specific-assertions": [
+    2,
+  ],
   "sonarjs/prefer-type-guard": [
     2,
   ],
   "sonarjs/prefer-while": [
     2,
-  ],
-  "sonarjs/process-argv": [
-    0,
   ],
   "sonarjs/production-debug": [
     2,
@@ -9184,9 +9184,6 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
       "threshold": 20,
     },
   ],
-  "sonarjs/regular-expr": [
-    0,
-  ],
   "sonarjs/review-blockchain-mnemonic": [
     2,
   ],
@@ -9205,17 +9202,11 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   "sonarjs/slow-regex": [
     2,
   ],
-  "sonarjs/sockets": [
-    0,
-  ],
   "sonarjs/sql-queries": [
     2,
   ],
   "sonarjs/stable-tests": [
     2,
-  ],
-  "sonarjs/standard-input": [
-    0,
   ],
   "sonarjs/stateful-regex": [
     2,
@@ -9225,6 +9216,9 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   ],
   "sonarjs/strings-comparison": [
     0,
+  ],
+  "sonarjs/super-linear-regex": [
+    2,
   ],
   "sonarjs/table-header": [
     2,
@@ -9291,9 +9285,6 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   ],
   "sonarjs/xml-parser-xxe": [
     2,
-  ],
-  "sonarjs/xpath": [
-    0,
   ],
   "space-after-function-name": [
     0,
@@ -11807,6 +11798,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "sonarjs/assertions-in-tests": [
     2,
   ],
+  "sonarjs/async-test-assertions": [
+    2,
+  ],
   "sonarjs/aws-apigateway-public-api": [
     2,
   ],
@@ -11849,9 +11843,6 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "sonarjs/aws-s3-bucket-public-access": [
     2,
   ],
-  "sonarjs/aws-s3-bucket-server-encryption": [
-    0,
-  ],
   "sonarjs/aws-s3-bucket-versioning": [
     2,
   ],
@@ -11875,9 +11866,6 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   ],
   "sonarjs/call-argument-line": [
     2,
-  ],
-  "sonarjs/certificate-transparency": [
-    0,
   ],
   "sonarjs/chai-determinate-assertion": [
     2,
@@ -11916,7 +11904,7 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     0,
   ],
   "sonarjs/confidential-information-logging": [
-    2,
+    0,
   ],
   "sonarjs/constructor-for-side-effects": [
     2,
@@ -11933,9 +11921,6 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   ],
   "sonarjs/cookie-no-httponly": [
     2,
-  ],
-  "sonarjs/cookies": [
-    0,
   ],
   "sonarjs/cors": [
     2,
@@ -11970,9 +11955,6 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "sonarjs/disabled-timeout": [
     2,
   ],
-  "sonarjs/dns-prefetching": [
-    0,
-  ],
   "sonarjs/dompurify-unsafe-config": [
     2,
   ],
@@ -11987,9 +11969,6 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   ],
   "sonarjs/empty-string-repetition": [
     2,
-  ],
-  "sonarjs/encryption": [
-    0,
   ],
   "sonarjs/encryption-secure-mode": [
     2,
@@ -12029,7 +12008,7 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     2,
   ],
   "sonarjs/frame-ancestors": [
-    2,
+    0,
   ],
   "sonarjs/function-inside-loop": [
     2,
@@ -12056,6 +12035,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     2,
   ],
   "sonarjs/hidden-files": [
+    0,
+  ],
+  "sonarjs/hooks-before-test-cases": [
     2,
   ],
   "sonarjs/in-operator-type-error": [
@@ -12159,7 +12141,7 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     2,
   ],
   "sonarjs/no-commented-code": [
-    2,
+    0,
   ],
   "sonarjs/no-control-regex": [
     2,
@@ -12179,6 +12161,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
       "ignoreStrings": "application/json",
       "threshold": 3,
     },
+  ],
+  "sonarjs/no-duplicate-test-title": [
+    2,
   ],
   "sonarjs/no-duplicated-branches": [
     2,
@@ -12204,6 +12189,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "sonarjs/no-empty-test-file": [
     2,
   ],
+  "sonarjs/no-empty-test-title": [
+    2,
+  ],
   "sonarjs/no-equals-in-for-termination": [
     2,
   ],
@@ -12216,8 +12204,14 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "sonarjs/no-fallthrough": [
     2,
   ],
+  "sonarjs/no-floating-point-equality": [
+    2,
+  ],
   "sonarjs/no-for-in-iterable": [
     0,
+  ],
+  "sonarjs/no-forced-browser-interaction": [
+    2,
   ],
   "sonarjs/no-function-declaration-in-block": [
     0,
@@ -12283,6 +12277,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "sonarjs/no-in-misuse": [
     2,
   ],
+  "sonarjs/no-incompatible-assertion-types": [
+    2,
+  ],
   "sonarjs/no-incomplete-assertions": [
     2,
   ],
@@ -12296,7 +12293,7 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     2,
   ],
   "sonarjs/no-intrusive-permissions": [
-    2,
+    0,
     {
       "permissions": [
         "geolocation",
@@ -12313,7 +12310,7 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     2,
   ],
   "sonarjs/no-ip-forward": [
-    2,
+    0,
   ],
   "sonarjs/no-labels": [
     2,
@@ -12331,7 +12328,7 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     2,
   ],
   "sonarjs/no-mixed-content": [
-    2,
+    0,
   ],
   "sonarjs/no-nested-assignment": [
     2,
@@ -12420,6 +12417,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "sonarjs/no-table-as-layout": [
     2,
   ],
+  "sonarjs/no-trivial-assertions": [
+    2,
+  ],
   "sonarjs/no-try-promise": [
     2,
   ],
@@ -12468,9 +12468,6 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "sonarjs/no-variable-usage-before-declaration": [
     0,
   ],
-  "sonarjs/no-vue-bypass-sanitization": [
-    0,
-  ],
   "sonarjs/no-weak-cipher": [
     2,
   ],
@@ -12496,7 +12493,7 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     0,
   ],
   "sonarjs/os-command": [
-    2,
+    0,
   ],
   "sonarjs/post-message": [
     2,
@@ -12528,14 +12525,14 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "sonarjs/prefer-single-boolean-return": [
     2,
   ],
+  "sonarjs/prefer-specific-assertions": [
+    2,
+  ],
   "sonarjs/prefer-type-guard": [
     2,
   ],
   "sonarjs/prefer-while": [
     2,
-  ],
-  "sonarjs/process-argv": [
-    0,
   ],
   "sonarjs/production-debug": [
     2,
@@ -12561,9 +12558,6 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
       "threshold": 20,
     },
   ],
-  "sonarjs/regular-expr": [
-    0,
-  ],
   "sonarjs/review-blockchain-mnemonic": [
     2,
   ],
@@ -12582,17 +12576,11 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "sonarjs/slow-regex": [
     2,
   ],
-  "sonarjs/sockets": [
-    0,
-  ],
   "sonarjs/sql-queries": [
     2,
   ],
   "sonarjs/stable-tests": [
     2,
-  ],
-  "sonarjs/standard-input": [
-    0,
   ],
   "sonarjs/stateful-regex": [
     2,
@@ -12602,6 +12590,9 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   ],
   "sonarjs/strings-comparison": [
     0,
+  ],
+  "sonarjs/super-linear-regex": [
+    2,
   ],
   "sonarjs/table-header": [
     2,
@@ -12668,9 +12659,6 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   ],
   "sonarjs/xml-parser-xxe": [
     2,
-  ],
-  "sonarjs/xpath": [
-    0,
   ],
   "space-after-function-name": [
     0,
