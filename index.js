@@ -124,6 +124,8 @@ const sonarJsConfig = () =>
   eslintConfig.defineConfig({
     extends: [sonarjsPlugin.configs.recommended],
     rules: {
+      /** Some of our specs as written trigger on this rule even though they would error as written (e.g. `await findBy*` errors) */
+      "sonarjs/assertions-in-tests": "off",
       // Noisy rule - we may have helpers/methods that we mark as @deprecated but aren't planning to remove in the near future. This rule also significantly adds to eslint running time, which slows down both local development and CI.
       "sonarjs/deprecation": "off",
       // This rule is not helpful in TypeScript files, and in JavaScript we often return different types from functions, so this is not a strictness level we want to enforce.
@@ -132,6 +134,8 @@ const sonarJsConfig = () =>
       "sonarjs/no-async-constructor": "off",
       // Performance issues, inconsistent behavior, and primarily catches edge cases rather than common issues
       "sonarjs/no-dead-store": "off",
+      /** This rule only triggers in our test suite, and is noisy. */
+      "sonarjs/no-floating-point-equality": "off",
       // We may want to catch errors but not use the error object directly, just trigger error handling fallbacks within the catch block.
       "sonarjs/no-ignored-exceptions": "off",
       "sonarjs/no-nested-functions": ["warn", { threshold: 5 }],
@@ -144,6 +148,8 @@ const sonarJsConfig = () =>
       "sonarjs/prefer-optional-chain": "off",
       // Useful for guarding against prop mutation in React, but too much of a lift as very rarely do we apply readonly/ReadonlyArray<T> to type definitions
       "sonarjs/prefer-read-only-props": "off",
+      /** This rule errors on assertions that are already easy to read. It's unnecessary friction. */
+      "sonarjs/prefer-specific-assertions": "off",
       // Noisy rule: if we wanted stricter linting of TODOs, we could use unicorn/expiring-todo-comments
       "sonarjs/todo-tag": "off",
       // A useful rule to consider for libraries to better document (and export) type definitions, but noisy in app usages (especially around redux type definitions)
