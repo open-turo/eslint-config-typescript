@@ -139,6 +139,8 @@ const sonarJsConfig = () =>
       // We may want to catch errors but not use the error object directly, just trigger error handling fallbacks within the catch block.
       "sonarjs/no-ignored-exceptions": "off",
       "sonarjs/no-nested-functions": ["warn", { threshold: 5 }],
+      /** This rule is noisy when we want to specify a prop as optional with `?:`, since it reports on types that have an explicit `undefined` in the union. We may not control those underlying types, as in valid parameters for 3rd party API, and so those are false positives. */
+      "sonarjs/no-redundant-optional": "off",
       "sonarjs/no-small-switch": "off",
       // Overlaps with @typescript-eslint/no-unused-vars
       "sonarjs/no-unused-vars": "off",
