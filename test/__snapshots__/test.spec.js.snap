@@ -2422,7 +2422,7 @@ exports[`validate config the flat config is correct for index.js 1`] = `
     2,
   ],
   "sonarjs/no-redundant-optional": [
-    2,
+    0,
   ],
   "sonarjs/no-redundant-parentheses": [
     0,
@@ -5709,7 +5709,7 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     2,
   ],
   "sonarjs/no-redundant-optional": [
-    2,
+    0,
   ],
   "sonarjs/no-redundant-parentheses": [
     0,
@@ -8996,7 +8996,7 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
     2,
   ],
   "sonarjs/no-redundant-optional": [
-    2,
+    0,
   ],
   "sonarjs/no-redundant-parentheses": [
     0,
@@ -12370,7 +12370,7 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     2,
   ],
   "sonarjs/no-redundant-optional": [
-    2,
+    0,
   ],
   "sonarjs/no-redundant-parentheses": [
     0,
