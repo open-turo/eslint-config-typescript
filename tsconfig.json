@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "baseUrl": "./",
     "composite": true,
     "declaration": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "incremental": true,
+    "jsx": "react",
     "module": "NodeNext",
     "moduleResolution": "nodenext",
     "noEmit": true,
@@ -20,14 +20,13 @@
     "sourceMap": true,
     "strict": true,
     "target": "es2017",
-    "jsx": "react"
+    "types": ["node"]
   },
   "exclude": ["node_modules", "lib"],
   "include": [
-    "index.d.cts",
     "index.d.mts",
+    "index.d.ts",
     "index.js",
-    "src",
     "test",
     "**/*.json"
   ]

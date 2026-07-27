@@ -5,9 +5,8 @@
 import eslint from "@eslint/js";
 import tsParser from "@typescript-eslint/parser";
 import vitestPlugin from "@vitest/eslint-plugin";
-import importPlugin from "eslint-plugin-import";
+import importXModule from "eslint-plugin-import-x";
 import jestPlugin from "eslint-plugin-jest";
-// @ts-expect-error -- No @types for eslint-plugin-json
 import jsonPlugin from "eslint-plugin-json";
 import nPlugin from "eslint-plugin-n";
 import perfectionistPlugin from "eslint-plugin-perfectionist";
@@ -69,32 +68,32 @@ const javascriptConfig = (ecmaVersion = "latest") =>
     },
   });
 
-const getImportPluginFlatConfigs = () => {
-  if (!importPlugin.flatConfigs) {
+const getImportXFlatConfigs = () => {
+  if (!importXModule.flatConfigs) {
     throw new Error(
-      "Unexpected value from eslint-plugin-import. You will need to upgrade the plugin.",
+      "Unexpected value from eslint-plugin-import-x. You will need to upgrade the plugin.",
     );
   }
 
-  return importPlugin.flatConfigs;
+  return importXModule.flatConfigs;
 };
 
 const importConfig = () =>
   eslintConfig.defineConfig({
-    extends: [getImportPluginFlatConfigs().recommended],
+    extends: [getImportXFlatConfigs().recommended],
     rules: {
-      "import/default": "off",
-      "import/named": "off",
-      "import/namespace": "off",
-      "import/no-default-export": "error",
-      "import/no-extraneous-dependencies": [
+      "import-x/default": "off",
+      "import-x/named": "off",
+      "import-x/namespace": "off",
+      "import-x/no-default-export": "error",
+      "import-x/no-extraneous-dependencies": [
         "error",
         { devDependencies: [`eslint.config.${FILES_SRC_EXTENSION}`] },
       ],
-      "import/prefer-default-export": "off",
+      "import-x/prefer-default-export": "off",
     },
     settings: {
-      "import/resolver": {
+      "import-x/resolver": {
         typescript: {
           alwaysTryTypes: true,
         },
@@ -122,6 +121,7 @@ const nPluginConfig = (allowModules = ["@jest/globals", "nock"]) =>
 
 const sonarJsConfig = () =>
   eslintConfig.defineConfig({
+    // @ts-expect-error -- Unclear why types are wrong.
     extends: [sonarjsPlugin.configs.recommended],
     rules: {
       /** Some of our specs as written trigger on this rule even though they would error as written (e.g. `await findBy*` errors) */
@@ -163,7 +163,7 @@ const typescriptConfig = () =>
   eslintConfig.defineConfig({
     extends: [
       tseslint.configs.strictTypeChecked,
-      getImportPluginFlatConfigs().typescript,
+      getImportXFlatConfigs().typescript,
     ],
     files: [FILES_TS, FILES_TSX],
     languageOptions: typescriptLanguageOptions(),
@@ -294,7 +294,7 @@ const testConfig = (options) => {
   return eslintConfig.defineConfig(...frameworkConfig, {
     files: FILES_TEST,
     rules: {
-      "import/no-extraneous-dependencies": [
+      "import-x/no-extraneous-dependencies": [
         "error",
         { devDependencies: FILES_TEST },
       ],
@@ -385,16 +385,17 @@ const config = function config(options = {}) {
     sonarJsConfig(),
     unicornPlugin.configs["flat/recommended"],
     prettierPluginRecommended,
+    // @ts-expect-error -- Recommended added with dot notation, which it is why it is not on the types
     jsonPlugin.configs["recommended"],
     useTypescript ? typescriptConfig() : {},
     testConfig({ testFramework, typescript: useTypescript }),
     ignoresConfig(options.ignores),
   );
-};
+}
 
 config.plugins = {
   eslint,
-  import: importPlugin,
+  import: importXModule,
   jest: jestPlugin,
   n: nPlugin,
   perfectionist: perfectionistPlugin,
@@ -404,5 +405,5 @@ config.plugins = {
   vitest: vitestPlugin,
 };
 
-// eslint-disable-next-line import/no-default-export -- package entry matches ESLint flat-config convention
+// eslint-disable-next-line import-x/no-default-export -- package entry matches ESLint flat-config convention
 export default config;
