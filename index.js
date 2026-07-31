@@ -144,6 +144,14 @@ const sonarJsConfig = () =>
       "sonarjs/no-small-switch": "off",
       // Overlaps with @typescript-eslint/no-unused-vars
       "sonarjs/no-unused-vars": "off",
+      /** Prefer @typescript-eslint for no-useless-* related type rules */
+      "sonarjs/no-useless-intersection": "off",
+      /** This rule is full of false positives, claiming a parameter typed `string` can be thrown for invoking .toLowerCase() if it is null or undefined. It conflicts with our typing. */
+      "sonarjs/null-dereference": "off",
+      /** This test is opinionated, and we do not need to write specs to such a uniform style */
+      "sonarjs/parameterized-tests": "off",
+      /** This rule is not fixable and we will be removing Lodash soon anyway. */
+      "sonarjs/prefer-native-lodash-alternative": "off",
       // Overlaps with @typescript-eslint/prefer-nullish-coalescing
       "sonarjs/prefer-nullish-coalescing": "off",
       // Overlaps with @typescript-eslint/prefer-optional-chain
