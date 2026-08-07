@@ -5,7 +5,7 @@
 import eslint from "@eslint/js";
 import tsParser from "@typescript-eslint/parser";
 import vitestPlugin from "@vitest/eslint-plugin";
-import importPlugin from "eslint-plugin-import";
+import importXPlugin from "eslint-plugin-import-x";
 import jestPlugin from "eslint-plugin-jest";
 // @ts-expect-error -- No @types for eslint-plugin-json
 import jsonPlugin from "eslint-plugin-json";
@@ -69,32 +69,36 @@ const javascriptConfig = (ecmaVersion = "latest") =>
     },
   });
 
-const getImportPluginFlatConfigs = () => {
-  if (!importPlugin.flatConfigs) {
+const getImportXFlatConfigs = () => {
+  if (!importXPlugin.flatConfigs) {
     throw new Error(
-      "Unexpected value from eslint-plugin-import. You will need to upgrade the plugin.",
+      "Unexpected value from eslint-plugin-import-x. You will need to upgrade the plugin.",
     );
   }
 
-  return importPlugin.flatConfigs;
+  return importXPlugin.flatConfigs;
 };
 
 const importConfig = () =>
   eslintConfig.defineConfig({
-    extends: [getImportPluginFlatConfigs().recommended],
+    extends: [getImportXFlatConfigs().recommended],
     rules: {
-      "import/default": "off",
-      "import/named": "off",
-      "import/namespace": "off",
-      "import/no-default-export": "error",
-      "import/no-extraneous-dependencies": [
+      "import-x/default": "off",
+      "import-x/named": "off",
+      "import-x/namespace": "off",
+      "import-x/no-default-export": "error",
+      "import-x/no-extraneous-dependencies": [
         "error",
         { devDependencies: [`eslint.config.${FILES_SRC_EXTENSION}`] },
       ],
-      "import/prefer-default-export": "off",
+      /** Not fixable, but a helpful correctness check `eslint-plugin-import` did not have */
+      "import-x/no-rename-default": "warn",
+      "import-x/prefer-default-export": "off",
+      /** Fixable and a helpful stylistic rule `eslint-plugin-import` did not have */
+      "import-x/prefer-namespace-import": "error",
     },
     settings: {
-      "import/resolver": {
+      "import-x/resolver": {
         typescript: {
           alwaysTryTypes: true,
         },
@@ -171,7 +175,7 @@ const typescriptConfig = () =>
   eslintConfig.defineConfig({
     extends: [
       tseslint.configs.strictTypeChecked,
-      getImportPluginFlatConfigs().typescript,
+      getImportXFlatConfigs().typescript,
     ],
     files: [FILES_TS, FILES_TSX],
     languageOptions: typescriptLanguageOptions(),
@@ -302,7 +306,7 @@ const testConfig = (options) => {
   return eslintConfig.defineConfig(...frameworkConfig, {
     files: FILES_TEST,
     rules: {
-      "import/no-extraneous-dependencies": [
+      "import-x/no-extraneous-dependencies": [
         "error",
         { devDependencies: FILES_TEST },
       ],
@@ -402,7 +406,7 @@ const config = function config(options = {}) {
 
 config.plugins = {
   eslint,
-  import: importPlugin,
+  import: importXPlugin,
   jest: jestPlugin,
   n: nPlugin,
   perfectionist: perfectionistPlugin,
@@ -412,5 +416,5 @@ config.plugins = {
   vitest: vitestPlugin,
 };
 
-// eslint-disable-next-line import/no-default-export -- package entry matches ESLint flat-config convention
+// eslint-disable-next-line import-x/no-default-export -- package entry matches ESLint flat-config convention
 export default config;

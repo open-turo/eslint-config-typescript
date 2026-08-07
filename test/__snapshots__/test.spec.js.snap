@@ -975,25 +975,25 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   "implicit-arrow-linebreak": [
     0,
   ],
-  "import/default": [
+  "import-x/default": [
     0,
   ],
-  "import/export": [
+  "import-x/export": [
     2,
   ],
-  "import/named": [
+  "import-x/named": [
     0,
   ],
-  "import/namespace": [
+  "import-x/namespace": [
     0,
   ],
-  "import/no-default-export": [
+  "import-x/no-default-export": [
     2,
   ],
-  "import/no-duplicates": [
+  "import-x/no-duplicates": [
     1,
   ],
-  "import/no-extraneous-dependencies": [
+  "import-x/no-extraneous-dependencies": [
     2,
     {
       "devDependencies": [
@@ -1003,17 +1003,23 @@ exports[`validate config the flat config is correct for index.js 1`] = `
       ],
     },
   ],
-  "import/no-named-as-default": [
+  "import-x/no-named-as-default": [
     1,
   ],
-  "import/no-named-as-default-member": [
+  "import-x/no-named-as-default-member": [
     1,
   ],
-  "import/no-unresolved": [
+  "import-x/no-rename-default": [
+    1,
+  ],
+  "import-x/no-unresolved": [
     2,
   ],
-  "import/prefer-default-export": [
+  "import-x/prefer-default-export": [
     0,
+  ],
+  "import-x/prefer-namespace-import": [
+    2,
   ],
   "indent": [
     0,
@@ -4295,25 +4301,25 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "implicit-arrow-linebreak": [
     0,
   ],
-  "import/default": [
+  "import-x/default": [
     0,
   ],
-  "import/export": [
+  "import-x/export": [
     2,
   ],
-  "import/named": [
+  "import-x/named": [
     0,
   ],
-  "import/namespace": [
+  "import-x/namespace": [
     0,
   ],
-  "import/no-default-export": [
+  "import-x/no-default-export": [
     2,
   ],
-  "import/no-duplicates": [
+  "import-x/no-duplicates": [
     1,
   ],
-  "import/no-extraneous-dependencies": [
+  "import-x/no-extraneous-dependencies": [
     2,
     {
       "devDependencies": [
@@ -4323,17 +4329,23 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
       ],
     },
   ],
-  "import/no-named-as-default": [
+  "import-x/no-named-as-default": [
     1,
   ],
-  "import/no-named-as-default-member": [
+  "import-x/no-named-as-default-member": [
     1,
   ],
-  "import/no-unresolved": [
+  "import-x/no-rename-default": [
+    1,
+  ],
+  "import-x/no-unresolved": [
     2,
   ],
-  "import/prefer-default-export": [
+  "import-x/prefer-default-export": [
     0,
+  ],
+  "import-x/prefer-namespace-import": [
+    2,
   ],
   "indent": [
     0,
@@ -7615,25 +7627,25 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   "implicit-arrow-linebreak": [
     0,
   ],
-  "import/default": [
+  "import-x/default": [
     0,
   ],
-  "import/export": [
+  "import-x/export": [
     2,
   ],
-  "import/named": [
+  "import-x/named": [
     0,
   ],
-  "import/namespace": [
+  "import-x/namespace": [
     0,
   ],
-  "import/no-default-export": [
+  "import-x/no-default-export": [
     2,
   ],
-  "import/no-duplicates": [
+  "import-x/no-duplicates": [
     1,
   ],
-  "import/no-extraneous-dependencies": [
+  "import-x/no-extraneous-dependencies": [
     2,
     {
       "devDependencies": [
@@ -7643,17 +7655,23 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
       ],
     },
   ],
-  "import/no-named-as-default": [
+  "import-x/no-named-as-default": [
     1,
   ],
-  "import/no-named-as-default-member": [
+  "import-x/no-named-as-default-member": [
     1,
   ],
-  "import/no-unresolved": [
+  "import-x/no-rename-default": [
+    1,
+  ],
+  "import-x/no-unresolved": [
     2,
   ],
-  "import/prefer-default-export": [
+  "import-x/prefer-default-export": [
     0,
+  ],
+  "import-x/prefer-namespace-import": [
+    2,
   ],
   "indent": [
     0,
@@ -11022,25 +11040,25 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "implicit-arrow-linebreak": [
     0,
   ],
-  "import/default": [
+  "import-x/default": [
     0,
   ],
-  "import/export": [
+  "import-x/export": [
     2,
   ],
-  "import/named": [
+  "import-x/named": [
     0,
   ],
-  "import/namespace": [
+  "import-x/namespace": [
     0,
   ],
-  "import/no-default-export": [
+  "import-x/no-default-export": [
     2,
   ],
-  "import/no-duplicates": [
+  "import-x/no-duplicates": [
     1,
   ],
-  "import/no-extraneous-dependencies": [
+  "import-x/no-extraneous-dependencies": [
     2,
     {
       "devDependencies": [
@@ -11050,17 +11068,23 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
       ],
     },
   ],
-  "import/no-named-as-default": [
+  "import-x/no-named-as-default": [
     1,
   ],
-  "import/no-named-as-default-member": [
+  "import-x/no-named-as-default-member": [
     1,
   ],
-  "import/no-unresolved": [
+  "import-x/no-rename-default": [
+    1,
+  ],
+  "import-x/no-unresolved": [
     2,
   ],
-  "import/prefer-default-export": [
+  "import-x/prefer-default-export": [
     0,
+  ],
+  "import-x/prefer-namespace-import": [
+    2,
   ],
   "indent": [
     0,
