@@ -95,8 +95,14 @@ const importConfig = () =>
         "error",
         { devDependencies: [`eslint.config.${FILES_SRC_EXTENSION}`] },
       ],
-      /** Not fixable, but a helpful correctness check `eslint-plugin-import` did not have */
-      "import-x/no-rename-default": "warn",
+      /**
+       * Not fixable, but would otherwise be a helpful correctness check `eslint-plugin-import`
+       * did not have. Disabled because it resolves and parses the target module of every
+       * default import to check its export name, which caused severe lint performance
+       * regressions (~60% slower, and much higher kernel/sys time under worker concurrency)
+       * on large codebases. Re-enable if upstream improves this rule's performance.
+       */
+      "import-x/no-rename-default": "off",
       "import-x/prefer-default-export": "off",
       /** Fixable and a helpful stylistic rule `eslint-plugin-import` did not have */
       "import-x/prefer-namespace-import": "error",
