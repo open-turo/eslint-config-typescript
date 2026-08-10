@@ -5,7 +5,8 @@
 import eslint from "@eslint/js";
 import tsParser from "@typescript-eslint/parser";
 import vitestPlugin from "@vitest/eslint-plugin";
-import importXPlugin from "eslint-plugin-import-x";
+import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript";
+import importXPlugin, { createNodeResolver } from "eslint-plugin-import-x";
 import jestPlugin from "eslint-plugin-jest";
 // @ts-expect-error -- No @types for eslint-plugin-json
 import jsonPlugin from "eslint-plugin-json";
@@ -81,7 +82,10 @@ const getImportXFlatConfigs = () => {
 
 const importConfig = () =>
   eslintConfig.defineConfig({
-    extends: [getImportXFlatConfigs().recommended],
+    extends: [
+      getImportXFlatConfigs().recommended,
+      getImportXFlatConfigs().typescript,
+    ],
     rules: {
       "import-x/default": "off",
       "import-x/named": "off",
@@ -98,11 +102,23 @@ const importConfig = () =>
       "import-x/prefer-namespace-import": "error",
     },
     settings: {
-      "import-x/resolver": {
-        typescript: {
-          alwaysTryTypes: true,
-        },
+      /** CLI-only usage; no long-running process (e.g. `eslint_d`) needs cache invalidation. */
+      "import-x/cache": {
+        lifetime: Infinity,
       },
+      /**
+       * `resolver-next` uses the plugin's v3 resolver interface, which shares a single
+       * resolver instance (with real caching) across the whole run. The legacy
+       * `import-x/resolver` object format falls back to a compat shim with no meaningful
+       * cross-file caching, causing severe slowdowns/OOMs on large codebases.
+       * @see https://github.com/un-ts/eslint-plugin-import-x#import-xresolver-next
+       */
+      "import-x/resolver-next": [
+        createTypeScriptImportResolver({
+          alwaysTryTypes: true,
+        }),
+        createNodeResolver(),
+      ],
     },
   });
 
