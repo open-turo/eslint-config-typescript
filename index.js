@@ -5,7 +5,8 @@
 import eslint from "@eslint/js";
 import tsParser from "@typescript-eslint/parser";
 import vitestPlugin from "@vitest/eslint-plugin";
-import importPlugin from "eslint-plugin-import";
+import { createTypeScriptImportResolver } from "eslint-import-resolver-typescript";
+import importXPlugin, { createNodeResolver } from "eslint-plugin-import-x";
 import jestPlugin from "eslint-plugin-jest";
 // @ts-expect-error -- No @types for eslint-plugin-json
 import jsonPlugin from "eslint-plugin-json";
@@ -69,36 +70,61 @@ const javascriptConfig = (ecmaVersion = "latest") =>
     },
   });
 
-const getImportPluginFlatConfigs = () => {
-  if (!importPlugin.flatConfigs) {
+const getImportXFlatConfigs = () => {
+  if (!importXPlugin.flatConfigs) {
     throw new Error(
-      "Unexpected value from eslint-plugin-import. You will need to upgrade the plugin.",
+      "Unexpected value from eslint-plugin-import-x. You will need to upgrade the plugin.",
     );
   }
 
-  return importPlugin.flatConfigs;
+  return importXPlugin.flatConfigs;
 };
 
 const importConfig = () =>
   eslintConfig.defineConfig({
-    extends: [getImportPluginFlatConfigs().recommended],
+    extends: [
+      getImportXFlatConfigs().recommended,
+      getImportXFlatConfigs().typescript,
+    ],
     rules: {
-      "import/default": "off",
-      "import/named": "off",
-      "import/namespace": "off",
-      "import/no-default-export": "error",
-      "import/no-extraneous-dependencies": [
+      "import-x/default": "off",
+      "import-x/named": "off",
+      "import-x/namespace": "off",
+      "import-x/no-default-export": "error",
+      "import-x/no-extraneous-dependencies": [
         "error",
         { devDependencies: [`eslint.config.${FILES_SRC_EXTENSION}`] },
       ],
-      "import/prefer-default-export": "off",
+      /**
+       * Not fixable, but would otherwise be a helpful correctness check `eslint-plugin-import`
+       * did not have. Disabled because it resolves and parses the target module of every
+       * default import to check its export name, which caused severe lint performance
+       * regressions (~60% slower, and much higher kernel/sys time under worker concurrency)
+       * on large codebases.
+       */
+      "import-x/no-rename-default": "off",
+      "import-x/prefer-default-export": "off",
+      /** Fixable and a helpful stylistic rule `eslint-plugin-import` did not have */
+      "import-x/prefer-namespace-import": "error",
     },
     settings: {
-      "import/resolver": {
-        typescript: {
-          alwaysTryTypes: true,
-        },
+      /** CLI-only usage; no long-running process (e.g. `eslint_d`) needs cache invalidation. */
+      "import-x/cache": {
+        lifetime: Infinity,
       },
+      /**
+       * `resolver-next` uses the plugin's v3 resolver interface, which shares a single
+       * resolver instance (with real caching) across the whole run. The legacy
+       * `import-x/resolver` object format falls back to a compat shim with no meaningful
+       * cross-file caching, causing severe slowdowns/OOMs on large codebases.
+       * @see https://github.com/un-ts/eslint-plugin-import-x#import-xresolver-next
+       */
+      "import-x/resolver-next": [
+        createTypeScriptImportResolver({
+          alwaysTryTypes: true,
+        }),
+        createNodeResolver(),
+      ],
     },
   });
 
@@ -171,7 +197,7 @@ const typescriptConfig = () =>
   eslintConfig.defineConfig({
     extends: [
       tseslint.configs.strictTypeChecked,
-      getImportPluginFlatConfigs().typescript,
+      getImportXFlatConfigs().typescript,
     ],
     files: [FILES_TS, FILES_TSX],
     languageOptions: typescriptLanguageOptions(),
@@ -302,7 +328,7 @@ const testConfig = (options) => {
   return eslintConfig.defineConfig(...frameworkConfig, {
     files: FILES_TEST,
     rules: {
-      "import/no-extraneous-dependencies": [
+      "import-x/no-extraneous-dependencies": [
         "error",
         { devDependencies: FILES_TEST },
       ],
@@ -402,7 +428,7 @@ const config = function config(options = {}) {
 
 config.plugins = {
   eslint,
-  import: importPlugin,
+  import: importXPlugin,
   jest: jestPlugin,
   n: nPlugin,
   perfectionist: perfectionistPlugin,
@@ -412,5 +438,5 @@ config.plugins = {
   vitest: vitestPlugin,
 };
 
-// eslint-disable-next-line import/no-default-export -- package entry matches ESLint flat-config convention
+// eslint-disable-next-line import-x/no-default-export -- package entry matches ESLint flat-config convention
 export default config;
