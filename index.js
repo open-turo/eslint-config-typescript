@@ -97,6 +97,17 @@ const importConfig = () =>
       "import/resolver": {
         typescript: {
           alwaysTryTypes: true,
+          /**
+           * Without an explicit `project`, the resolver caches a single tsconfig for the
+           * entire process (keyed by whatever the CWD was on first resolution). In a
+           * monorepo, running lint from the repo root (e.g. via pre-commit across
+           * packages) causes every file to resolve imports/aliases against just one
+           * package's tsconfig. Globbing for all tsconfigs makes the resolver pick the
+           * nearest one per file instead.
+           * @see https://github.com/import-js/eslint-import-resolver-typescript#project
+           */
+          noWarnOnMultipleProjects: true,
+          project: ["**/tsconfig.json"],
         },
       },
     },
