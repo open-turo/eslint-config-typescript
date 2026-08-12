@@ -341,7 +341,7 @@ const config = function config(options = {}) {
   }
 
   const defaultAllowModules =
-    testFramework === "vitest" ? ["nock"] : ["@jest/globals", "nock"];
+    testFramework === "vitest" ? ["nock", "vitest"] : ["@jest/globals", "nock"];
   const allowModules = options.allowModules || defaultAllowModules;
 
   return eslintConfig.defineConfig(
