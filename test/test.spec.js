@@ -256,4 +256,18 @@ describe("validate config", () => {
       );
     },
   );
+
+  test("import/resolver typescript project globs all tsconfigs so files resolve against their own package", async () => {
+    const { default: config } = await import("../index.js");
+    const ESLint = await loadESLint({ useFlatConfig: true });
+    const linter = new ESLint({
+      baseConfig: config(),
+      overrideConfigFile: true,
+    });
+    const calculatedConfig =
+      await linter.calculateConfigForFile(TEST_FILE_PATH);
+    expect(
+      calculatedConfig.settings["import/resolver"].typescript.project,
+    ).toContain("**/tsconfig.json");
+  });
 });
