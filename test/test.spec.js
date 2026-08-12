@@ -237,4 +237,23 @@ describe("validate config", () => {
       'Invalid testFramework option: "invalid". Valid values are "jest" or "vitest".',
     );
   });
+
+  test.each(["jest", "vitest"])(
+    "n/no-unpublished-import allows importing the %s package by default",
+    async (testFramework) => {
+      const { default: config } = await import("../index.js");
+      const ESLint = await loadESLint({ useFlatConfig: true });
+      const linter = new ESLint({
+        baseConfig: config({ testFramework }),
+        overrideConfigFile: true,
+      });
+      const calculatedConfig =
+        await linter.calculateConfigForFile(TEST_FILE_PATH);
+      const [, { allowModules }] =
+        calculatedConfig.rules["n/no-unpublished-import"];
+      expect(allowModules).toContain(
+        testFramework === "vitest" ? "vitest" : "@jest/globals",
+      );
+    },
+  );
 });
