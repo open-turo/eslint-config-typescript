@@ -80,38 +80,51 @@ const getImportPluginFlatConfigs = () => {
 };
 
 const importConfig = () =>
-  eslintConfig.defineConfig({
-    extends: [getImportPluginFlatConfigs().recommended],
-    rules: {
-      "import/default": "off",
-      "import/named": "off",
-      "import/namespace": "off",
-      "import/no-default-export": "error",
-      "import/no-extraneous-dependencies": [
-        "error",
-        { devDependencies: [`eslint.config.${FILES_SRC_EXTENSION}`] },
-      ],
-      "import/prefer-default-export": "off",
-    },
-    settings: {
-      "import/resolver": {
-        typescript: {
-          alwaysTryTypes: true,
-          /**
-           * Without an explicit `project`, the resolver caches a single tsconfig for the
-           * entire process (keyed by whatever the CWD was on first resolution). In a
-           * monorepo, running lint from the repo root (e.g. via pre-commit across
-           * packages) causes every file to resolve imports/aliases against just one
-           * package's tsconfig. Globbing for all tsconfigs makes the resolver pick the
-           * nearest one per file instead.
-           * @see https://github.com/import-js/eslint-import-resolver-typescript#project
-           */
-          noWarnOnMultipleProjects: true,
-          project: ["**/tsconfig.json"],
+  eslintConfig.defineConfig(
+    {
+      extends: [getImportPluginFlatConfigs().recommended],
+      rules: {
+        "import/default": "off",
+        "import/named": "off",
+        "import/namespace": "off",
+        "import/no-default-export": "error",
+        "import/no-extraneous-dependencies": [
+          "error",
+          { devDependencies: [`eslint.config.${FILES_SRC_EXTENSION}`] },
+        ],
+        "import/prefer-default-export": "off",
+      },
+      settings: {
+        "import/resolver": {
+          typescript: {
+            alwaysTryTypes: true,
+            /**
+             * Without an explicit `project`, the resolver caches a single tsconfig for the
+             * entire process (keyed by whatever the CWD was on first resolution). In a
+             * monorepo, running lint from the repo root (e.g. via pre-commit across
+             * packages) causes every file to resolve imports/aliases against just one
+             * package's tsconfig. Globbing for all tsconfigs makes the resolver pick the
+             * nearest one per file instead.
+             * @see https://github.com/import-js/eslint-import-resolver-typescript#project
+             */
+            noWarnOnMultipleProjects: true,
+            project: ["**/tsconfig.json"],
+          },
         },
       },
     },
-  });
+    // Tools like ESLint and Vitest require default exports in their config files
+    {
+      files: [
+        `*.config.${FILES_SRC_EXTENSION}`,
+        `*.config.mjs`,
+        `*.config.cjs`,
+      ],
+      rules: {
+        "import/no-default-export": "off",
+      },
+    },
+  );
 
 const nPluginConfig = (allowModules = ["@jest/globals", "nock"]) =>
   eslintConfig.defineConfig({
