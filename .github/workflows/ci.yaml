@@ -8,6 +8,10 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      id-token: write
     steps:
       - name: Download actionlint
         run: |
@@ -17,7 +21,6 @@ jobs:
       - uses: open-turo/actions-node/lint@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          npm-token: ${{ secrets.OPEN_TURO_NPM_TOKEN }}
   test:
     name: Test
     runs-on: ubuntu-latest
