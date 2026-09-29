@@ -2569,10 +2569,10 @@ exports[`validate config the flat config is correct for index.js 1`] = `
     0,
   ],
   "sonarjs/no-vue-class-component": [
-    2,
+    0,
   ],
   "sonarjs/no-vue-mixins": [
-    2,
+    0,
   ],
   "sonarjs/no-weak-cipher": [
     2,
@@ -2608,7 +2608,7 @@ exports[`validate config the flat config is correct for index.js 1`] = `
     2,
   ],
   "sonarjs/prefer-cypress-should": [
-    2,
+    0,
   ],
   "sonarjs/prefer-default-last": [
     2,
@@ -2617,10 +2617,10 @@ exports[`validate config the flat config is correct for index.js 1`] = `
     0,
   ],
   "sonarjs/prefer-native-axios-alternative": [
-    2,
+    0,
   ],
   "sonarjs/prefer-native-jquery-alternative": [
-    2,
+    0,
   ],
   "sonarjs/prefer-native-lodash-alternative": [
     0,
@@ -5940,10 +5940,10 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     0,
   ],
   "sonarjs/no-vue-class-component": [
-    2,
+    0,
   ],
   "sonarjs/no-vue-mixins": [
-    2,
+    0,
   ],
   "sonarjs/no-weak-cipher": [
     2,
@@ -5979,7 +5979,7 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     2,
   ],
   "sonarjs/prefer-cypress-should": [
-    2,
+    0,
   ],
   "sonarjs/prefer-default-last": [
     2,
@@ -5988,10 +5988,10 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     0,
   ],
   "sonarjs/prefer-native-axios-alternative": [
-    2,
+    0,
   ],
   "sonarjs/prefer-native-jquery-alternative": [
-    2,
+    0,
   ],
   "sonarjs/prefer-native-lodash-alternative": [
     0,
@@ -9311,10 +9311,10 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
     0,
   ],
   "sonarjs/no-vue-class-component": [
-    2,
+    0,
   ],
   "sonarjs/no-vue-mixins": [
-    2,
+    0,
   ],
   "sonarjs/no-weak-cipher": [
     2,
@@ -9350,7 +9350,7 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
     2,
   ],
   "sonarjs/prefer-cypress-should": [
-    2,
+    0,
   ],
   "sonarjs/prefer-default-last": [
     2,
@@ -9359,10 +9359,10 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
     0,
   ],
   "sonarjs/prefer-native-axios-alternative": [
-    2,
+    0,
   ],
   "sonarjs/prefer-native-jquery-alternative": [
-    2,
+    0,
   ],
   "sonarjs/prefer-native-lodash-alternative": [
     0,
@@ -12769,10 +12769,10 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     0,
   ],
   "sonarjs/no-vue-class-component": [
-    2,
+    0,
   ],
   "sonarjs/no-vue-mixins": [
-    2,
+    0,
   ],
   "sonarjs/no-weak-cipher": [
     2,
@@ -12808,7 +12808,7 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     2,
   ],
   "sonarjs/prefer-cypress-should": [
-    2,
+    0,
   ],
   "sonarjs/prefer-default-last": [
     2,
@@ -12817,10 +12817,10 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     0,
   ],
   "sonarjs/prefer-native-axios-alternative": [
-    2,
+    0,
   ],
   "sonarjs/prefer-native-jquery-alternative": [
-    2,
+    0,
   ],
   "sonarjs/prefer-native-lodash-alternative": [
     0,

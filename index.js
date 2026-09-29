@@ -170,10 +170,20 @@ const sonarJsConfig = () =>
       "sonarjs/no-unused-vars": "off",
       /** Prefer @typescript-eslint for no-useless-* related type rules */
       "sonarjs/no-useless-intersection": "off",
+      // Disabled: this tool is not used in our repositories
+      "sonarjs/no-vue-class-component": "off",
+      // Disabled: this tool is not used in our repositories
+      "sonarjs/no-vue-mixins": "off",
       /** This rule is full of false positives, claiming a parameter typed `string` can be thrown for invoking .toLowerCase() if it is null or undefined. It conflicts with our typing. */
       "sonarjs/null-dereference": "off",
       /** This test is opinionated, and we do not need to write specs to such a uniform style */
       "sonarjs/parameterized-tests": "off",
+      // Disabled: this tool is not used in our repositories
+      "sonarjs/prefer-cypress-should": "off",
+      // Disabled: this tool is not used in our repositories
+      "sonarjs/prefer-native-axios-alternative": "off",
+      // Disabled: this tool is not used in our repositories
+      "sonarjs/prefer-native-jquery-alternative": "off",
       /** This rule is not fixable and we will be removing Lodash soon anyway. */
       "sonarjs/prefer-native-lodash-alternative": "off",
       // Overlaps with @typescript-eslint/prefer-nullish-coalescing
