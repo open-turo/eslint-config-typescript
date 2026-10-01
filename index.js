@@ -241,6 +241,9 @@ const typescriptConfig = () =>
       "@typescript-eslint/no-unnecessary-type-arguments": "off",
       /** Errors on generic type parameters that are only used once, even though that helps with return type inference. */
       "@typescript-eslint/no-unnecessary-type-parameters": "off",
+      /** We do not support or encourage enums, so we do not spend lint time on enum-specific rules. */
+      "@typescript-eslint/no-unsafe-enum-assignment": "off",
+      "@typescript-eslint/no-unsafe-enum-comparison": "off",
       "@typescript-eslint/no-unused-vars": [
         "error",
         {
