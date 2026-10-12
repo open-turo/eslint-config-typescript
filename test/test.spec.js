@@ -179,6 +179,29 @@ describe("validate config", () => {
   );
 
   test.each(["index.mjs", "index.js"])(
+    `the flat config with vitest suppresses false positives in vitest.config.ts for %s`,
+    async (configFile) => {
+      const ESLint = await loadESLint({ useFlatConfig: true });
+      const { default: config } = await import(`../${configFile}`);
+      const linter = new ESLint({
+        baseConfig: config({ testFramework: "vitest" }),
+        overrideConfig: [
+          {
+            files: ["vitest.config.ts"],
+            languageOptions: { parserOptions },
+          },
+        ],
+      });
+      const calculatedConfig =
+        await linter.calculateConfigForFile("vitest.config.ts");
+      expect(calculatedConfig.rules["import/no-default-export"]).toEqual([0]);
+      expect(
+        calculatedConfig.rules["import/no-extraneous-dependencies"],
+      ).toEqual([0]);
+    },
+  );
+
+  test.each(["index.mjs", "index.js"])(
     `the flat config maintains 1:1 mapping for @typescript-eslint extension rules (%s)`,
     async (configFile) => {
       const ESLint = await loadESLint({
