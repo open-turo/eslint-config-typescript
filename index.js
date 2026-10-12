@@ -122,6 +122,7 @@ const importConfig = () =>
       ],
       rules: {
         "import/no-default-export": "off",
+        "import/no-extraneous-dependencies": ["off"],
       },
     },
   );
@@ -336,15 +337,29 @@ const testConfig = (options) => {
       ? vitestTestConfig(options)
       : jestTestConfig(options);
 
-  return eslintConfig.defineConfig(...frameworkConfig, {
-    files: FILES_TEST,
-    rules: {
-      "import/no-extraneous-dependencies": [
-        "error",
-        { devDependencies: FILES_TEST },
-      ],
+  return eslintConfig.defineConfig(
+    ...frameworkConfig,
+    {
+      files: FILES_TEST,
+      rules: {
+        "import/no-extraneous-dependencies": [
+          "error",
+          { devDependencies: FILES_TEST },
+        ],
+      },
     },
-  });
+    ...(options.testFramework === "vitest"
+      ? [
+          {
+            files: ["**/vitest.config.?([cm])[jt]s?(x)"],
+            rules: /** @type {const} */ ({
+              "import/no-default-export": "off",
+              "import/no-extraneous-dependencies": "off",
+            }),
+          },
+        ]
+      : []),
+  );
 };
 
 /**
