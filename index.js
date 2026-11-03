@@ -403,6 +403,8 @@ const config = function config(options = {}) {
     perfectionistPlugin.configs["recommended-alphabetical"],
     {
       rules: {
+        // Sort array includes by natural order, so numbers sort by value (`[7, 14, 21]`) - https://perfectionist.dev/rules/sort-array-includes#type
+        "perfectionist/sort-array-includes": ["error", { type: "natural" }],
         // Sort classes by natural order to match @typescript-eslint/member-ordering rule - https://perfectionist.dev/rules/sort-classes#groups
         "perfectionist/sort-classes": [
           "error",

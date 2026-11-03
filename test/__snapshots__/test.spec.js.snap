@@ -1502,8 +1502,7 @@ exports[`validate config the flat config is correct for index.js 1`] = `
   "perfectionist/sort-array-includes": [
     2,
     {
-      "order": "asc",
-      "type": "alphabetical",
+      "type": "natural",
     },
   ],
   "perfectionist/sort-classes": [
@@ -4876,8 +4875,7 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
   "perfectionist/sort-array-includes": [
     2,
     {
-      "order": "asc",
-      "type": "alphabetical",
+      "type": "natural",
     },
   ],
   "perfectionist/sort-classes": [
@@ -8250,8 +8248,7 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
   "perfectionist/sort-array-includes": [
     2,
     {
-      "order": "asc",
-      "type": "alphabetical",
+      "type": "natural",
     },
   ],
   "perfectionist/sort-classes": [
@@ -11711,8 +11708,7 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
   "perfectionist/sort-array-includes": [
     2,
     {
-      "order": "asc",
-      "type": "alphabetical",
+      "type": "natural",
     },
   ],
   "perfectionist/sort-classes": [
