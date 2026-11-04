@@ -43,6 +43,7 @@
   "name": "@open-turo/eslint-config-typescript",
   "scripts": {
     "build": "echo noop",
+    "eslint": "eslint",
     "lint": "eslint './*.{js,mjs}' test/test.spec.js",
     "lint:format": "prettier --write .",
     "prettier": "prettier",
