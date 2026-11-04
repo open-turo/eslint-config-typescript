@@ -2914,7 +2914,7 @@ exports[`validate config the flat config is correct for index.js 1`] = `
     2,
   ],
   "unicorn/no-array-callback-reference": [
-    2,
+    0,
   ],
   "unicorn/no-array-for-each": [
     2,
@@ -6287,7 +6287,7 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     2,
   ],
   "unicorn/no-array-callback-reference": [
-    2,
+    0,
   ],
   "unicorn/no-array-for-each": [
     2,
@@ -9660,7 +9660,7 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
     2,
   ],
   "unicorn/no-array-callback-reference": [
-    2,
+    0,
   ],
   "unicorn/no-array-for-each": [
     2,
@@ -13120,7 +13120,7 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     2,
   ],
   "unicorn/no-array-callback-reference": [
-    2,
+    0,
   ],
   "unicorn/no-array-for-each": [
     2,
