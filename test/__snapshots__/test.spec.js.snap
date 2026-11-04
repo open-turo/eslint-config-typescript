@@ -1587,6 +1587,7 @@ exports[`validate config the flat config is correct for index.js 1`] = `
         ],
         "unknown",
       ],
+      "type": "natural",
     },
   ],
   "perfectionist/sort-decorators": [
@@ -4963,6 +4964,7 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
         ],
         "unknown",
       ],
+      "type": "natural",
     },
   ],
   "perfectionist/sort-decorators": [
@@ -8339,6 +8341,7 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
         ],
         "unknown",
       ],
+      "type": "natural",
     },
   ],
   "perfectionist/sort-decorators": [
@@ -11802,6 +11805,7 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
         ],
         "unknown",
       ],
+      "type": "natural",
     },
   ],
   "perfectionist/sort-decorators": [

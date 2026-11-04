@@ -404,6 +404,7 @@ const config = function config(options = {}) {
     {
       rules: {
         // Sort classes to match @typescript-eslint/member-ordering rule - https://perfectionist.dev/rules/sort-classes#groups
+        // These options replace the preset's, so re-declare natural sorting here
         "perfectionist/sort-classes": [
           "error",
           {
@@ -434,6 +435,7 @@ const config = function config(options = {}) {
               ["private-method", "private-function-property"],
               "unknown",
             ],
+            type: "natural",
           },
         ],
       },
