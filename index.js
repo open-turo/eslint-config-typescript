@@ -202,6 +202,15 @@ const sonarJsConfig = () =>
     },
   });
 
+const unicornConfig = () =>
+  eslintConfig.defineConfig({
+    extends: [unicornPlugin.configs["flat/recommended"]],
+    rules: {
+      // Rewrites `.map(fn)` into `.map((x) => fn(x))` without improving readability; TypeScript already catches callback signature mismatches.
+      "unicorn/no-array-callback-reference": "off",
+    },
+  });
+
 const typescriptConfig = () =>
   eslintConfig.defineConfig({
     extends: [
@@ -445,7 +454,7 @@ const config = function config(options = {}) {
       },
     },
     sonarJsConfig(),
-    unicornPlugin.configs["flat/recommended"],
+    unicornConfig(),
     prettierPluginRecommended,
     jsonPlugin.configs["recommended"],
     useTypescript ? typescriptConfig() : {},
