@@ -401,45 +401,6 @@ const config = function config(options = {}) {
     importConfig(),
     nPluginConfig(allowModules),
     perfectionistPlugin.configs["recommended-natural"],
-    {
-      rules: {
-        // Sort classes to match @typescript-eslint/member-ordering rule - https://perfectionist.dev/rules/sort-classes#groups
-        // These options replace the preset's, so re-declare natural sorting here
-        "perfectionist/sort-classes": [
-          "error",
-          {
-            groups: [
-              "index-signature",
-              ["static-property", "static-accessor-property"],
-              ["static-get-method", "static-set-method"],
-              [
-                "protected-static-property",
-                "protected-static-accessor-property",
-              ],
-              ["protected-static-get-method", "protected-static-set-method"],
-              ["private-static-property", "private-static-accessor-property"],
-              ["private-static-get-method", "private-static-set-method"],
-              "static-block",
-              ["property", "accessor-property"],
-              ["protected-property", "protected-accessor-property"],
-              ["private-property", "private-accessor-property"],
-              "constructor",
-              ["get-method", "set-method"],
-              ["protected-get-method", "protected-set-method"],
-              ["private-get-method", "private-set-method"],
-              ["static-method", "static-function-property"],
-              ["protected-static-method", "protected-static-function-property"],
-              ["private-static-method", "private-static-function-property"],
-              ["method", "function-property"],
-              ["protected-method", "protected-function-property"],
-              ["private-method", "private-function-property"],
-              "unknown",
-            ],
-            type: "natural",
-          },
-        ],
-      },
-    },
     sonarJsConfig(),
     unicornPlugin.configs["flat/recommended"],
     prettierPluginRecommended,
