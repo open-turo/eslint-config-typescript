@@ -400,12 +400,10 @@ const config = function config(options = {}) {
     javascriptConfig(options.ecmaVersion),
     importConfig(),
     nPluginConfig(allowModules),
-    perfectionistPlugin.configs["recommended-alphabetical"],
+    perfectionistPlugin.configs["recommended-natural"],
     {
       rules: {
-        // Sort array includes by natural order, so numbers sort by value (`[7, 14, 21]`) - https://perfectionist.dev/rules/sort-array-includes#type
-        "perfectionist/sort-array-includes": ["error", { type: "natural" }],
-        // Sort classes by natural order to match @typescript-eslint/member-ordering rule - https://perfectionist.dev/rules/sort-classes#groups
+        // Sort classes to match @typescript-eslint/member-ordering rule - https://perfectionist.dev/rules/sort-classes#groups
         "perfectionist/sort-classes": [
           "error",
           {
@@ -438,10 +436,6 @@ const config = function config(options = {}) {
             ],
           },
         ],
-        // Sort switch case by natural order - https://perfectionist.dev/rules/sort-switch-case.html#options
-        "perfectionist/sort-switch-case": ["error", { type: "natural" }],
-        // Sort union types by natural order - https://perfectionist.dev/rules/sort-union-types.html#options
-        "perfectionist/sort-union-types": ["error", { type: "natural" }],
       },
     },
     sonarJsConfig(),
