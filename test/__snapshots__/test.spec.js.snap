@@ -2810,7 +2810,7 @@ exports[`validate config the flat config is correct for index.js 1`] = `
     2,
   ],
   "unicorn/expiring-todo-comments": [
-    2,
+    0,
     {
       "allowWarningComments": true,
       "ignore": [],
@@ -6110,7 +6110,7 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     2,
   ],
   "unicorn/expiring-todo-comments": [
-    2,
+    0,
     {
       "allowWarningComments": true,
       "ignore": [],
@@ -9410,7 +9410,7 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
     2,
   ],
   "unicorn/expiring-todo-comments": [
-    2,
+    0,
     {
       "allowWarningComments": true,
       "ignore": [],
@@ -12797,7 +12797,7 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     2,
   ],
   "unicorn/expiring-todo-comments": [
-    2,
+    0,
     {
       "allowWarningComments": true,
       "ignore": [],

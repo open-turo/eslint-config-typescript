@@ -206,6 +206,8 @@ const unicornConfig = () =>
   eslintConfig.defineConfig({
     extends: [unicornPlugin.configs["flat/recommended"]],
     rules: {
+      // Its extensive configuration options (dates, package versions, engine versions, etc.) depend on each repo's conventions, so it is better enabled and configured on a per-repo basis than in a base config.
+      "unicorn/expiring-todo-comments": "off",
       // Mostly stylistic: enforces `x.length > 0` / `x.length === 0` over truthiness checks. The one runtime case it can guard against (similar to react/jsx-no-leaked-render), an `arr.length && <Foo />` expression rendering "0" in JSX, is not a concern for this config.
       "unicorn/explicit-length-check": "off",
       // Rewrites `.map(fn)` into `.map((x) => fn(x))` without improving readability; TypeScript already catches callback signature mismatches.
