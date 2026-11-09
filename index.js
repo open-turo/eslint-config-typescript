@@ -212,6 +212,8 @@ const unicornConfig = () =>
       "unicorn/explicit-length-check": "off",
       // Rewrites `.map(fn)` into `.map((x) => fn(x))` without improving readability; TypeScript already catches callback signature mismatches.
       "unicorn/no-array-callback-reference": "off",
+      // Accounts for ~5% of total ESLint runtime with this config, and offers little value: code already targets modern browser APIs and no one imports legacy compat dependencies like `object-assign`.
+      "unicorn/no-unnecessary-polyfills": "off",
       // Conflicts with exhaustive switches that list every case explicitly and land on an `assertNever` default. Keeping each case means extending the switched-on type raises a type error, signaling that the runtime logic needs updating.
       "unicorn/no-useless-switch-case": "off",
       // Many files (e.g. tooling configs) still require CommonJS syntax, and maintaining globs that scope this rule to ESM files isn't worth it. In practice CommonJS isn't written in ESM files, so the rule adds little value; disabling it also avoids per-file eslint-disable comments in CommonJS files.
