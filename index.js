@@ -212,6 +212,8 @@ const unicornConfig = () =>
       "unicorn/explicit-length-check": "off",
       // Rewrites `.map(fn)` into `.map((x) => fn(x))` without improving readability; TypeScript already catches callback signature mismatches.
       "unicorn/no-array-callback-reference": "off",
+      // Conflicts with exhaustive switches that list every case explicitly and land on an `assertNever` default. Keeping each case means extending the switched-on type raises a type error, signaling that the runtime logic needs updating.
+      "unicorn/no-useless-switch-case": "off",
     },
   });
 
