@@ -206,6 +206,8 @@ const unicornConfig = () =>
   eslintConfig.defineConfig({
     extends: [unicornPlugin.configs["flat/recommended"]],
     rules: {
+      // Mostly stylistic: enforces `x.length > 0` / `x.length === 0` over truthiness checks. The one runtime case it can guard against (similar to react/jsx-no-leaked-render), an `arr.length && <Foo />` expression rendering "0" in JSX, is not a concern for this config.
+      "unicorn/explicit-length-check": "off",
       // Rewrites `.map(fn)` into `.map((x) => fn(x))` without improving readability; TypeScript already catches callback signature mismatches.
       "unicorn/no-array-callback-reference": "off",
     },

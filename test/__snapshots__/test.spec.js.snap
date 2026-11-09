@@ -2823,7 +2823,7 @@ exports[`validate config the flat config is correct for index.js 1`] = `
     },
   ],
   "unicorn/explicit-length-check": [
-    2,
+    0,
   ],
   "unicorn/filename-case": [
     2,
@@ -6123,7 +6123,7 @@ exports[`validate config the flat config is correct for index.mjs 1`] = `
     },
   ],
   "unicorn/explicit-length-check": [
-    2,
+    0,
   ],
   "unicorn/filename-case": [
     2,
@@ -9423,7 +9423,7 @@ exports[`validate config the flat config with vitest is correct for index.js 1`]
     },
   ],
   "unicorn/explicit-length-check": [
-    2,
+    0,
   ],
   "unicorn/filename-case": [
     2,
@@ -12810,7 +12810,7 @@ exports[`validate config the flat config with vitest is correct for index.mjs 1`
     },
   ],
   "unicorn/explicit-length-check": [
-    2,
+    0,
   ],
   "unicorn/filename-case": [
     2,
