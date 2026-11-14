@@ -20,10 +20,10 @@
     "typescript-eslint": "8.72.2"
   },
   "devDependencies": {
-    "@prettier/plugin-oxc": "0.2.3",
+    "@prettier/plugin-oxc": "0.2.4",
     "eslint": "9.39.5",
     "jest": "30.5.2",
-    "prettier": "3.9.10"
+    "prettier": "3.10.0"
   },
   "engines": {
     "node": ">= 20"
