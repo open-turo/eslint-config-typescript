@@ -44,7 +44,7 @@
   "scripts": {
     "build": "echo noop",
     "eslint": "eslint",
-    "lint": "eslint './*.{js,mjs}' test/test.spec.js",
+    "lint": "eslint './*.{js,mjs}' rules test",
     "lint:format": "prettier --write .",
     "prettier": "prettier",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",

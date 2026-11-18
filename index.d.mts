@@ -6,6 +6,7 @@ import type n from "eslint-plugin-n";
 import type perfectionist from "eslint-plugin-perfectionist";
 import type sonarjs from "eslint-plugin-sonarjs";
 import type unicorn from "eslint-plugin-unicorn";
+import type { ESLint } from "eslint";
 import type { Config } from "eslint/config";
 import type tseslint from "typescript-eslint";
 
@@ -32,6 +33,8 @@ export interface Plugins {
   import: typeof importPlugin;
   jest: typeof jest;
   n: typeof n;
+  /** Rules maintained in this package, such as `open-turo/todo-format` (off by default) */
+  "open-turo": ESLint.Plugin;
   perfectionist: typeof perfectionist;
   sonarjs: typeof sonarjs;
   tseslint: typeof tseslint;
