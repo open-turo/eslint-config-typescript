@@ -51,9 +51,10 @@ Requires TODO comments to reference a ticket and an owner:
 
 ```js
 // TODO(ABC-123, owner-name): description
+// TODO(owner/repo#123, owner-name): description
 ```
 
-The rule is off by default. To turn it on:
+The rule is off by default. By default, the ticket is a Jira-like key (`ABC-123`) or a GitHub issue (`owner/repo#123`), and the owner is any word without spaces, commas or parentheses. To turn it on, with the formats used in your repo:
 
 ```js
 import turoConfig from "@open-turo/eslint-config-typescript";
@@ -65,9 +66,9 @@ export default [
       "open-turo/todo-format": [
         "error",
         {
-          // Regular expression the whole ticket must match. Defaults to a Jira-like key, such as `ABC-123`.
+          // Regular expression the whole ticket must match.
           ticketPattern: "[A-Z][A-Z0-9]+-\\d+",
-          // Regular expression the whole owner must match. Defaults to any owner without spaces, commas or parentheses.
+          // Regular expression the whole owner must match.
           ownerPattern: "^team:[a-z-]+$",
           // TODO tags to skip.
           ignore: ["TODO-FOO"],
@@ -78,7 +79,7 @@ export default [
 ];
 ```
 
-Only TODOs used as a tag are checked: at the start of a comment line, or after `--` (as in `// @ts-expect-error -- TODO(ABC-123, owner-name): description`). The word `TODO` elsewhere in a comment is not checked. The error is reported once per comment, on its first line, so an `eslint-disable-next-line` above a multi-line comment covers the TODOs inside it.
+Only TODOs used as a tag are checked: at the start of a comment line, or after `--` (as in `// @ts-expect-error -- TODO(ABC-123, owner-name): description`). The word `TODO` elsewhere in a comment is not checked. The errors are reported on the first line of the comment, so an `eslint-disable-next-line` above a multi-line comment covers the TODOs inside it.
 
 To turn the rule on without fixing the existing TODOs first, add an `eslint-disable-next-line` above each of them, with a reason that is itself a valid TODO:
 

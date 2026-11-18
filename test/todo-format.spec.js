@@ -4,6 +4,8 @@ import { todoFormatRule } from "../rules/todo-format.js";
 
 const ruleTester = new RuleTester();
 const invalidFormat = [{ messageId: "invalidFormat" }];
+const TICKET_PATTERN = String.raw`ABC-\d+`;
+const OWNER_PATTERN = "^(team|service):[a-z-]+$|^@bot$";
 
 describe("with default options", () => {
   ruleTester.run("todo-format", todoFormatRule, {
@@ -26,6 +28,10 @@ describe("with default options", () => {
       },
       {
         code: "// TODO(abc-123, owner-name): fix this",
+        errors: [{ messageId: "invalidTicket" }],
+      },
+      {
+        code: "// TODO(#123, owner-name): fix this",
         errors: [{ messageId: "invalidTicket" }],
       },
       {
@@ -55,6 +61,7 @@ describe("with default options", () => {
     valid: [
       "// TODO(ABC-123, owner-name): fix this",
       "// TODO(AB2-1, @someone): fix this",
+      "// TODO(open-turo/eslint-config-typescript#42, owner-name): fix this",
       "// TODO(ABC-123, owner-name):",
       "// @ts-expect-error -- TODO(ABC-123, owner-name): fix this",
       "/**\n * TODO(ABC-123, owner-name):\n * fix this\n */",
@@ -78,11 +85,11 @@ describe("with custom options", () => {
         code: "// TODO(XYZ-1, team:core): fix this",
         errors: [
           {
-            data: { pattern: String.raw`ABC-\d+`, ticket: "XYZ-1" },
+            data: { pattern: TICKET_PATTERN, ticket: "XYZ-1" },
             messageId: "invalidTicket",
           },
         ],
-        options: [{ ticketPattern: String.raw`ABC-\d+` }],
+        options: [{ ticketPattern: TICKET_PATTERN }],
       },
       {
         code: "// TODO(ABC-1, owner-name): fix this",
@@ -90,12 +97,19 @@ describe("with custom options", () => {
           {
             data: {
               owner: "owner-name",
-              pattern: "^(team|service):[a-z-]+$|^@bot$",
+              pattern: OWNER_PATTERN,
             },
             messageId: "invalidOwner",
           },
         ],
-        options: [{ ownerPattern: "^(team|service):[a-z-]+$|^@bot$" }],
+        options: [{ ownerPattern: OWNER_PATTERN }],
+      },
+      {
+        code: "// TODO(XYZ-1, owner-name): fix this",
+        errors: [{ messageId: "invalidTicket" }, { messageId: "invalidOwner" }],
+        options: [
+          { ownerPattern: OWNER_PATTERN, ticketPattern: TICKET_PATTERN },
+        ],
       },
       {
         code: "// TODO-FOOBAR: fix this",
@@ -108,14 +122,18 @@ describe("with custom options", () => {
         code: "// TODO(ABC-1, team:core): fix this",
         options: [
           {
-            ownerPattern: "^(team|service):[a-z-]+$|^@bot$",
-            ticketPattern: String.raw`ABC-\d+`,
+            ownerPattern: OWNER_PATTERN,
+            ticketPattern: TICKET_PATTERN,
           },
         ],
       },
       {
         code: "// TODO(ABC-1, @bot): fix this",
-        options: [{ ownerPattern: "^(team|service):[a-z-]+$|^@bot$" }],
+        options: [{ ownerPattern: OWNER_PATTERN }],
+      },
+      {
+        code: "// TODO(#123, owner-name): fix this",
+        options: [{ ticketPattern: String.raw`#\d+` }],
       },
       {
         code: "// TODO-FOO: fix this",
