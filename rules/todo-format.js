@@ -2,11 +2,12 @@
 
 /**
  * A TODO used as a tag: at the start of a comment line (after spaces or `*`), or after ` -- `,
- * as in `@ts-expect-error -- TODO(...)`. The word `TODO` elsewhere in a comment is prose.
+ * as in `@ts-expect-error -- TODO(ABC-123, owner-name): description`. The word `TODO` elsewhere in a comment is prose.
  */
 const TODO_TAG_PATTERN = /(?:^|\n)[\t *]*(?=TODO\b)|--[\t ]+(?=TODO\b)/g;
 const TODO_STRUCTURE = /^TODO\(([^(),]+), ([^()]+)\):(?=\s|$)/;
-const DEFAULT_TICKET_PATTERN = String.raw`[A-Z][A-Z0-9]+-\d+`;
+/** A Jira-like key (`ABC-123`) or a GitHub issue (`owner/repo#123`). */
+const DEFAULT_TICKET_PATTERN = String.raw`[A-Z][A-Z0-9]+-\d+|[\w.-]+/[\w.-]+#\d+`;
 const DEFAULT_OWNER_PATTERN = String.raw`[^\s(),]+`;
 
 /**
@@ -61,12 +62,11 @@ export const todoFormatRule = {
         for (const comment of sourceCode.getAllComments()) {
           if (!comment.loc) continue;
 
-          const result = checkComment(comment.value, patterns, ignore);
-          if (!result) continue;
-
-          // Report once, on the comment's first line, so an `eslint-disable-next-line`
+          // Report on the comment's first line, so an `eslint-disable-next-line`
           // above the comment also covers a TODO inside a multi-line comment.
-          context.report({ ...result, loc: comment.loc.start });
+          for (const report of checkComment(comment.value, patterns, ignore)) {
+            context.report({ ...report, loc: comment.loc.start });
+          }
         }
       },
     };
@@ -100,7 +100,7 @@ export const todoFormatRule = {
           },
           ticketPattern: {
             description:
-              "Regular expression the whole ticket must match. Defaults to a Jira-like key, such as `ABC-123`.",
+              "Regular expression the whole ticket must match. Defaults to a Jira-like key (`ABC-123`) or a GitHub issue (`owner/repo#123`).",
             type: "string",
           },
         },
@@ -112,41 +112,52 @@ export const todoFormatRule = {
 };
 
 /**
+ * @typedef {Pick<Rule.ReportDescriptor, "data" | "messageId">} Report
+ */
+
+/**
  * @param {string} value The comment text
  * @param {{ owner: Pattern, ticket: Pattern }} patterns
  * @param {string[]} ignore
- * @returns {Pick<Rule.ReportDescriptor, "data" | "messageId"> | undefined} The report for the first invalid TODO, or `undefined` when all are valid
+ * @returns {Report[]} Every problem of the TODOs in the comment, without duplicates
  */
 function checkComment(value, patterns, ignore) {
+  /** @type {Map<string, Report>} */
+  const reports = new Map();
   for (const match of value.matchAll(TODO_TAG_PATTERN)) {
     const todo = value.slice(match.index + match[0].length);
     if (isIgnored(todo, ignore)) continue;
 
-    const result = checkTodo(todo, patterns);
-    if (result) return result;
+    for (const report of checkTodo(todo, patterns)) {
+      reports.set(JSON.stringify(report), report);
+    }
   }
+  return [...reports.values()];
 }
 
 /**
  * @param {string} todo The comment text, starting at `TODO`
  * @param {{ owner: Pattern, ticket: Pattern }} patterns
- * @returns {Pick<Rule.ReportDescriptor, "data" | "messageId"> | undefined} The report, or `undefined` when the TODO is valid
+ * @returns {Report[]} Every problem of the TODO, or an empty list when it is valid
  */
 function checkTodo(todo, patterns) {
   const structure = TODO_STRUCTURE.exec(todo);
-  if (!structure) return { messageId: "invalidFormat" };
+  if (!structure) return [{ messageId: "invalidFormat" }];
 
   const [, ticket, owner] = structure;
+  /** @type {Report[]} */
+  const reports = [];
   if (!patterns.ticket.regexp.test(ticket)) {
-    return {
+    reports.push({
       data: { pattern: patterns.ticket.source, ticket },
       messageId: "invalidTicket",
-    };
+    });
   }
   if (!patterns.owner.regexp.test(owner)) {
-    return {
+    reports.push({
       data: { owner, pattern: patterns.owner.source },
       messageId: "invalidOwner",
-    };
+    });
   }
+  return reports;
 }
