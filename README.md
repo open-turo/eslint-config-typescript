@@ -45,6 +45,50 @@ export default turoConfig({
 });
 ```
 
+### `open-turo/todo-format`
+
+Requires TODO comments to reference a ticket and an owner:
+
+```js
+// TODO(ABC-123, owner-name): description
+```
+
+The rule is off by default. To turn it on:
+
+```js
+import turoConfig from "@open-turo/eslint-config-typescript";
+
+export default [
+  ...turoConfig(),
+  {
+    rules: {
+      "open-turo/todo-format": [
+        "error",
+        {
+          // Regular expression the whole ticket must match. Defaults to a Jira-like key, such as `ABC-123`.
+          ticketPattern: "[A-Z][A-Z0-9]+-\\d+",
+          // Regular expression the whole owner must match. Defaults to any owner without spaces, commas or parentheses.
+          ownerPattern: "^team:[a-z-]+$",
+          // TODO tags to skip.
+          ignore: ["TODO-FOO"],
+        },
+      ],
+    },
+  },
+];
+```
+
+Only TODOs used as a tag are checked: at the start of a comment line, or after `--` (as in `// @ts-expect-error -- TODO(ABC-123, owner-name): description`). The word `TODO` elsewhere in a comment is not checked. The error is reported once per comment, on its first line, so an `eslint-disable-next-line` above a multi-line comment covers the TODOs inside it.
+
+To turn the rule on without fixing the existing TODOs first, add an `eslint-disable-next-line` above each of them, with a reason that is itself a valid TODO:
+
+```js
+// eslint-disable-next-line open-turo/todo-format -- TODO(ABC-123, owner-name): reformat to the expected format
+// TODO: existing TODO, unchanged
+```
+
+The disables are then easy to find and fix later. With `reportUnusedDisableDirectives`, a disable left behind after a fix fails lint.
+
 ## Development
 
 Install [pre-commit](https://pre-commit.com/) and the commit hooks:

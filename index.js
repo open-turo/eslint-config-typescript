@@ -17,6 +17,8 @@ import unicornPlugin from "eslint-plugin-unicorn";
 import eslintConfig from "eslint/config";
 import tseslint from "typescript-eslint";
 
+import { todoFormatRule } from "./rules/todo-format.js";
+
 const FILES_JS = "**/*.?([cm])js";
 const FILES_SRC_EXTENSION = "?([cm])[jt]s?(x)";
 const FILES_TS = "**/*.?([cm])ts";
@@ -371,6 +373,23 @@ const testConfig = (options) => {
   );
 };
 
+const openTuroPlugin = {
+  meta: { name: "open-turo" },
+  rules: { "todo-format": todoFormatRule },
+};
+
+/**
+ * Registers the `open-turo` rules. They are off by default: each repo turns them on with its own options.
+ * @returns {ReturnType<typeof eslintConfig.defineConfig>} ESLint configuration for the `open-turo` rules
+ */
+const openTuroConfig = () =>
+  eslintConfig.defineConfig({
+    plugins: { "open-turo": openTuroPlugin },
+    rules: {
+      "open-turo/todo-format": "off",
+    },
+  });
+
 /**
  * Creates ignore patterns configuration
  * @param {string[]} ignores Additional patterns to ignore
@@ -416,6 +435,7 @@ const config = function config(options = {}) {
     jsonPlugin.configs["recommended"],
     useTypescript ? typescriptConfig() : {},
     testConfig({ testFramework, typescript: useTypescript }),
+    openTuroConfig(),
     ignoresConfig(options.ignores),
   );
 };
@@ -425,6 +445,7 @@ config.plugins = {
   import: importPlugin,
   jest: jestPlugin,
   n: nPlugin,
+  "open-turo": openTuroPlugin,
   perfectionist: perfectionistPlugin,
   sonarjs: sonarjsPlugin,
   tseslint,
